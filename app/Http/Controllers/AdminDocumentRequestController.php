@@ -130,7 +130,8 @@ class AdminDocumentRequestController extends Controller
         $doclist1 = DocumentList::all();
         $docresupdate = DocumentRequest::find($id);
         $user = User::find($docresupdate->user_id);
-
+        $document = DocumentList::find($docresupdate->document_id);
+       
         $documentlist_id = $request->input('document_list');
         $lname = $request->input('lname');
         $fname = $request->input('fname');
@@ -171,8 +172,10 @@ class AdminDocumentRequestController extends Controller
         ]);
         $details=[
             'greeting' => 'Hi '.$fname.' '.$lname,
-            'body' => 'This is to inform you that your requested document status is: '.$status.
-            ' Please claim your document in the Barangay Hall of Barangay 386 Quaipo, Manila.',
+            'body' => 'This is to update you about the status of your requested document: ',
+            'did' => 'Document ID: '.$document->id,
+            'dname' => 'Document Name: '.$document->document_name,
+            'dstatus' =>'Document Status: '.$status,
             'lastline' => 'Note: Please bring an ID upon claiming.',
         ];
         Notification::send($user, new SendEmailNotification($details));

@@ -65,9 +65,9 @@ Route::get('sms',[AdminSmsController::class,'index'])->name('sms');
 });
 
 Route::middleware(['auth','role:resident'])->group(function (){
+    Route::get('/resident/docres/status',[ResidentDocumentRequestController::class,'show'])->middleware('auth')->name('residentdocres.show');
     Route::get('resident/docres',[ResidentDocumentRequestController::class,'index'])->middleware('auth')->name('residentdocres.index');
     Route::post('resident/docres/create',[ResidentDocumentRequestController::class,'store'])->middleware('auth')->name('residentdocres.store');
-
 });
 
 Route::get('send',[AdminSmsController::class,'sendnotification']);

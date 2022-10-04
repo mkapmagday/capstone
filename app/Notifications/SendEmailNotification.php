@@ -45,6 +45,9 @@ class SendEmailNotification extends Notification
         return (new MailMessage)
                     ->greeting($this->details['greeting'])
                     ->line($this->details['body'])
+                    ->line($this->details['did'])
+                    ->line($this->details['dname'])
+                    ->line($this->details['dstatus'])
                     ->line($this->details['lastline']);
     }
 

@@ -91,9 +91,13 @@ class ResidentDocumentRequestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $id = Auth::id();
+        $docres = DocumentRequest::paginate(5);
+        $doclist = DocumentList::paginate(5);
+        $doclist1 = DocumentList::all();
+        return view('resident.docres.docresstatus',compact('docres','doclist','doclist1',));
     }
 
     /**

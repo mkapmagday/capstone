@@ -5,6 +5,21 @@
         </h2>
     </x-slot>
     <form method="POST" action="{{ route('residentdocres.store')}}">
+        <div class="py-12">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <select required name="document_list" id="document_list" class="form-control">
+                    @foreach (App\Models\DocumentList::all() as $document)
+                    <option value={{$document->id}}>{{$document->document_name}}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+                <image id="documentimage" src=""></image>
+        </div>
+
+
         <div class='popup'>
             <div class='cnt223'>
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -14,11 +29,7 @@
 
                         @csrf
                         <div style="padding-top: 0px;">
-                            <select required name="document_list" id="document_list" class="form-control">
-                                @foreach (App\Models\DocumentList::all() as $document)
-                                <option value={{$document->id}}>{{$document->document_name}}</option>
-                                @endforeach
-                            </select>
+
                             <tr>
                                 <td>
                                     <x-input-label for="lname" :value="__('Last Name')" />
@@ -182,42 +193,7 @@
         </div>
     </form>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <button class="open-button" onclick="openForm()"> <img onclick="openForm()" height="20px" width="20px" src="https://img.icons8.com/color/48/000000/add--v1.png" /> Add Document Type </button>
 
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    <table>
-                        <tr>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">USER_ID</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">LAST NAME </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">FIRST NAME</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">DOCUMENT NAME</th>
-                            <th colspan="4" scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider" style="text-align:center ;">ACTIONS
-                        </tr>
-
-                        @foreach ($docres as $docres)
-                        <tr>
-                            @if(Auth::id() == $docres->user_id)
-                            <td class="px-6 py-4 whitespace-nowrap">{{$docres->user_id}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{$docres->lname}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{$docres->fname}}</td>
-                            @foreach($doclist1 as $document)
-                            @if($docres->document_id == $document->id)
-                            <td class="px-6 py-4 whitespace-nowrap">{{$document->document_name}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{$docres->status}}</td>
-                            @endif
-                            @endforeach
-                            @endif
-                        </tr>
-                        @endforeach
-                        {{ $doclist->links() }}
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
 </x-app-layout>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <style>
@@ -288,6 +264,13 @@
     .cnt223 .x:hover {
         cursor: pointer;
     }
+
+    #documentimage {
+        width: 100%;
+        display: inline-block;
+        position: absolute;
+        overflow: hidden;
+    }
 </style>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
 <script type='text/javascript'>
@@ -295,27 +278,26 @@
         console.log($(this).val());
     });
 
-    function openForm() {
-        $(function() {
-            var overlay = $('<div id="overlay"></div>');
-            overlay.show();
-            overlay.appendTo(document.body);
-            $('.popup').show();
-            $('.close').click(function() {
-                $('.popup').hide();
-                overlay.appendTo(document.body).remove();
-                return false;
-            });
-
-            $('.x').click(function() {
-                $('.popup').hide();
-                overlay.appendTo(document.body).remove();
-                return false;
-            });
+    $(function() {
+        var overlay = $('<div id="overlay"></div>');
+        overlay.show();
+        overlay.appendTo(document.body);
+        $('.popup').show();
+        $('.close').click(function() {
+            $('.popup').hide();
+            overlay.appendTo(document.body).remove();
+            return false;
         });
 
+        $('.x').click(function() {
+            $('.popup').hide();
+            overlay.appendTo(document.body).remove();
+            return false;
+        });
+    });
 
-    }
+
+
 
 
     $("#country_code").change(function() {
@@ -325,17 +307,9 @@
         }
     });
     $(function() {
-
-        //Get the selected value
-        console.log($("#document_list").val());
-        $('.Certification').show();
-        $('.Authorization').hide();
-        $('.Indigency').hide();
-        $('.Jobseeker').hide();
-        $('.Oath').hide();
-        $('.Oneness').hide();
-
         if ($("#document_list").val() == 1) {
+            document.getElementById("documentimage").src = "https://scontent.fmnl25-1.fna.fbcdn.net/v/t1.15752-9/308616100_1630366960691393_2984556608062881446_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=ae9488&_nc_ohc=AOk0e0CrUgAAX8t2PGZ&_nc_ht=scontent.fmnl25-1.fna&oh=03_AVI9werMXU4Z-_NsmDTSi7DItiWnHmhGtwPcyw1tpZC5fA&oe=635FCCF3";
+
             $('#bdate').show();
             $('#address').show();
 
@@ -372,6 +346,7 @@
         if ($(this).val() == "") {}
         console.log($(this).val());
         if ($(this).val() == 1) {
+            document.getElementById("documentimage").src = "https://scontent.fmnl25-1.fna.fbcdn.net/v/t1.15752-9/308616100_1630366960691393_2984556608062881446_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=ae9488&_nc_ohc=AOk0e0CrUgAAX8t2PGZ&_nc_ht=scontent.fmnl25-1.fna&oh=03_AVI9werMXU4Z-_NsmDTSi7DItiWnHmhGtwPcyw1tpZC5fA&oe=635FCCF3";
             $('.Certification').show();
             $('.Authorization').hide();
             $('.Indigency').hide();
@@ -397,7 +372,7 @@
         }
 
         if ($(this).val() == 2) {
-
+            document.getElementById("documentimage").src = "https://scontent.fmnl25-1.fna.fbcdn.net/v/t1.15752-9/306697115_596256858865500_3335379389449982009_n.png?_nc_cat=107&ccb=1-7&_nc_sid=ae9488&_nc_ohc=IBhRUpMAwm8AX9K_B2y&tn=YQ2orxTiLTQIE6Y4&_nc_ht=scontent.fmnl25-1.fna&oh=03_AVKXHVLaEJM-Kbxiz2HNb3B7vK6vy_3mH8M5htxJ7Bq9yw&oe=63629087";
             $('.Certification').hide();
             $('.Authorization').show();
             $('.Indigency').hide();
@@ -426,6 +401,8 @@
         }
 
         if ($(this).val() == 3) {
+            document.getElementById("documentimage").src = "https://scontent.fmnl25-1.fna.fbcdn.net/v/t1.15752-9/301903689_1148803569324206_8261476907567918272_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=ae9488&_nc_ohc=63UT8Cfj-pQAX_UM3nT&_nc_ht=scontent.fmnl25-1.fna&oh=03_AVLbaALjEkCzSduZNmMyjLCueSDhNpVp6gknfV_HPiDiLQ&oe=63624A8B";
+
             $('.Certification').hide();
             $('.Authorization').hide();
             $('.Indigency').show();
@@ -452,6 +429,7 @@
         }
 
         if ($(this).val() == 4) {
+            document.getElementById("documentimage").src = "https://scontent.fmnl25-2.fna.fbcdn.net/v/t1.15752-9/307891830_443941887580665_334252895085087337_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=ae9488&_nc_ohc=hxTD09hNGeUAX-7M09_&_nc_ht=scontent.fmnl25-2.fna&oh=03_AVLMsAKSrqFSI_J0uYzEjXCq1ct_CaSs7RGDmrjO9f-kog&oe=6362EFE2";
             $('.Certification').hide();
             $('.Authorization').hide();
             $('.Indigency').hide();
@@ -481,6 +459,8 @@
         }
 
         if ($(this).val() == 5) {
+            document.getElementById("documentimage").src = "https://scontent.fmnl25-2.fna.fbcdn.net/v/t1.15752-9/307067253_616242610076244_5041754940304094391_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=ae9488&_nc_ohc=oTbELNbDHBMAX8VrpUw&_nc_ht=scontent.fmnl25-2.fna&oh=03_AVKuMejXLXzDKkoE15g-FMxQkgd9YQRxfx-gsb0LkJzOZA&oe=6360BA4A";
+
             $('.Certification').hide();
             $('.Authorization').hide();
             $('.Indigency').hide();
@@ -511,6 +491,8 @@
         }
 
         if ($(this).val() == 6) {
+            document.getElementById("documentimage").src = "https://scontent.fmnl25-1.fna.fbcdn.net/v/t1.15752-9/307547365_636762158157607_6706884989649898839_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=ae9488&_nc_ohc=GzxIlbgSy2AAX_9C1x8&_nc_ht=scontent.fmnl25-1.fna&oh=03_AVKomAzVYT81WsosOa3Oi2aKphxlx7NCUsnt1E59vwhjRg&oe=6360BDCD";
+
             $('.Certification').hide();
             $('.Authorization').hide();
             $('.Indigency').hide();

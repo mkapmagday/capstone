@@ -18,7 +18,7 @@
                     <x-nav-link :href="route('chatify')" :active="request()->routeIs('chatify')">
                         {{ __('Chatify') }}
                     </x-nav-link>
-                    @hasrole('admin')   
+                    @hasrole('admin')
                     <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
                         {{ __('User List') }}
                     </x-nav-link>
@@ -36,6 +36,9 @@
                     @hasrole('resident')
                     <x-nav-link :href="route('residentdocres.index')" :active="request()->routeIs('residentdocres.index')">
                         {{ __('Document Request') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('residentdocres.show')" :active="request()->routeIs('residentdocres.show')">
+                        {{ __('Document Status') }}
                     </x-nav-link>
                     @endhasrole
                 </div>
@@ -61,8 +64,7 @@
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
-                            <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
+                            <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
@@ -92,20 +94,31 @@
             <x-responsive-nav-link :href="route('chatify')" :active="request()->routeIs('chatify')">
                 {{ __('Chatify') }}
             </x-responsive-nav-link>
-            @hasrole('admin')   
-                    <x-responsive-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
-                        {{ __('User List') }}
-                    </x-responsive-nav-link>
-                    <x-responsive-nav-link :href="route('doclist.index')" :active="request()->routeIs('doclist.index')">
-                        {{ __('Document List') }}
-                    </x-responsive-nav-link>
-                    <x-responsive-nav-link :href="route('docres.index')" :active="request()->routeIs('docres.index')">
-                        {{ __('Document Request') }}
-                    </x-responsive-nav-link>
-                    <x-responsive-nav-link :href="route('role.index')" :active="request()->routeIs('role.index')">
-                        {{ __('Role List') }}
-                    </x-responsive-nav-link>
-                    @endhasrole
+            @hasrole('admin')
+            <x-responsive-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
+                {{ __('User List') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('doclist.index')" :active="request()->routeIs('doclist.index')">
+                {{ __('Document List') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('docres.index')" :active="request()->routeIs('docres.index')">
+                {{ __('Document Request') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('role.index')" :active="request()->routeIs('role.index')">
+                {{ __('Role List') }}
+            </x-responsive-nav-link>
+            @endhasrole
+
+            @hasrole('resident')
+            <x-responsive-nav-link :href="route('residentdocres.index')" :active="request()->routeIs('residentdocres.index')">
+                {{ __('Document Request') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('residentdocres.show')" :active="request()->routeIs('residentdocres.show')">
+                {{ __('Document Status') }}
+            </x-responsive-nav-link>
+            @endhasrole
+
+
         </div>
 
         <!-- Responsive Settings Options -->
@@ -120,8 +133,7 @@
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
-                    <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
+                    <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
