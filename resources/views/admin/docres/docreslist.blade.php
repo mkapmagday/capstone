@@ -184,13 +184,39 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        
+
             <button class="open-button" onclick="openForm()"> <img onclick="openForm()" height="20px" width="20px" src="https://img.icons8.com/color/48/000000/add--v1.png" /> Add Document Type </button>
-            <select required name="docname" id="docname" class="form-control">
-                                @foreach ($doclist as $document)
-                                <option value={{$document->id}}>{{$document->document_name}}</option>
-                                @endforeach
-            </select>
+
+            <div class="row">
+                <div class="col-5">
+                    <form action="{{ route('docres.filter',$document->id) }}">
+                        <select required name="docname" id="docname" class="form-control">
+                            @foreach ($doclist as $document)
+                            <option value={{$document->id}}>{{$document->document_name}}</option>
+                            @endforeach
+                        </select>
+                </div>
+                <div class="col-3">
+                    <select required name="status" id="status" class="form-control">
+                        @foreach(\App\Enums\DocumentRequestStatus::cases() as $status)
+                        <option value="{{ $status->value }}">{{ $status->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-1">
+                    <button class="btn btn-success" type="submit">Filter</button>
+                    </form>
+                </div>
+                <div class="col-2">
+                    <form action="{{ route('docres.index') }}">
+                        <button class="btn btn-primary" type="submit">Clear Filter</button>
+                    </form>
+                </div>
+            </div>
+
+
+
+
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <table>
@@ -316,7 +342,7 @@
 </style>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
 <script type='text/javascript'>
-    $("#doc_id").click(function() {
+    $("#docname").click(function() {
         console.log($(this).val());
     });
 
@@ -346,13 +372,11 @@
     $("#country_code").change(function() {
         if ($(this).val() == "ph") {
             document.getElementById("pnum").value = "63";
-            console.log(document.getElementById("pnum").value)
         }
     });
     $(function() {
 
         //Get the selected value
-        console.log($("#document_list").val());
         $('.Certification').show();
         $('.Authorization').hide();
         $('.Indigency').hide();

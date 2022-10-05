@@ -71,5 +71,5 @@ Route::middleware(['auth','role:resident'])->group(function (){
 });
 
 Route::get('send',[AdminSmsController::class,'sendnotification']);
-
+Route::get('admin/docres/filter/{id}',[AdminDocumentRequestController::class,'show'])->name('docres.filter');
 require __DIR__.'/auth.php';

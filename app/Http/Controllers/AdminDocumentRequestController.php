@@ -94,9 +94,14 @@ class AdminDocumentRequestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        $docname = $request->input('docname');
+        $status = $request->input('status');
+        $docres = DocumentRequest::where('document_id',$docname)
+                                ->where('status',$status)->paginate(5);
+        $doclist = DocumentList::all();
+        return view('admin.docres.docreslist',compact('docres','doclist'));
     }
 
     /**
