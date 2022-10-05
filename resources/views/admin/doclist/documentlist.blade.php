@@ -1,14 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('How to use this feature?') }}
         </h2>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <button class="open-button" onclick="openForm()"> <img onclick="openForm()" height="20px" width="20px" src="https://img.icons8.com/color/48/000000/add--v1.png" /> Add Document Type </button>
+                <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;" onclick="openForm()">  Add Document Type <center><img onclick="openForm()" height="20px" width="20px" src="https://img.icons8.com/color/48/000000/add--v1.png" /></center> </button>
 
                 <div class="popup">
                     <div class="cnt223">
@@ -51,13 +51,13 @@
                                 <td class="px-6 py-4 whitespace-nowrap">{{$document->id}}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{$document->document_name}}</td>
                                 <td class="px-6 py-4 text-sm">
-                                    <a href="{{ route('doclist.edit',$document->id) }}" class="m-2 p-2 bg-blue-400 rounded">Edit</a>
+                                    <a href="{{ route('doclist.edit',$document->id) }}" class="open-button" style="background-color: #0047AB; color: white;">Edit</a>
                                 </td>
                                 <td class="px-6 py-4 text-sm">
                                     <form action="{{ route('doclist.destroy',$document->id) }}" method="POST">
                                         @csrf
                                         @method('delete')
-                                        <button onclick="return confirm('Do you want to delete? ')" type="submit">Delete</button>
+                                        <button  class="open-button" style="background-color: #8B0000; color: white;" onclick="return confirm('Do you want to delete? ')" type="submit">Delete</button>
                                     </form>
                                 </td>
                             </tr>
@@ -168,3 +168,29 @@
         });
     }
 </script>
+
+<style>
+    
+
+    .open-button {
+  border-radius: 100px;
+  box-shadow: green;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  
+}
+
+.open-button:hover {
+  transform: scale(1.05) rotate(-1deg);
+}
+</style>

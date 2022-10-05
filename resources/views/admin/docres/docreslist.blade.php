@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+        {{ __('How to use this feature?') }}
         </h2>
     </x-slot>
     <form method="POST" action="{{ route('docres.store')}}">
@@ -185,7 +185,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-            <button class="open-button" onclick="openForm()"> <img onclick="openForm()" height="20px" width="20px" src="https://img.icons8.com/color/48/000000/add--v1.png" /> Add Document Type </button>
+           
             <form action="{{ route('docres.filter',$document->id) }}">
                 <div class="row">
                     <div class="col">
@@ -211,28 +211,33 @@
                         </select>
                     </div>
                     <div class="col">
-                        <button class="btn btn-success" type="submit">Filter</button>
+                        <button class="open-button" style="background-color: #228B22; color: white;" type="submit">Filter</button>
+                        <form action="{{ route('docres.index') }}">
+                    <button class="open-button" style="background-color: #0047AB; color: white;" type="submit">Clear Filter</button>
+                </form>
                     </div>
                 </div>
             </form>
+            <br>
+            
+            <br>
 
             <div class="col">
-                <form action="{{ route('docres.index') }}">
-                    <button class="btn btn-primary" type="submit">Clear Filter</button>
-                </form>
+                
             </div>
 
 
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
+            <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;"  onclick="openForm()"> Add Document Type <center><img onclick="openForm()" height="20px" width="20px" src="https://img.icons8.com/color/48/000000/add--v1.png" /></center> </button>
+              <div class="p-6 bg-white border-b border-gray-200">
                     <table>
                         <tr>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">USER_ID</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">LAST NAME </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">FIRST NAME</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">DOCUMENT NAME</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">DOCUMENT STATUS</th>
-                            <th colspan="4" scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider" style="text-align:center ;">ACTIONS
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">USER_ID</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">LAST NAME </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">FIRST NAME</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">DOCUMENT NAME</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">DOCUMENT STATUS</th>
+                            <th colspan="4" scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider" style="text-align:center ;">ACTIONS
                         </tr>
 
                         @foreach ($docres as $docress)
@@ -254,23 +259,23 @@
                             @endif
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <form action="{{ route('docres.edit',$docress->id) }}">
-                                    <button type="submit" class="btn btn-primary">Edit</button>
+                                    <button type="submit" class="open-button" style="background-color: #0047AB; color: white;">Edit</button>
                                 </form>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <form action="{{ route('docres.destroy',$docress->id) }}" method="POST">
                                     @csrf
                                     @method('delete')
-                                    <button class="btn btn-danger" onclick="return confirm('Do you want to delete? ')" type="submit">Delete</button>
+                                    <button class="open-button" style="background-color: #8B0000; color: white;" onclick="return confirm('Do you want to delete? ')" type="submit">Delete</button>
                                 </form>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <form action="{{ route('pdf.show',$docress->id) }}">
-                                    <button type="submit" class="btn btn-success">Show</button>
+                                    <button type="submit" class="open-button" style="background-color: #F28C28; color: white;">Show</button>
                                 </form>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <form action="{{ route('pdf.generatePDF',$docress->id) }}">
-                                    <button class="btn btn-primary" type="submit">Download</button>
+                                    <button class="open-button" style="background-color: #4F7942; color: white;" type="submit">Download</button>
                                 </form>
                             </td>
                             @endif
@@ -603,3 +608,29 @@
         }
     });
 </script>
+
+<style>
+    
+
+    .open-button {
+  border-radius: 25px;
+  box-shadow: green;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  
+}
+
+.open-button:hover {
+  transform: scale(1.05) rotate(-1deg);
+}
+</style>

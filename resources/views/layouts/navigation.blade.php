@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100" style="background-image: linear-gradient(to right, #7fa046, #a4c171);">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -12,32 +12,32 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link class="nav-link-btn" :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('chatify')" :active="request()->routeIs('chatify')">
+                    <x-nav-link class="nav-link-btn" :href="route('chatify')" :active="request()->routeIs('chatify')">
                         {{ __('Chatify') }}
                     </x-nav-link>
                     @hasrole('admin')
-                    <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
+                    <x-nav-link class="nav-link-btn" :href="route('user.index')" :active="request()->routeIs('user.index')">
                         {{ __('User List') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('doclist.index')" :active="request()->routeIs('doclist.index')">
+                    <x-nav-link class="nav-link-btn" :href="route('doclist.index')" :active="request()->routeIs('doclist.index')">
                         {{ __('Document List') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('docres.index')" :active="request()->routeIs('docres.index')">
+                    <x-nav-link class="nav-link-btn" :href="route('docres.index')" :active="request()->routeIs('docres.index')">
                         {{ __('Document Request') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('role.index')" :active="request()->routeIs('role.index')">
+                    <x-nav-link class="nav-link-btn" :href="route('role.index')" :active="request()->routeIs('role.index')">
                         {{ __('Role List') }}
                     </x-nav-link>
                     @endhasrole
 
                     @hasrole('resident')
-                    <x-nav-link :href="route('residentdocres.index')" :active="request()->routeIs('residentdocres.index')">
+                    <x-nav-link class="nav-link-btn" :href="route('residentdocres.index')" :active="request()->routeIs('residentdocres.index')">
                         {{ __('Document Request') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('residentdocres.show')" :active="request()->routeIs('residentdocres.show')">
+                    <x-nav-link class="nav-link-btn" :href="route('residentdocres.show')" :active="request()->routeIs('residentdocres.show')">
                         {{ __('Document Status') }}
                     </x-nav-link>
                     @endhasrole
@@ -88,7 +88,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link  :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('chatify')" :active="request()->routeIs('chatify')">
@@ -142,3 +142,7 @@
         </div>
     </div>
 </nav>
+
+<style>
+    
+</style>

@@ -212,14 +212,15 @@
                     </div>
                     <div class="col">
                         <button class="btn btn-success" type="submit">Filter</button>
+                        <form action="{{ route('docres.index') }}">
+                    <button class="btn btn-primary" type="submit">Clear Filter</button>
+                </form>
                     </div>
                 </div>
             </form>
 
             <div class="col">
-                <form action="{{ route('docres.index') }}">
-                    <button class="btn btn-primary" type="submit">Clear Filter</button>
-                </form>
+                
             </div>
 
 
