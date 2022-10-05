@@ -243,7 +243,15 @@
                             @foreach($doclist as $document)
                             @if($docress->document_id == $document->id)
                             <td class="px-6 py-4 whitespace-nowrap">{{$document->document_name}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{$docress->status}}</td>
+                            @if($docress->status == "pending")
+                            <td class="px-6 py-4 whitespace-nowrap"><button type="button" class="btn btn-primary" disabled>{{$docress->status}}</button></td>
+                            @elseif($docress->status == "approved")
+                            <td class="px-6 py-4 whitespace-nowrap"><button type="button" class="btn btn-secondary" disabled>{{$docress->status}}</button></td>
+                            @elseif($docress->status == "for_claiming")
+                            <td class="px-6 py-4 whitespace-nowrap"><button type="button" class="btn btn-success" disabled>{{$docress->status}}</button></td>
+                            @elseif($docress->status == "claimed")
+                            <td class="px-6 py-4 whitespace-nowrap"><button type="button" class="btn btn-danger" disabled>{{$docress->status}}</button></td>
+                            @endif
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <form action="{{ route('docres.edit',$docress->id) }}">
                                     <button type="submit" class="btn btn-primary">Edit</button>
