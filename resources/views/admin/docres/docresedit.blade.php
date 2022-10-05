@@ -4,12 +4,13 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
+    
     <form method="POST" action="{{ route('docres.update', $docresupdate->id)}}">
         <div class='popup'>
             <div class='cnt223'>
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                        <a href='' class='close'><img src="https://img.icons8.com/color/48/000000/delete-sign--v1.png" /></a>
+                        <a href="" class='close'><img src="https://img.icons8.com/color/48/000000/delete-sign--v1.png" /></a>
                         @csrf
                         @method('put')
 
@@ -197,6 +198,7 @@
     
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            
 
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
@@ -210,34 +212,34 @@
                             <th colspan="4" scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider" style="text-align:center ;">ACTIONS
                         </tr>
 
-                        @foreach ($docres as $docres)
+                        @foreach ($docres as $docress)
                         <tr>
-                            <td class="px-6 py-4 whitespace-nowrap">{{$docres->user_id}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{$docres->lname}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{$docres->fname}}</td>
-                            @foreach($doclist1 as $document)
-                            @if($docres->document_id == $document->id)
+                            <td class="px-6 py-4 whitespace-nowrap">{{$docress->user_id}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap">{{$docress->lname}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap">{{$docress->fname}}</td>
+                            @foreach($doclist as $document)
+                            @if($docress->document_id == $document->id)
                             <td class="px-6 py-4 whitespace-nowrap">{{$document->document_name}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{$docres->status}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap">{{$docress->status}}</td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <form action="{{ route('docres.edit',$docres->id) }}">
-                                    <button id="doc_id" value="{{$docres->document_id}}" type="submit" class="btn btn-primary">Edit</button>
+                                <form action="{{ route('docres.edit',$docress->id) }}">
+                                    <button id="doc_id" value="{{$docress->document_id}}" type="submit" class="btn btn-primary">Edit</button>
                                 </form>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <form action="{{ route('docres.destroy',$docres->id) }}" method="POST">
+                                <form action="{{ route('docres.destroy',$docress->id) }}" method="POST">
                                     @csrf
                                     @method('delete')
                                     <button class="btn btn-danger" onclick="return confirm('Do you want to delete? ')" type="submit">Delete</button>
                                 </form>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <form action="{{ route('pdf.show',$docres->id) }}">
+                                <form action="{{ route('pdf.show',$docress->id) }}">
                                     <button type="submit" class="btn btn-success">Show</button>
                                 </form>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <form action="{{ route('pdf.generatePDF',$docres->id) }}">
+                                <form action="{{ route('pdf.generatePDF',$docress->id) }}">
                                     <button class="btn btn-primary" type="submit">Download</button>
                                 </form>
                             </td>
@@ -245,7 +247,7 @@
                             @endforeach
                         </tr>
                         @endforeach
-                        {{ $doclist->links() }}
+                        {{ $docres->links() }}
                     </table>
                 </div>
             </div>

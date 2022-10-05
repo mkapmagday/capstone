@@ -117,11 +117,10 @@ class AdminDocumentRequestController extends Controller
     public function edit($id)
     {
         $docres = DocumentRequest::paginate(5);
-        $doclist = DocumentList::paginate(5);
-        $doclist1 = DocumentList::all();
+        $doclist = DocumentList::all();
 
         $docresupdate = DocumentRequest::find($id);
-        return view('admin.docres.docresedit',compact('docres','doclist','doclist1','docresupdate'));
+        return view('admin.docres.docresedit',compact('docres','doclist','docresupdate'));
     }
 
     /**
@@ -133,9 +132,6 @@ class AdminDocumentRequestController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $docres = DocumentRequest::paginate(10);
-        $doclist = DocumentList::paginate(10);
-        $doclist1 = DocumentList::all();
         $docresupdate = DocumentRequest::find($id);
         $user = User::find($docresupdate->user_id);
         $document = DocumentList::find($docresupdate->document_id);
