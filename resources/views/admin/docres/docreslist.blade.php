@@ -186,35 +186,39 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
             <button class="open-button" onclick="openForm()"> <img onclick="openForm()" height="20px" width="20px" src="https://img.icons8.com/color/48/000000/add--v1.png" /> Add Document Type </button>
-
-            <div class="row">
-                <div class="col-5">
-                    <form action="{{ route('docres.filter',$document->id) }}">
+            <form action="{{ route('docres.filter',$document->id) }}">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" name="lname" id="lname" placeholder="Enter Last Name">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="fname" id="fname" placeholder="Enter First Name">
+                    </div>
+                    <div class="col">
                         <select required name="docname" id="docname" class="form-control">
                             @foreach ($doclist as $document)
                             <option value={{$document->id}}>{{$document->document_name}}</option>
                             @endforeach
                         </select>
+                    </div>
+                    <div class="col">
+                        <select required name="status" id="status" class="form-control">
+                            @foreach(\App\Enums\DocumentRequestStatus::cases() as $status)
+                            <option value="{{ $status->value }}">{{ $status->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-success" type="submit">Filter</button>
+                    </div>
                 </div>
-                <div class="col-3">
-                    <select required name="status" id="status" class="form-control">
-                        @foreach(\App\Enums\DocumentRequestStatus::cases() as $status)
-                        <option value="{{ $status->value }}">{{ $status->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="col-1">
-                    <button class="btn btn-success" type="submit">Filter</button>
-                    </form>
-                </div>
-                <div class="col-2">
-                    <form action="{{ route('docres.index') }}">
-                        <button class="btn btn-primary" type="submit">Clear Filter</button>
-                    </form>
-                </div>
+            </form>
+
+            <div class="col">
+                <form action="{{ route('docres.index') }}">
+                    <button class="btn btn-primary" type="submit">Clear Filter</button>
+                </form>
             </div>
-
-
 
 
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">

@@ -98,7 +98,11 @@ class AdminDocumentRequestController extends Controller
     {
         $docname = $request->input('docname');
         $status = $request->input('status');
+        $lname = $request->input('lname');
+        $fname = $request->input('fname');
         $docres = DocumentRequest::where('document_id',$docname)
+                                ->where('lname', 'like' , $lname.'%')
+                                ->where('fname','like',$fname.'%')
                                 ->where('status',$status)->paginate(5);
         $doclist = DocumentList::all();
         return view('admin.docres.docreslist',compact('docres','doclist'));
