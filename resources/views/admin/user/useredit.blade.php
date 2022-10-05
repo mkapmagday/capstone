@@ -1,33 +1,34 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        {{ __('How to use this feature?') }}
         </h2>
     </x-slot>
 
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <form action="{{ route('user.filter') }}">
-                <div class="row">
+
+                <div class="row" style="margin-left:150px; margin-top: 20px">
                     <div class="col">
-                        <input  type="text" class="form-control" name="name" id="name" placeholder="Name">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Name">
                     </div>
                     <div class="col">
-                        <input  type="text" class="form-control" name="email" id="email" placeholder="Email">
+                        <input type="text" class="form-control" name="email" id="email" placeholder="Email">
                     </div>
-                    
+
                     <div class="col">
-                        <button class="btn btn-success" type="submit">Filter</button>
+                        <button class="open-button" style="background-color: #228B22; color: white;" type="submit">Filter</button>
+                        <form action="{{ route('user.index') }}">
+                            <button class="open-button" style="background-color: #0047AB; color: white;" type="submit">Clear Filter</button>
+                        </form>
                     </div>
                 </div>
             </form>
+            <br>
+            <br>
 
-            <div class="col">
-                <form action="{{ route('user.index') }}">
-                    <button class="btn btn-primary" type="submit">Clear Filter</button>
-                </form>
-            </div>
+           
                 <div class="popup">
                     <div class="cnt223">
                     <a href='' class='close'><img src="https://img.icons8.com/color/48/000000/delete-sign--v1.png" /></a>
@@ -85,19 +86,19 @@
                                 <td class="px-6 py-4 whitespace-nowrap">{{$user->email}}</td>
                                 <td class="px-6 py-4 text-sm">
                                     <form action="{{ route('role.show',$user->id) }}">
-                                        <button class="btn btn-primary" type="submit">Roles</button>
+                                        <button class="open-button" style="background-color: #4F7942; color: white;" type="submit">Roles</button>
                                     </form>
                                 </td>
                                 <td class="px-6 py-4 text-sm">
                                     <form action="{{ route('user.edit',$user->id) }}">
-                                        <button class="btn btn-primary" type="submit">Edit</button>
+                                        <button class="open-button" style="background-color: #0047AB; color: white;" type="submit">Edit</button>
                                     </form>
                                 </td>
                                 <td class="px-6 py-4 text-sm">
                                     <form action="{{ route('user.destroy',$user->id) }}" method="POST">
                                         @csrf
                                         @method('delete')
-                                        <button class="btn btn-danger" onclick="return confirm('Do you want to delete? ')" type="submit">Delete</button>
+                                        <button class="open-button" style="background-color: #8B0000; color: white;" onclick="return confirm('Do you want to delete? ')" type="submit">Delete</button>
                                     </form>
                                 </td>
                             </tr>
@@ -204,3 +205,27 @@
         });
 
 </script>
+
+<style>
+    .open-button {
+        border-radius: 100px;
+        box-shadow: green;
+        cursor: pointer;
+        display: inline-block;
+        font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+        padding: 7px 20px;
+        text-align: center;
+        text-decoration: none;
+        transition: all 250ms;
+        border: 0;
+        font-size: 16px;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+
+    }
+
+    .open-button:hover {
+        transform: scale(1.05) rotate(-1deg);
+    }
+</style>

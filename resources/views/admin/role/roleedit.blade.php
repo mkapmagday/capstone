@@ -54,14 +54,14 @@
                                     <td class="px-6 py-4 whitespace-nowrap">{{$role->name}}</td>
                                     <td class="px-6 py-4 text-sm">
                                         <form action="{{ route('role.edit',$role->id) }}">
-                                            <button type="submit" class="btn btn-primary">Edit</button>
+                                            <button type="submit" class="open-button" style="background-color: #0047AB; color: white;">Edit</button>
                                         </form>
                                     </td>
                                     <td>
                                         <form action="{{ route('role.destroy',$role->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
-                                            <button class="btn btn-danger" onclick="return confirm('Do you want to delete? ')" type="submit">Delete</button>
+                                            <button class="open-button" style="background-color: #8B0000; color: white;" onclick="return confirm('Do you want to delete? ')" type="submit">Delete</button>
                                         </form>
                                     </td>
                                     </form>
@@ -165,3 +165,27 @@
             });
         });
 </script>
+
+<style>
+    .open-button {
+        border-radius: 100px;
+        box-shadow: green;
+        cursor: pointer;
+        display: inline-block;
+        font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+        padding: 7px 20px;
+        text-align: center;
+        text-decoration: none;
+        transition: all 250ms;
+        border: 0;
+        font-size: 16px;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+
+    }
+
+    .open-button:hover {
+        transform: scale(1.05) rotate(-1deg);
+    }
+</style>
