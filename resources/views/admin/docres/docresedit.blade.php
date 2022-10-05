@@ -198,8 +198,41 @@
     
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            
+        <form action="{{ route('docres.filter', $docresupdate->id) }}">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" name="lname" id="lname" placeholder="Enter Last Name">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="fname" id="fname" placeholder="Enter First Name">
+                    </div>
+                    <div class="col">
+                        <select required name="docname" id="docname" class="form-control">
+                            <option value=" "></option>
+                            @foreach ($doclist as $document)
+                            <option value={{$document->id}}>{{$document->document_name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select required name="status" id="status" class="form-control">
+                            <option value=" "></option>
+                            @foreach(\App\Enums\DocumentRequestStatus::cases() as $status)
+                            <option value="{{ $status->value }}">{{ $status->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-success" type="submit">Filter</button>
+                    </div>
+                </div>
+            </form>
 
+            <div class="col">
+                <form action="{{ route('docres.index') }}">
+                    <button class="btn btn-primary" type="submit">Clear Filter</button>
+                </form>
+            </div>
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <table>

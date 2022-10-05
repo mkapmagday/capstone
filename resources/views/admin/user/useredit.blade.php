@@ -8,6 +8,26 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <form action="{{ route('user.filter') }}">
+                <div class="row">
+                    <div class="col">
+                        <input  type="text" class="form-control" name="name" id="name" placeholder="Name">
+                    </div>
+                    <div class="col">
+                        <input  type="text" class="form-control" name="email" id="email" placeholder="Email">
+                    </div>
+                    
+                    <div class="col">
+                        <button class="btn btn-success" type="submit">Filter</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="col">
+                <form action="{{ route('user.index') }}">
+                    <button class="btn btn-primary" type="submit">Clear Filter</button>
+                </form>
+            </div>
                 <div class="popup">
                     <div class="cnt223">
                     <a href='' class='close'><img src="https://img.icons8.com/color/48/000000/delete-sign--v1.png" /></a>

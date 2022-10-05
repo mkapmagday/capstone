@@ -189,10 +189,10 @@
             <form action="{{ route('docres.filter',$document->id) }}">
                 <div class="row">
                     <div class="col">
-                        <input type="text" class="form-control" name="lname" id="lname" placeholder="Enter Last Name">
+                        <input value="{{$lname}}" type="text" class="form-control" name="lname" id="lname" placeholder="Enter Last Name">
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" name="fname" id="fname" placeholder="Enter First Name">
+                        <input value="{{$fname}}" type="text" class="form-control" name="fname" id="fname" placeholder="Enter First Name">
                     </div>
                     <div class="col">
                         <select required name="docname" id="docname" class="form-control">

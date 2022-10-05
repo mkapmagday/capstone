@@ -67,11 +67,17 @@ class AdminUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        $users = User::paginate(10);
-        $user = User::find($id);
-        return view('admin.user.userlist',compact('users','user'));
+        $name = $request->name;
+        $email = $request->email;
+
+        $users = User::where('name', 'like' ,$name.'%')
+                    ->where('email', 'like' ,$email.'%')
+                    ->paginate(5)
+                    ->appends(request()->query());
+
+        return view('admin.user.usersearch',compact('users','request','name','email'));
 
     }
 
