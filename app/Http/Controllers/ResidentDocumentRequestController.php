@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DocumentList;
 use App\Models\DocumentRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -93,11 +94,10 @@ class ResidentDocumentRequestController extends Controller
      */
     public function show()
     {
-        $id = Auth::id();
-        $docres = DocumentRequest::paginate(5);
-        $doclist = DocumentList::paginate(5);
-        $doclist1 = DocumentList::all();
-        return view('resident.docres.docresstatus',compact('docres','doclist','doclist1',));
+        $user = User::find(Auth::id());
+        $doclist = DocumentList::all();
+        $docres = DocumentRequest::where('user_id',Auth::id())->paginate(5);
+        return view('resident.docres.docresstatus',compact('docres','doclist'));
     }
 
     /**

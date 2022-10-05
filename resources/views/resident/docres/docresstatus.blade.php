@@ -16,23 +16,20 @@
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">DOCUMENT NAME</th>
                             <th colspan="4" scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider" style="text-align:center ;">ACTIONS
                         </tr>
-
-                        @foreach ($docres as $docres)
+                        @foreach ($docres as $docress)
                         <tr>
-                            @if(Auth::id() == $docres->user_id)
-                            <td class="px-6 py-4 whitespace-nowrap">{{$docres->user_id}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{$docres->lname}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{$docres->fname}}</td>
-                            @foreach($doclist1 as $document)
-                            @if($docres->document_id == $document->id)
+                            <td class="px-6 py-4 whitespace-nowrap">{{$docress->user_id}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap">{{$docress->lname}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap">{{$docress->fname}}</td>
+                            @foreach($doclist as $document)
+                            @if($docress->document_id == $document->id)
                             <td class="px-6 py-4 whitespace-nowrap">{{$document->document_name}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{$docres->status}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap">{{$docress->status}}</td>
                             @endif
                             @endforeach
-                            @endif
                         </tr>
                         @endforeach
-                        {{ $doclist->links() }}
+                        {{$docres->links()}}
                     </table>
                 </div>
             </div>

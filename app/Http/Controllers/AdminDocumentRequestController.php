@@ -22,9 +22,8 @@ class AdminDocumentRequestController extends Controller
     public function index()
     {
         $docres = DocumentRequest::paginate(5);
-        $doclist = DocumentList::paginate(5);
-        $doclist1 = DocumentList::all();
-        return view('admin.docres.docreslist',compact('docres','doclist','doclist1'));
+        $doclist = DocumentList::all();
+        return view('admin.docres.docreslist',compact('docres','doclist'));
     }
 
     /**
