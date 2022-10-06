@@ -145,8 +145,33 @@
     .cnt223 .x:hover {
         cursor: pointer;
     }
+    
+    .open-button {
+  border-radius: 15px;
+  box-shadow: green;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  
+}
+
+.open-button:hover {
+  transform: scale(1.05) rotate(-1deg);
+}
 </style>
+
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
+
 <script type='text/javascript'>
     function openForm() {
         $(function() {
@@ -169,28 +194,3 @@
     }
 </script>
 
-<style>
-    
-
-    .open-button {
-  border-radius: 100px;
-  box-shadow: green;
-  cursor: pointer;
-  display: inline-block;
-  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
-  padding: 7px 20px;
-  text-align: center;
-  text-decoration: none;
-  transition: all 250ms;
-  border: 0;
-  font-size: 16px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  
-}
-
-.open-button:hover {
-  transform: scale(1.05) rotate(-1deg);
-}
-</style>

@@ -201,13 +201,13 @@
         <form action="{{ route('docres.filter', $docresupdate->id) }}">
                 <div class="row">
                     <div class="col">
-                        <input type="text" class="form-control" name="lname" id="lname" placeholder="Enter Last Name">
+                        <input type="text" class="form-control" name="lname" id="lname" placeholder="Enter Last Name" style="margin-top: 15px;">
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" name="fname" id="fname" placeholder="Enter First Name">
+                        <input type="text" class="form-control" name="fname" id="fname" placeholder="Enter First Name" style="margin-top: 15px;">
                     </div>
                     <div class="col">
-                        <select required name="docname" id="docname" class="form-control">
+                        <select required name="docname" id="docname" class="form-control" style="margin-top: 15px;">
                             <option value=" "></option>
                             @foreach ($doclist as $document)
                             <option value={{$document->id}}>{{$document->document_name}}</option>
@@ -215,7 +215,7 @@
                         </select>
                     </div>
                     <div class="col">
-                        <select required name="status" id="status" class="form-control">
+                        <select required name="status" id="status" class="form-control" style="margin-top: 15px;">
                             <option value=" "></option>
                             @foreach(\App\Enums\DocumentRequestStatus::cases() as $status)
                             <option value="{{ $status->value }}">{{ $status->name }}</option>
@@ -223,26 +223,26 @@
                         </select>
                     </div>
                     <div class="col">
-                        <button class="btn btn-success" type="submit">Filter</button>
+                        <button class="open-button" style="background-color: #228B22; color: white; width:100px" type="submit">Filter<center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/find-user-male--v1.png"/></center></button>
+                        <form action="{{ route('docres.index') }}">
+                        <button class="open-button" style="background-color: #0047AB; color: white;" type="submit">Clear Filter<center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/clear-search.png"/></center></button>
+                        </form>
                     </div>
                 </div>
             </form>
 
-            <div class="col">
-                <form action="{{ route('docres.index') }}">
-                    <button class="btn btn-primary" type="submit">Clear Filter</button>
-                </form>
-            </div>
+            <br><br>
+
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <table>
                         <tr>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">USER_ID</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">LAST NAME </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">FIRST NAME</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">DOCUMENT NAME</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">DOCUMENT STATUS</th>
-                            <th colspan="4" scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider" style="text-align:center ;">ACTIONS
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">USER_ID</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">LAST NAME </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">FIRST NAME</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">DOCUMENT NAME</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">DOCUMENT STATUS</th>
+                            <th colspan="4" scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider" style="text-align:center ;">ACTIONS
                         </tr>
 
                         @foreach ($docres as $docress)
@@ -264,24 +264,24 @@
                             @endif
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <form action="{{ route('docres.edit',$docress->id) }}">
-                                    <button id="doc_id" value="{{$docress->document_id}}" type="submit" class="btn btn-primary">Edit</button>
+                                    <button id="doc_id" value="{{$docress->document_id}}" type="submit" class="open-button" style="background-color: #0047AB; color: white;">Edit</button>
                                 </form>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <form action="{{ route('docres.destroy',$docress->id) }}" method="POST">
                                     @csrf
                                     @method('delete')
-                                    <button class="btn btn-danger" onclick="return confirm('Do you want to delete? ')" type="submit">Delete</button>
+                                    <button class="open-button" style="background-color: #8B0000; color: white;" onclick="return confirm('Do you want to delete? ')" type="submit">Delete</button>
                                 </form>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <form action="{{ route('pdf.show',$docress->id) }}">
-                                    <button type="submit" class="btn btn-success">Show</button>
+                                    <button type="submit" class="open-button" style="background-color: #F28C28; color: white;">Show</button>
                                 </form>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <form action="{{ route('pdf.generatePDF',$docress->id) }}">
-                                    <button class="btn btn-primary" type="submit">Download</button>
+                                    <button class="open-button" style="background-color: #4F7942; color: white;" type="submit">Download</button>
                                 </form>
                             </td>
                             @endif
@@ -364,7 +364,35 @@
     .cnt223 .x:hover {
         cursor: pointer;
     }
+    .open-button {
+  border-radius: 15px;
+  box-shadow: green;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  
+}
+
+.open-button:hover {
+  transform: scale(1.05) rotate(-1deg);
+}
+
+.btn-logo {
+        width:25px;
+        height:25px;
+    }
 </style>
+
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
 <script type='text/javascript'>
     var docres_id = "{{$docresupdate->document_id}}"

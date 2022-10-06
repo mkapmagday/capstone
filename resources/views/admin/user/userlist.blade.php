@@ -11,17 +11,17 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <form action="{{ route('user.filter') }}">
 
-                <div class="row" style="margin-left:150px; margin-top: 20px">
+                <div class="row" style="margin-left:150px; margin-top: 20px;" >
                     <div class="col">
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Name" style="margin-top: 15px;">
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                        <input type="text" class="form-control" name="email" id="email" placeholder="Email" style="margin-top: 15px;">
                     </div>
                     <div class="col">
-                        <button class="open-button" style="background-color: #228B22; color: white;" type="submit"><img src="https://img.icons8.com/color/48/000000/find-user-male--v1.png"/></button>
+                        <button class="open-button" style="background-color: #228B22; color: white; width:100px" type="submit">Filter<center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/find-user-male--v1.png"/></center></button>
                         <form action="{{ route('user.index') }}">
-                            <button class="open-button" style="background-color: #0047AB; color: white;" type="submit"><img src="https://img.icons8.com/color/48/000000/clear-search.png"/></button>
+                            <button class="open-button" style="background-color: #0047AB; color: white;" type="submit">Clear Filter<center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/clear-search.png"/></center></button>
                         </form>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
 
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 
-                <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;" onclick="openForm()" style="margin-left:50px"> Create User <center><img src="https://img.icons8.com/color/48/000000/add-user-group-woman-man-skin-type-7.png"/></button>
+                <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;" onclick="openForm()" style="margin-left:50px"> Create User <center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/add-user-group-woman-man-skin-type-7.png"/></center></button>
                 <div class="popup">
                     <div class="cnt223">
                         <a href='' class='close'><img src="https://img.icons8.com/color/48/000000/delete-sign--v1.png" /></a>
@@ -206,8 +206,40 @@
     .cnt223 .x:hover {
         cursor: pointer;
     }
+
+    .btn-logo {
+        width:25px;
+        height:25px;
+    }
+
+    .open-button {
+        border-radius: 15px;
+        width: fit-content;
+        box-shadow: green;
+        cursor: pointer;
+        display: inline-block;
+        font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+        padding: 7px 20px;
+        text-align: center;
+        text-decoration: none;
+        transition: all 250ms;
+        border: 0;
+        font-size: 16px;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+
+    }
+
+    .open-button:hover {
+        transform: scale(1.05) rotate(-1deg);
+    }
+
+
 </style>
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
+
 <script type='text/javascript'>
     function openForm() {
         $(function() {
@@ -230,27 +262,3 @@
     }
 </script>
 
-<style>
-    .open-button {
-        border-radius: 25px;
-        width: fit-content;
-        box-shadow: green;
-        cursor: pointer;
-        display: inline-block;
-        font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
-        padding: 7px 20px;
-        text-align: center;
-        text-decoration: none;
-        transition: all 250ms;
-        border: 0;
-        font-size: 16px;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-
-    }
-
-    .open-button:hover {
-        transform: scale(1.05) rotate(-1deg);
-    }
-</style>
