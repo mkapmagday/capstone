@@ -13,8 +13,9 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+    <body class="font-sans antialiased" >
+        <div class="min-h-screen bg-gray-100" style="background-image: url('https://i.ibb.co/ss3RXh3/Login.jpg'); background-repeat: no-repeat; 
+    background-attachment: fixed; background-size: cover;">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
@@ -27,7 +28,7 @@
             @endif
 
             <!-- Page Content -->
-            <main>
+            <main >
                 {{ $slot }}
             </main>
         </div>
