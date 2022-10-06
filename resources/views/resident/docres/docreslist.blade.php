@@ -281,7 +281,6 @@
     #documentimage {
         width: 100%;
         display: inline-block;
-        position: absolute;
         overflow: hidden;
     }
 </style>
