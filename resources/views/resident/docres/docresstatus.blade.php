@@ -14,7 +14,8 @@
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">LAST NAME </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">FIRST NAME</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">DOCUMENT NAME</th>
-                            <th colspan="4" scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider" style="text-align:center ;">ACTIONS
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">STATUS</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider" style="text-align:center ;">ACTIONS
                         </tr>
                         @foreach ($docres as $docress)
                         <tr>
@@ -24,8 +25,15 @@
                             @foreach($doclist as $document)
                             @if($docress->document_id == $document->id)
                             <td class="px-6 py-4 whitespace-nowrap">{{$document->document_name}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{$docress->status}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">
+                            @if($docress->status == "pending")
+                            <td class="px-6 py-4 whitespace-nowrap"><button type="button" class="btn btn-primary" disabled>{{$docress->status}}</button></td>
+                            @elseif($docress->status == "approved")
+                            <td class="px-6 py-4 whitespace-nowrap"><button type="button" class="btn btn-secondary" disabled>{{$docress->status}}</button></td>
+                            @elseif($docress->status == "for_claiming")
+                            <td class="px-6 py-4 whitespace-nowrap"><button type="button" class="btn btn-success" disabled>{{$docress->status}}</button></td>
+                            @elseif($docress->status == "claimed")
+                            <td class="px-6 py-4 whitespace-nowrap"><button type="button" class="btn btn-danger" disabled>{{$docress->status}}</button></td>
+                            @endif                            <td class="px-6 py-4 whitespace-nowrap">
                                 <form action="{{ route('pdf.show',$docress->id) }}">
                                     <button type="submit" class="btn btn-success">Show</button>
                                 </form>
