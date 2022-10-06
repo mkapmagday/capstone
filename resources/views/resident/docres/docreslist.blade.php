@@ -9,7 +9,6 @@
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <select required name="document_list" id="document_list" class="form-control" style="width: 550px;">
-                    <option value=" "></option>
                     @foreach (App\Models\DocumentList::all() as $document)
                     <option value={{$document->id}}>{{$document->document_name}}</option>
                     @endforeach
@@ -287,9 +286,26 @@
 </style>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
 <script type='text/javascript'>
-
     $("#doc_id").click(function() {
         console.log($(this).val());
+    });
+
+    $(function() {
+        var overlay = $('<div id="overlay"></div>');
+        overlay.show();
+        overlay.appendTo(document.body);
+        $('.popup').show();
+        $('.close').click(function() {
+            $('.popup').hide();
+            overlay.appendTo(document.body).remove();
+            return false;
+        });
+
+        $('.x').click(function() {
+            $('.popup').hide();
+            overlay.appendTo(document.body).remove();
+            return false;
+        });
     });
 
 
@@ -300,6 +316,24 @@
         if ($(this).val() == "ph") {
             document.getElementById("pnum").value = "63";
             console.log(document.getElementById("pnum").value)
+        }
+    });
+    $(function() {
+        if ($("#document_list").val() == 1) {
+            document.getElementById("documentimage").src = "https://scontent.fmnl25-1.fna.fbcdn.net/v/t1.15752-9/308616100_1630366960691393_2984556608062881446_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=ae9488&_nc_ohc=AOk0e0CrUgAAX8t2PGZ&_nc_ht=scontent.fmnl25-1.fna&oh=03_AVI9werMXU4Z-_NsmDTSi7DItiWnHmhGtwPcyw1tpZC5fA&oe=635FCCF3";
+
+            $('#bdate').show();
+            $('#address').show();
+
+            $('#years').hide();
+            $('#months').hide();
+            $('#municipality').hide();
+            $('#vdate').hide();
+            $('#age').hide();
+            $('#representative').hide();
+            $('#purpose').hide();
+            $('#reason').hide();
+            $('#relationship').hide();
         }
     });
 
@@ -321,23 +355,8 @@
                 return false;
             });
         });
-        if ($(this).val() == " ") {
-            document.getElementById("documentimage").remove();
-       
-
-            $('#bdate').hide();
-            $('#address').hide();
-            $('#years').hide();
-            $('#months').hide();
-            $('#municipality').hide();
-            $('#vdate').hide();
-            $('#age').hide();
-            $('#representative').hide();
-            $('#purpose').hide();
-            $('#reason').hide();
-            $('#relationship').hide();
-
-        }
+        if ($(this).val() == "") {}
+        console.log($(this).val());
         if ($(this).val() == 1) {
             document.getElementById("documentimage").src = "https://scontent.fmnl25-1.fna.fbcdn.net/v/t1.15752-9/308616100_1630366960691393_2984556608062881446_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=ae9488&_nc_ohc=AOk0e0CrUgAAX8t2PGZ&_nc_ht=scontent.fmnl25-1.fna&oh=03_AVI9werMXU4Z-_NsmDTSi7DItiWnHmhGtwPcyw1tpZC5fA&oe=635FCCF3";
             $('.Certification').show();
