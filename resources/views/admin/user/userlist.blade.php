@@ -18,11 +18,10 @@
                     <div class="col">
                         <input type="text" class="form-control" name="email" id="email" placeholder="Email">
                     </div>
-
                     <div class="col">
-                        <button class="open-button" style="background-color: #228B22; color: white;" type="submit">Filter</button>
+                        <button class="open-button" style="background-color: #228B22; color: white;" type="submit"><img src="https://img.icons8.com/color/48/000000/find-user-male--v1.png"/></button>
                         <form action="{{ route('user.index') }}">
-                            <button class="open-button" style="background-color: #0047AB; color: white;" type="submit">Clear Filter</button>
+                            <button class="open-button" style="background-color: #0047AB; color: white;" type="submit"><img src="https://img.icons8.com/color/48/000000/clear-search.png"/></button>
                         </form>
                     </div>
                 </div>
@@ -32,7 +31,7 @@
 
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 
-                <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;" onclick="openForm()" style="margin-left:50px"> Create User <center><img onclick="openForm()" height="20px" width="20px" src="https://img.icons8.com/color/48/000000/add--v1.png" /></center> </button>
+                <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;" onclick="openForm()" style="margin-left:50px"> Create User <center><img src="https://img.icons8.com/color/48/000000/add-user-group-woman-man-skin-type-7.png"/></button>
                 <div class="popup">
                     <div class="cnt223">
                         <a href='' class='close'><img src="https://img.icons8.com/color/48/000000/delete-sign--v1.png" /></a>
@@ -135,6 +134,10 @@
 </x-app-layout>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <style>
+    img{
+        height: 30px;
+        width: 30px;
+    }
     .close {
         float: right;
         width: 20px;
@@ -229,7 +232,8 @@
 
 <style>
     .open-button {
-        border-radius: 100px;
+        border-radius: 25px;
+        width: fit-content;
         box-shadow: green;
         cursor: pointer;
         display: inline-block;

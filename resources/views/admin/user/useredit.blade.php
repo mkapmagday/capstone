@@ -16,11 +16,10 @@
                     <div class="col">
                         <input type="text" class="form-control" name="email" id="email" placeholder="Email">
                     </div>
-
                     <div class="col">
-                        <button class="open-button" style="background-color: #228B22; color: white;" type="submit">Filter</button>
+                        <button class="open-button" style="background-color: #228B22; color: white;" type="submit"><img src="https://img.icons8.com/color/48/000000/find-user-male--v1.png"/></button>
                         <form action="{{ route('user.index') }}">
-                            <button class="open-button" style="background-color: #0047AB; color: white;" type="submit">Clear Filter</button>
+                            <button class="open-button" style="background-color: #0047AB; color: white;" type="submit"><img src="https://img.icons8.com/color/48/000000/clear-search.png"/></button>
                         </form>
                     </div>
                 </div>
@@ -115,6 +114,10 @@
 </x-app-layout>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <style>
+    img{
+        height: 30px;
+        width: 30px;
+    }
     .close {
         float: right;
         width: 20px;
