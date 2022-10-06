@@ -14,7 +14,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased"  >
-        <div class="min-h-fit" style="background-image: url('https://i.ibb.co/ss3RXh3/Login.jpg'); background-repeat: no-repeat; 
+        <div class="min-h-screen" style="background-image: url('https://i.ibb.co/ss3RXh3/Login.jpg'); background-repeat: no-repeat; 
     background-attachment: fixed; background-size: cover;">
             @include('layouts.navigation')
 
