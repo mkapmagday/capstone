@@ -12,10 +12,10 @@
 
                 <div class="row" style="margin-left:150px; margin-top: 20px">
                     <div class="col">
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                        <input value="{{$name}}" type="text" class="form-control" name="name" id="name" placeholder="Name">
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                        <input value="{{$email}}" type="text" class="form-control" name="email" id="email" placeholder="Email">
                     </div>
 
                     <div class="col">

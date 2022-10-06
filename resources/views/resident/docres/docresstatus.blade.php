@@ -25,7 +25,13 @@
                             @if($docress->document_id == $document->id)
                             <td class="px-6 py-4 whitespace-nowrap">{{$document->document_name}}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{$docress->status}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <form action="{{ route('pdf.show',$docress->id) }}">
+                                    <button type="submit" class="btn btn-success">Show</button>
+                                </form>
+                            </td>
                             @endif
+                            
                             @endforeach
                         </tr>
                         @endforeach
