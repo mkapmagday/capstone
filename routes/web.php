@@ -72,6 +72,11 @@ Route::middleware(['auth','role:resident'])->group(function (){
 
 Route::get('send',[AdminSmsController::class,'sendnotification']);
 
+//templates
+Route::get('document/templates/certification', function () {
+    return view('document\templates\certification');
+})->name('templates.certification');
+
 Route::get('admin/docres/filter/',[AdminDocumentRequestController::class,'show'])->name('docres.filter');
 Route::get('admin/user/filter',[AdminUserController::class,'show'])->name('user.filter');
 require __DIR__.'/auth.php';
