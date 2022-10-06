@@ -1,24 +1,27 @@
-<x-app-layout>
+<x-app-layout >
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            
         </h2>
     </x-slot>
+    <center>
     <form method="POST" action="{{ route('residentdocres.store')}}">
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <select required name="document_list" id="document_list" class="form-control">
+                <select required name="document_list" id="document_list" class="form-control" style="width: 550px;">
                     @foreach (App\Models\DocumentList::all() as $document)
                     <option value={{$document->id}}>{{$document->document_name}}</option>
                     @endforeach
                 </select>
             </div>
         </div>
+        </center>
+     
 
-        <div class="container-fluid">
-                <image id="documentimage" src=""></image>
-        </div>
+        
+    
 
+        
 
         <div class='popup'>
             <div class='cnt223'>
@@ -192,6 +195,16 @@
             </div>
         </div>
     </form>
+
+    <div class="py-12">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="container-fluid" style="margin-left:130px;">
+                <image id="documentimage" src="" style="height: 900px; width:850px;"></image>
+    </div>
+    
+        </div>
+    </div>
+
 
 
 </x-app-layout>
