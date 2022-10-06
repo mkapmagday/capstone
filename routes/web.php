@@ -57,7 +57,6 @@ Route::post('admin/docres/create',[AdminDocumentRequestController::class,'store'
 Route::get('admin/docres/edit/{id}',[AdminDocumentRequestController::class,'edit'])->middleware('auth')->name('docres.edit');
 Route::put('admin/docres/update/{id}',[AdminDocumentRequestController::class,'update'])->middleware('auth')->name('docres.update');
 Route::delete('admin/docres/destroy/{id}',[AdminDocumentRequestController::class,'destroy'])->middleware('auth')->name('docres.destroy');
-
 Route::get('admin/docres/pdf/{id}',[AdminPDFController::class,'show'])->middleware('auth')->name('pdf.show');
 Route::get('admin/docres/pdf/generatePDF/{id}',[AdminPDFController::class,'generatePDF'])->middleware('auth')->name('pdf.generatePDF');
 
@@ -68,7 +67,7 @@ Route::middleware(['auth','role:resident'])->group(function (){
     Route::get('/resident/docres/status',[ResidentDocumentRequestController::class,'show'])->middleware('auth')->name('residentdocres.show');
     Route::get('resident/docres',[ResidentDocumentRequestController::class,'index'])->middleware('auth')->name('residentdocres.index');
     Route::post('resident/docres/create',[ResidentDocumentRequestController::class,'store'])->middleware('auth')->name('residentdocres.store');
-    Route::get('resident/docres/pdf/{id}',[AdminPDFController::class,'show'])->middleware('auth')->name('pdf.show');
+    Route::get('resident/docres/pdf/{id}',[AdminPDFController::class,'show'])->middleware('auth')->name('residentpdf.show');
 });
 
 Route::get('send',[AdminSmsController::class,'sendnotification']);

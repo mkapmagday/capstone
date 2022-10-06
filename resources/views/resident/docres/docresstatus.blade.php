@@ -34,7 +34,7 @@
                             @elseif($docress->status == "claimed")
                             <td class="px-6 py-4 whitespace-nowrap"><button type="button" class="btn btn-danger" disabled>{{$docress->status}}</button></td>
                             @endif                            <td class="px-6 py-4 whitespace-nowrap">
-                                <form action="{{ route('pdf.show',$docress->id) }}">
+                                <form action="{{ route('residentpdf.show',$docress->id) }}">
                                     <button type="submit" class="btn btn-success">Show</button>
                                 </form>
                             </td>
