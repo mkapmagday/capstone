@@ -30,8 +30,6 @@ Route::get('/', function () {
 Route::get('/dashboard',[AdminDashboardController::class,'index'])->middleware('auth','verified')->name('dashboard');
 
 Route::middleware(['auth','role:admin'])->group(function (){
-
-});
 Route::get('admin/users',[AdminUserController::class,'index'])->middleware('auth')->name('user.index');
 Route::get('admin/users/{id}',[AdminUserController::class,'show'])->middleware('auth')->name('user.show');
 Route::get('admin/users/edit/{id}',[AdminUserController::class,'edit'])->middleware('auth')->name('user.edit');
@@ -63,6 +61,7 @@ Route::get('admin/docres/pdf/{id}',[AdminPDFController::class,'show'])->middlewa
 Route::get('admin/docres/pdf/generatePDF/{id}',[AdminPDFController::class,'generatePDF'])->middleware('auth')->name('pdf.generatePDF');
 
 Route::get('sms',[AdminSmsController::class,'index'])->name('sms');
+});
 
 Route::middleware(['auth','role:resident'])->group(function (){
     Route::get('/resident/docres/status',[ResidentDocumentRequestController::class,'show'])->middleware('auth')->name('residentdocres.show');
