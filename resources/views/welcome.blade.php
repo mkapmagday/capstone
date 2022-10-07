@@ -16,6 +16,10 @@
         </style>
 
         <style>
+			img{
+				height: 100%;
+				width: 100%;
+			}
             body {
                 font-family: 'Nunito', sans-serif;
             }
@@ -130,25 +134,25 @@
 		</ol>
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img alt="First slide" class="d-block w-100" src="https://i.ibb.co/2WZZkd5/Slide1-Logo2.jpg">
+				<img alt="First slide" class="" src="https://i.ibb.co/2WZZkd5/Slide1-Logo2.jpg">
 				<div class="carousel-caption d-none d-md-block">
 					
 				</div>
 			</div>
 			<div class="carousel-item">
-				<img alt="Second slide" class="d-block w-100" src="https://i.ibb.co/8rSjDV5/Login-Register.jpg">
+				<img alt="Second slide" class="" src="https://i.ibb.co/8rSjDV5/Login-Register.jpg">
 				<div class="carousel-caption d-none d-md-block">
 					
 				</div>
 			</div>
 			<div class="carousel-item">
-				<img alt="Third slide" class="d-block w-100" src="https://i.ibb.co/hF39stV/Authenticate.jpg">
+				<img alt="Third slide" class="" src="https://i.ibb.co/hF39stV/Authenticate.jpg">
 				<div class="carousel-caption d-none d-md-block">
 					
 				</div>
 			</div>
             <div class="carousel-item">
-				<img alt="Fourth slide" class="d-block w-100" src="https://i.ibb.co/w7LqXf7/Request.jpg">
+				<img alt="Fourth slide" class="" src="https://i.ibb.co/w7LqXf7/Request.jpg">
 				<div class="carousel-caption d-none d-md-block">
 					
 				</div>
