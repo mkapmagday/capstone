@@ -35,6 +35,21 @@
                 <p class="messenger-title">Favorites</p>
                 <div class="messenger-favorites app-scroll-thin"></div>
                </div>
+               {{-- Favorites --}}
+               @if(Auth::user()->hasrole('resident'))
+               <p>Barangay Officials</p>
+                    @foreach(App\Models\User::all() as $user)
+                        @if($user->hasrole('admin') || $user->hasrole('kagawad') || $user->hasrole('chairman'))
+                <div class="favorite-list-item">
+                <div data-id="{{ $user->id }}" data-action="0" class="avatar av-m"
+                    style="background-image: url('{{ Chatify::getUserWithAvatar($user)->avatar }}');">
+                </div>
+                <p>{{  $user->name }}</p>
+
+                </div>
+                        @endif
+                    @endforeach
+                @endif
 
                {{-- Saved Messages --}}
                {!! view('Chatify::layouts.listItem', ['get' => 'saved']) !!}
