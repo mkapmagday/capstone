@@ -37,7 +37,7 @@
                </div>
                {{-- Favorites --}}
                @if(Auth::user()->hasrole('resident'))
-               <p>Barangay Officials</p>
+               <p class="messenger-title">Barangay Officials</p>
                     @foreach(App\Models\User::all() as $user)
                         @if($user->hasrole('admin') || $user->hasrole('kagawad') || $user->hasrole('chairman'))
                 <div class="favorite-list-item">

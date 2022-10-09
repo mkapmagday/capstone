@@ -238,6 +238,30 @@ body {
 .messenger-favorites > div:active {
   transform: scale(0.9);
 }
+
+.messenger-officials {
+  padding: 10px;
+  overflow: auto;
+  white-space: nowrap;
+}
+.messenger-officials > div {
+  display: inline-block;
+  text-align: center;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+.messenger-officials > div p {
+  font-size: 12px;
+  margin: 8px 0px;
+  margin-bottom: 0px;
+}
+.messenger-officials div.avatar {
+  border: 2px solid #fff;
+  margin: 0px 4px;
+}
+.messenger-officials > div:active {
+  transform: scale(0.9);
+}
 .messenger-title {
   margin: 0;
   padding: 10px;
