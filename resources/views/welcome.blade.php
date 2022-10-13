@@ -81,12 +81,31 @@
 	color: #fff;
 }
 
+a {
+	font-family: 'Helvetica Neue', sans-serif;
+	font-weight: bold; 
+	letter-spacing: -1px; 
+	line-height: 1; 
+	text-align: center;
+	font-size: 110px;
+	margin-right: 80px;
+	margin-left:50px;
+	
+}
+a:hover {
+	color: #fff;
+	background-color: #1a202c;
+	padding-top: 100px;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-bottom: 18px;
+}
         </style>
     </head>
-    <body class="antialiased">
+    <body class="antialiased" >
         <div >
             @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block" >
                     @auth
                         <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
                     @else
@@ -99,19 +118,19 @@
                 </div>
             @endif
 
-            <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-		<div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-image: linear-gradient(to right, white, #7fa046); padding-bottom: 15px; padding-top: 15px;">
+		<div class="container" >
 			<a class="navbar-brand" href="#"></a> <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
             @if (Route::has('login'))  
-				<ul class="navbar-nav ml-auto">
+				<ul class="navbar-nav ml-auto" >
 					<li class="nav-item active">
                     @auth
                         <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
                     @else
 					</li>
 					<li class="nav-item">
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline" >Log in</a>
 					</li>
 					<li class="nav-item">
                     @if (Route::has('register'))
@@ -124,7 +143,7 @@
 			</div>
 		</div>
 	</nav>
-	<div class="carousel slide" data-ride="carousel" id="carouselExampleIndicators">
+	<div class="carousel slide" data-ride="carousel" id="carouselExampleIndicators" style="margin-top: 55px;">
 		<ol class="carousel-indicators">
 			<li class="active" data-slide-to="0" data-target="#carouselExampleIndicators"></li>
 			<li data-slide-to="1" data-target="#carouselExampleIndicators"></li>
@@ -134,31 +153,31 @@
 		</ol>
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img alt="First slide" class="" src="https://i.ibb.co/2WZZkd5/Slide1-Logo2.jpg">
+				<img alt="First slide" class="" src="https://i.ibb.co/Pmp160n/Slide1-Logo3.jpg">
 				<div class="carousel-caption d-none d-md-block">
 					
 				</div>
 			</div>
 			<div class="carousel-item">
-				<img alt="Second slide" class="" src="https://i.ibb.co/8rSjDV5/Login-Register.jpg">
+				<img alt="Second slide" class="" src="https://i.ibb.co/Q6WPrZg/Login-Register1.jpg">
 				<div class="carousel-caption d-none d-md-block">
 					
 				</div>
 			</div>
 			<div class="carousel-item">
-				<img alt="Third slide" class="" src="https://i.ibb.co/hF39stV/Authenticate.jpg">
+				<img alt="Third slide" class="" src="https://i.ibb.co/HPyffKs/Authenticate1.jpg">
 				<div class="carousel-caption d-none d-md-block">
 					
 				</div>
 			</div>
             <div class="carousel-item">
-				<img alt="Fourth slide" class="" src="https://i.ibb.co/w7LqXf7/Request.jpg">
+				<img alt="Fourth slide" class="" src="https://i.ibb.co/SX7d2m2/Request1.jpg">
 				<div class="carousel-caption d-none d-md-block">
 					
 				</div>
 			</div>
 			<div class="carousel-item">
-				<img alt="Fifth slide" class="d-block w-100" src="https://i.ibb.co/B6QsN8f/Chatify.jpg">
+				<img alt="Fifth slide" class="d-block w-100" src="https://i.ibb.co/0qgBN34/Chatify1.jpg">
 				<div class="carousel-caption d-none d-md-block">
 					
 				</div>
