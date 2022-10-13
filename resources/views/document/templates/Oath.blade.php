@@ -6,31 +6,38 @@
 
 <body>
 
-
-
-    <div class=header>
-        <h3>REPUBLIC OF THE PHILIPPINES<br>
+    <div class=header>      
+        <h4>REPUBLIC OF THE PHILIPPINES<br>
             CITY OF MANILA <br>
-            OFFICE OF THE BARANGAY CHAIRMAN</h3>
-        <h3>BARANGAY 386 ZONE 39</h3>
-        <h3>DISTRICT III</h3>
+            OFFICE OF THE BARANGAY CHAIRMAN<br>
+       BARANGAY 386 ZONE 39<br>
+       DISTRICT III <br><br>
+  <u>  #401 J. Nepomucemo St. Quiapo 1001 Manila CP# 0995-342-3135 Email: 386zone39@gmail.com </u> </h4>
+
+  <div class=logo>
+    <img src="https://i.ibb.co/GQzgtG1/My-project.png" alt="Brgy386logo" height="100px"
+    width="100px">
+</div>
+
+<div class=logo2>
+    <img src="https://i.ibb.co/Nnn3kGQ/Ph-seal-ncr-manila-svg.png" alt="Manilalogo" height="95px"
+    width="95px">
+</div>
+
     </div>
 
-
-    <br><br>
-
-    <div class="background">
+  
         <div class="certificate">
             <u> <b>
-                    <h1>OATH OF UNDERTAKING</h1>
-                    <p>Republic Act 11261 - First Time Jobseekers Assistance Act</p>
+                    <h6>OATH OF UNDERTAKING</h6>
                 </b> </u>
         </div>
-        <br>
+        <p class="republic">Republic Act 11261 - First Time Jobseekers Assistance Act</p>
+        
         <div class="message">
 
-            <p>I <u>name </u> , <u>age </u> years of age, a resident of
-            <u>address </u> (complete address) for ___________ (years/months)availing the benefits of <b>Republic Act 11261,</b> other wise known as
+            <p>I <u>{{$docres->fname}} {{$docres->mname}} {{$docres->lname}}</u> , <u> {{$docres->age}} </u> years of age, a resident of
+            <u>{{$docres->address}}</u> for <u>{{$docres->years}}(years)</u>  <u>{{$docres->years}}(months)</u>availing the benefits of <b>Republic Act 11261,</b> other wise known as
         the <b>First Time Jeobsekers Act of 2019,</b> do hereby declare agree and undertaking to abide and be bound by the following:</p>
                 <p>1. That this is the first time that I will actively look for a job therefor requesting that a barangay Certificate be issued in my
                     favor to avail the benefits of the law.</p>
@@ -54,45 +61,32 @@
                 <p>9. That I consent to the use of my personal information pursuant to the Data Privacy Act and other applicable laws, rules, and 
                     regulations.
                 </p>
-            <br>
-     
-            <br>
-            <p> Signed this <u>{{$date->day}} </u>day of <u>{{$month}} {{$date->year}} </u> in the City/Municipality of 
-                <u>_______________</u>.</p>
 
-            <br>
- 
+
+            <p> Signed this <u>{{$date->day}} </u>day of <u>{{$month}} {{$date->year}} </u> in the City/Municipality of 
+                <u>{{$docres->municipality}}</u>.</p>
+
 
         </div>
        
         <div class="jobseeker">
-            <br><br><br>
             <p>Signed by:</p>
-            <br><br>
-            <h3>_________________</h3>
-            <p>NAME </p>
-            <h3>First Time Jobseeker Name</h3>
+           <h3><u>{{$docres->fname}} {{$docres->mname}} {{$docres->lname}}</u></h3> 
+           <b> <p style="margin-top: -20px;">First Time Jobseeker Name </p> </b>
+           
         </div>
 
 
         <div class="certifiedby">
-            <br><br><br>
             <p>Witnessed by:</p>
-            <br><br>
             @foreach($user as $user)
             @if ($user->hasrole('chairman'))
-            <h3>{{$user->name}}</h3>
+          <u>  <h3>{{$user->name}}</h3> </u>
             @endif
             @endforeach
-            <h3>Barangy Captain</h3>
-            <p style="margin-top: -5px;">Punong Barangay</p>
+            <p style="margin-top: -20px;">Punong Barangay</p>
         </div>
-    </div>
-    <div class="seal">
-        <br><br>
-        <p>This is not Valid without a seal.</p>
-    </div>
-
+   
 </body>
 
 </html>
@@ -100,64 +94,63 @@
 
 
 <style type="text/css">
-    .logo {
-        height: 100px;
+    p.republic{
+        margin-top: -45px;
+        font-size: 14px;
+        text-align: center;
+    }
+      .logo {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-left: -700px;
-
+        margin-left: -550px;
+        margin-top: -150px;
     }
 
     .logo2 {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-left: 700px;
-        margin-top: -125px;
-
+        margin-left: 550px;
+        margin-top: -100px;
     }
 
+   
     .header {
-        margin-top: -120px;
+        margin-top: 10px;
         text-align: center;
     }
 
     .certificate {
         text-align: center;
-        font-size: 40px;
+        font-size: 30px;
         text-decoration: double;
     }
 
     .message {
         text-align: justify;
-        text-indent: 70px;
-        font-size: 25px;
-
-        padding-left: 185px;
-        padding-right: 160px;
+        text-indent: 40px;
+        font-size: 16px;
+        margin-top: -20px;
+        padding-left: 50px;
+        padding-right: 50px;
     }
 
-    .to {
-        margin-left: -520px;
-        text-align: center;
-        font-size: 25px;
-    }
+  .jobseeker{
+ 
+        margin-left:80px
+  
+  }
 
     .certifiedby {
-        margin-left: 650px;
-        text-align: center;
-    }
+        margin-top: -120px;
+         margin-left: 400px;
+         text-align: center;
+     }
 
-    .background {
-        background-image: url('./image/logo2.JPG');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 50% 100%;
-    }
-
-    .seal {
-        margin-left: -550px;
+   
+     .seal {
+        margin-left: -350px;
         text-align: center;
     }
 

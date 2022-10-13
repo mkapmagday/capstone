@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
+use Error;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -68,14 +69,14 @@ class AdminUserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request)
-    {
+    {   
         $name = $request->name;
         $email = $request->email;
-
         $users = User::where('name', 'like' ,$name.'%')
                     ->where('email', 'like' ,$email.'%')
                     ->paginate(5)
                     ->appends(request()->query());
+
 
         return view('admin.user.usersearch',compact('users','request','name','email'));
 
@@ -127,7 +128,7 @@ class AdminUserController extends Controller
     {
         try{
             User::destroy($id);
-            return back();
+            return response()->json(['Deleted Successfully']);
         }
         catch(\Illuminate\Database\QueryException){
             return back()->with('notification','error');

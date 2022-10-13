@@ -97,11 +97,7 @@
                                     </form>
                                 </td>
                                 <td class="px-6 py-4 text-sm">
-                                    <form action="{{ route('user.destroy',$user->id) }}" method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button class="open-button" style="background-color: #8B0000; color: white;" onclick="return confirm('Do you want to delete? ')" type="submit">Delete</button>
-                                    </form>
+                                    <button class="open-button delete_button" value={{$user->id}} style="background-color: #8B0000; color: white;"  type="submit">Delete</button>
                                 </td>
                             </tr>
                             @endforeach
@@ -219,8 +215,50 @@
 </style>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type='text/javascript'>
+     $(document).ready(function() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $('.delete_button').click(function(e) {
+            e.preventDefault();
+            var delete_id = $(this).val();
+            console.log(delete_id);
+            swal({
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to recover this imaginary file!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        var data = {
+                            "_token": $('input[name="csrf-token"]').val(),
+                            "id": delete_id,
+                        }
+                        $.ajax({
+                            type: "delete",
+                            url: "{{ route('user.destroy',$user->id) }}",
+                            data: data,
+                            success: function() {
+                                swal("Poof! Your imaginary file has been deleted!", {
+                                        icon: "success",
+                                    })
+                                    .then((willDelete) => {
+                                        location.replace("{{ route('user.index')}}");
+                                    });
+                            }
+                        });
+                    }
+
+                });
+
+        });
+    });
         $(function() {
             var overlay = $('<div id="overlay"></div>');
             overlay.show();

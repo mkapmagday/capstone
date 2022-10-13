@@ -98,9 +98,10 @@ class AdminRoleController extends Controller
         $role->delete();
         return back();
     }
+    
     public function assignRole(Request $request, User $user){
         if ($user->hasRole($request->role)) {
-            return back()->with('message', 'Role exists.');
+            return redirect()->route('user.index');
         }
         $user->assignRole($request->role);
         return back()->with('message', 'Role assigned.');

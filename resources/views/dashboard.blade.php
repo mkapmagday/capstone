@@ -1,10 +1,4 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -30,80 +24,70 @@
                     @endhasrole
 
                     @hasrole('resident')
-          <table>
-            <tr>
-              <td>
-                <div class="py-12">
-                  <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                      <div class="p-6 bg-white border-b border-gray-200">
-                        <h2>Total Number Of Request: </h2>
-                        @foreach($docres1 as $docres)
-                        @if($loop->last)
-                        <h3>{{$loop->count}}
-                          @endif
-                          @endforeach
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </td>
-
-              <td>
-                <div class="py-12">
-                  <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                      <div class="p-6 bg-white border-b border-gray-200">
-                        <h2>Total Number Of Request Pending: </h2>
-                        @foreach($pending as $pending)
-                        @if($loop->last)
-                        <h3>{{$loop->count}}</h3>
-                        @endif
-                        @endforeach
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <div class="py-12">
-                  <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                      <div class="p-6 bg-white border-b border-gray-200">
-                        <h2>Total Number Of Request Approved: </h2>
-                        @foreach($approved as $approved)
-                        @if($loop->last)
-                        <h3>{{$loop->count}}</h3>
-                        @endif
-                        @endforeach
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </td>
-
-              <td>
-                <div class="py-12">
-                  <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                      <div class="p-6 bg-white border-b border-gray-200">
-                        <h2>Total Number Of Request Claimed: </h2>
-                        @foreach($claimed as $claimed)
-                        @if($loop->last)
-                        <h3>{{$loop->count}}</h3>
-                        @endif
-                        @endforeach
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </td>
-            </tr>
-          </table>
-          @endhasrole
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Total Number Of Request: </h5>
+            <p class="card-text">
+              @foreach($docres1 as $docres)
+              @if($loop->last)
+              {{$loop->count}}
+              @endif
+              @endforeach
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Total Number Of Request Pending: </h5>
+            <p class="card-text">
+              @foreach($pending as $pending)
+              @if($loop->last)
+              {{$loop->count}}
+              @endif
+              @endforeach
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    &nbsp;
+    <div class="row">
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Total Number Of Request Approved: </h5>
+            <p class="card-text">
+              @foreach($approved as $approved)
+              @if($loop->last)
+              {{$loop->count}}
+              @endif
+              @endforeach
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Total Number Of Request Claimed: </h5>
+            <p class="card-text">
+              @foreach($claimed as $claimed)
+              @if($loop->last)
+              {{$loop->count}}
+              @endif
+              @endforeach
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endhasrole
                 </div>
             </div>
         </div>

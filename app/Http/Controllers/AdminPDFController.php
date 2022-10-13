@@ -38,7 +38,7 @@ class AdminPDFController extends Controller
             $pdf = PDF::loadView('document.templates.JobSeeker', compact('docres','date','month','user','role'));
         }
         else if($docres->document_id == 5){
-            $pdf = PDF::loadView('document.templates.CertificationStipend', compact('docres','date','month','user','role'));
+            $pdf = PDF::loadView('document.templates.Oath', compact('docres','date','month','user','role'));
         }
         else if($docres->document_id == 6){
             $pdf = PDF::loadView('document.templates.Oneness', compact('docres','date','month','user','role'));
@@ -96,7 +96,7 @@ class AdminPDFController extends Controller
             return view('document.templates.JobSeeker', compact('docres','date','month','user','role'));
         }
         else if($docres->document_id == 5){
-            return view('document.templates.CertificationStipend', compact('docres','date','month','user','role'));
+            return view('document.templates.Oath', compact('docres','date','month','user','role'));
         }
         else if($docres->document_id == 6){
             return view('document.templates.Oneness', compact('docres','date','month','user','role'));

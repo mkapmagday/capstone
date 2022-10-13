@@ -1,39 +1,35 @@
 <x-app-layout >
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            
-        </h2>
-    </x-slot>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <table>
+                    <table class="table table-dark table-hover">
                         <tr>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">USER_ID</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">LAST NAME </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">FIRST NAME</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">DOCUMENT NAME</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">STATUS</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider" style="text-align:center ;">ACTIONS
+                            <th>USER_ID</th>
+                            <th>LAST NAME </th>
+                            <th>FIRST NAME</th>
+                            <th>DOCUMENT NAME</th>
+                            <th>STATUS</th>
+                            <th>ACTIONS</th>
                         </tr>
                         @foreach ($docres as $docress)
                         <tr>
-                            <td class="px-6 py-4 whitespace-nowrap">{{$docress->user_id}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{$docress->lname}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{$docress->fname}}</td>
+                            <td>{{$docress->user_id}}</td>
+                            <td>{{$docress->lname}}</td>
+                            <td>{{$docress->fname}}</td>
                             @foreach($doclist as $document)
                             @if($docress->document_id == $document->id)
-                            <td class="px-6 py-4 whitespace-nowrap">{{$document->document_name}}</td>
+                            <td>{{$document->document_name}}</td>
                             @if($docress->status == "pending")
-                            <td class="px-6 py-4 whitespace-nowrap"><button type="button" class="btn btn-primary" disabled>{{$docress->status}}</button></td>
+                            <td><button type="button" class="btn btn-primary" disabled>{{$docress->status}}</button></td>
                             @elseif($docress->status == "approved")
-                            <td class="px-6 py-4 whitespace-nowrap"><button type="button" class="btn btn-secondary" disabled>{{$docress->status}}</button></td>
+                            <td><button type="button" class="btn btn-secondary" disabled>{{$docress->status}}</button></td>
                             @elseif($docress->status == "for_claiming")
-                            <td class="px-6 py-4 whitespace-nowrap"><button type="button" class="btn btn-success" disabled>{{$docress->status}}</button></td>
+                            <td><button type="button" class="btn btn-success" disabled>{{$docress->status}}</button></td>
                             @elseif($docress->status == "claimed")
-                            <td class="px-6 py-4 whitespace-nowrap"><button type="button" class="btn btn-danger" disabled>{{$docress->status}}</button></td>
-                            @endif                            <td class="px-6 py-4 whitespace-nowrap">
+                            <td><button type="button" class="btn btn-danger" disabled>{{$docress->status}}</button></td>
+                            @endif                            
+                            <td>
                                 <form action="{{ route('residentpdf.show',$docress->id) }}">
                                     <button type="submit" class="btn btn-success">Show</button>
                                 </form>

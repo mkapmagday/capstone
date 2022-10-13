@@ -1,209 +1,192 @@
-<x-app-layout >
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            
-        </h2>
-    </x-slot>
+<x-app-layout>
     <center>
-    <form method="POST" action="{{ route('residentdocres.store')}}">
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <select required name="document_list" id="document_list" class="form-control" style="width: 550px;">
-                    @foreach (App\Models\DocumentList::all() as $document)
-                    <option value={{$document->id}}>{{$document->document_name}}</option>
-                    @endforeach
-                </select>
-            </div>
-        </div>
-        </center>
-     
-
-        
-    
-
-        
-
-        <div class='popup'>
-            <div class='cnt223'>
-                <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                        <a href='' class='close'><img src="https://img.icons8.com/color/48/000000/delete-sign--v1.png" /></a>
+        <form method="POST" action="{{ route('residentdocres.store')}}">
+            <select required name="document_list" id="document_list" class="form-control">
+                @foreach (App\Models\DocumentList::all() as $document)
+                <option value={{$document->id}}>{{$document->document_name}}</option>
+                @endforeach
+            </select>
+    </center>
 
 
-                        @csrf
-                        <div style="padding-top: 0px;">
 
-                            <tr>
-                                <td>
-                                    <x-input-label for="lname" :value="__('Last Name')" />
-                                </td>
-                                <td>&nbsp;</td>
-                                <td>
-                                    <x-text-input id="lname" type="text" name="lname" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <x-input-label for="fname" :value="__('First Name')" />
-                                </td>
-                                <td>&nbsp;</td>
-                                <td>
-                                    <x-text-input id="fname" type="text" name="fname" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <x-input-label for="mname" :value="__('Middle Name')" />
-                                </td>
-                                <td>&nbsp;</td>
-                                <td>
-                                    <x-text-input id="mname" type="text" name="mname" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <x-input-label for="pnum" :value="__('Phone Number')" />
-                                </td>
-                                <td>&nbsp;</td>
-                                <td>
-                                    <select id="country_code">
-                                        <option value="">Select Country</option>
-                                        <option value="ph">&#127477;&#127469;</option>
-                                    </select>
-                                    <x-text-input id="pnum" type="text" name="pnum" />
-                                </td>
-                            </tr>
-                            <div id="bdate">
-                                <tr>
-                                    <td>
-                                        <x-input-label for="bdate" :value="__('Date of Birth')" />
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <x-text-input id="bdate" type="date" name="bdate" />
-                                    </td>
-                                </tr>
-                            </div>
-                            <div id="years">
-                                <tr>
-                                    <td>
-                                        <x-input-label for="years" :value="__('Years')" />
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <x-text-input id="years" type="text" name="years" />
-                                    </td>
-                                </tr>
-                            </div>
-                            <div id="months">
-                                <tr>
-                                    <td>
-                                        <x-input-label for="months" :value="__('Months')" />
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <x-text-input id="months" type="months" name="months" />
-                                    </td>
-                                </tr>
-                            </div>
-                            <div id="municipality">
-                                <tr>
-                                    <td>
-                                        <x-input-label for="municipality" :value="__('Municipality')" />
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <x-text-input id="municipality" type="text" name="municipality" />
-                                    </td>
-                                </tr>
-                            </div>
-                            <div id="age">
-                                <tr>
-                                    <td>
-                                        <x-input-label for="age" :value="__('age')" />
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <x-text-input id="age" type="text" name="age" />
-                                    </td>
-                                </tr>
-                            </div>
-                            <div id="representative">
-                                <tr>
-                                    <td>
-                                        <x-input-label for="representative" :value="__('Representative')" />
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <x-text-input id="representative" type="text" name="representative" />
-                                    </td>
-                                </tr>
-                            </div>
-                            <div id="address">
-                                <tr>
-                                    <td>
-                                        <x-input-label for="address" :value="__('Address')" />
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <x-text-input id="address" type="text" name="address" />
-                                    </td>
-                                </tr>
-                            </div>
-                            <div id="purpose">
-                                <tr>
-                                    <td>
-                                        <x-input-label for="purpose" :value="__('Purpose')" />
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <x-text-input id="purpose" type="text" name="purpose" />
-                                    </td>
-                                </tr>
-                            </div>
-                            <div id="reason">
-                                <tr>
-                                    <td>
-                                        <x-input-label for="reason" :value="__('Reason')" />
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <x-text-input id="reason" type="text" name="reason" />
-                                    </td>
-                                </tr>
-                            </div>
-                            <div id="relationship">
-                                <tr>
-                                    <td>
-                                        <x-input-label for="relation" :value="__('Relation')" />
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <x-text-input id="relation" type="text" name="relation" />
-                                    </td>
-                                </tr>
-                            </div>
 
-                            <tr>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td><button onclick="return confirm('Do you want to submit request? ')" type="submit" style="float: right;"><img src="https://img.icons8.com/external-sbts2018-flat-sbts2018/58/000000/external-submit-basic-ui-elements-2.3-sbts2018-flat-sbts2018.png" />SUBMIT</button></td>
-                            </tr>
-                        </div>
-                    </div>
+
+
+
+    <div class='popup'>
+        <div class='cnt223'>
+            <a href='' class='close'><img src="https://img.icons8.com/color/48/000000/delete-sign--v1.png" /></a>
+
+
+            @csrf
+            <div style="padding-top: 0px;">
+
+                <tr>
+                    <td>
+                        <x-input-label for="lname" :value="__('Last Name')" />
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <x-text-input id="lname" type="text" name="lname" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <x-input-label for="fname" :value="__('First Name')" />
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <x-text-input id="fname" type="text" name="fname" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <x-input-label for="mname" :value="__('Middle Name')" />
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <x-text-input id="mname" type="text" name="mname" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <x-input-label for="pnum" :value="__('Phone Number')" />
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <select id="country_code">
+                            <option value="">Select Country</option>
+                            <option value="ph">&#127477;&#127469;</option>
+                        </select>
+                        <x-text-input id="pnum" type="text" name="pnum" />
+                    </td>
+                </tr>
+                <div id="bdate">
+                    <tr>
+                        <td>
+                            <x-input-label for="bdate" :value="__('Date of Birth')" />
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <x-text-input id="bdate" type="date" name="bdate" />
+                        </td>
+                    </tr>
                 </div>
-            </div>
-        </div>
-    </form>
+                <div id="years">
+                    <tr>
+                        <td>
+                            <x-input-label for="years" :value="__('Years')" />
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <x-text-input id="years" type="text" name="years" />
+                        </td>
+                    </tr>
+                </div>
+                <div id="months">
+                    <tr>
+                        <td>
+                            <x-input-label for="months" :value="__('Months')" />
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <x-text-input id="months" type="months" name="months" />
+                        </td>
+                    </tr>
+                </div>
+                <div id="municipality">
+                    <tr>
+                        <td>
+                            <x-input-label for="municipality" :value="__('Municipality')" />
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <x-text-input id="municipality" type="text" name="municipality" />
+                        </td>
+                    </tr>
+                </div>
+                <div id="age">
+                    <tr>
+                        <td>
+                            <x-input-label for="age" :value="__('age')" />
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <x-text-input id="age" type="text" name="age" />
+                        </td>
+                    </tr>
+                </div>
+                <div id="representative">
+                    <tr>
+                        <td>
+                            <x-input-label for="representative" :value="__('Representative')" />
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <x-text-input id="representative" type="text" name="representative" />
+                        </td>
+                    </tr>
+                </div>
+                <div id="address">
+                    <tr>
+                        <td>
+                            <x-input-label for="address" :value="__('Address')" />
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <x-text-input id="address" type="text" name="address" />
+                        </td>
+                    </tr>
+                </div>
+                <div id="purpose">
+                    <tr>
+                        <td>
+                            <x-input-label for="purpose" :value="__('Purpose')" />
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <x-text-input id="purpose" type="text" name="purpose" />
+                        </td>
+                    </tr>
+                </div>
+                <div id="reason">
+                    <tr>
+                        <td>
+                            <x-input-label for="reason" :value="__('Reason')" />
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <x-text-input id="reason" type="text" name="reason" />
+                        </td>
+                    </tr>
+                </div>
+                <div id="relationship">
+                    <tr>
+                        <td>
+                            <x-input-label for="relation" :value="__('Relation')" />
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <x-text-input id="relation" type="text" name="relation" />
+                        </td>
+                    </tr>
+                </div>
 
-    <div class="py-12">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-    <div class="container-fluid" style="margin-left:130px;">
-                <image id="documentimage" src="" style="height: 900px; width:850px;"></image>
-    </div>
-    
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td><button onclick="return confirm('Do you want to submit request? ')" type="submit" style="float: right;"><img src="https://img.icons8.com/external-sbts2018-flat-sbts2018/58/000000/external-submit-basic-ui-elements-2.3-sbts2018-flat-sbts2018.png" />SUBMIT</button></td>
+                </tr>
+            </div>
+
         </div>
     </div>
+    </form>
+    <p>&nbsp;</p>
+    <center>
+    <image id="documentimage" src="" style="height: 900px; width:850px;"></image>
+    </center>
 
 
 
@@ -240,8 +223,7 @@
     }
 
     .cnt223 {
-        min-width: 600px;
-        width: 600px;
+        width: 50%;
         min-height: 150px;
         margin: 100px auto;
         background: #f3f3f3;
@@ -279,6 +261,7 @@
     }
 
     #documentimage {
+        text-align: center;
         width: 100%;
         display: inline-block;
         overflow: hidden;

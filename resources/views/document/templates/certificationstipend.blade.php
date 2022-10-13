@@ -1,84 +1,84 @@
 <html>
 
 <head>
-    <title>Barangay Certificate (Social Person stipend)</title>
+    <title>Certifcate of Stipend</title>
 </head>
 
 <body>
 
-
-
-    <div class=header>
-        <h3>REPUBLIC OF THE PHILIPPINES<br>
+    <div class=header>      
+        <h4>REPUBLIC OF THE PHILIPPINES<br>
             CITY OF MANILA <br>
-            OFFICE OF THE BARANGAY CHAIRMAN</h3>
-        <h3>BARANGAY 386 ZONE 39</h3>
-        <h3>DISTRICT III</h3>
+            OFFICE OF THE BARANGAY CHAIRMAN<br>
+       BARANGAY 386 ZONE 39<br>
+       DISTRICT III <br><br>
+  <u>  #401 J. Nepomucemo St. Quiapo 1001 Manila CP# 0995-342-3135 Email: 386zone39@gmail.com </u> </h4>
+
+  <div class=logo>
+    <img src="https://i.ibb.co/GQzgtG1/My-project.png" alt="Brgy386logo" height="100px"
+    width="100px">
+</div>
+
+<div class=logo2>
+    <img src="https://i.ibb.co/Nnn3kGQ/Ph-seal-ncr-manila-svg.png" alt="Manilalogo" height="95px"
+    width="95px">
+</div>
+
     </div>
 
-
-    <br><br>
-
-    <div class="background">
+ 
         <div class="certificate">
             <u> <b>
-                    <h1>BARANGAY CERTIFICATION</h1>
+                    <h5>BARANGAY CERTIFICATION</h5>
                 </b> </u>
-
         </div>
-        <div class="to">
-            <p>To whom it may concern:</p>
-        </div>
-        <br>
-        <div class="message">
+        
+        <p class="message" >
+            <b class="to"> TO WHOM IT MAY CONCERN: </b> <br> </p>
 
-            <p>This is to certify that <u>{{$docres->fname}} {{$docres->mname}} {{$docres->lname}}</u> was born on <u>{{$docres->bdate}}</u> is a bonafide
-            resident of Barangay 386, Zone-39, District-3, Manila.</p>
+        
+     
+
+            <p class="message">This is to certify that <u>{{$docres->fname}} {{$docres->mname}} {{$docres->lname}}</u> was born on <u>{{$docres->bdate}}</u> is a bonafide
+            resident of Barangay 386, Zone-39, District-3, Manila. </p>
 
             <br>
          
-            <p>This further certify that <u>{{$docres->fname}} {{$docres->mname}} {{$docres->lname}}</u> authorized his/her <u>{{$docres->relation}}</u>
-        to claim his/her <u>{{$docres->purpose}}</u> on his/her behalf because he/she <u>{{$docres->reason}}</u>.</p>
+            <p class="message">This further certify that <u>{{$docres->fname}} {{$docres->mname}} {{$docres->lname}}</u> authorized his/her <u>{{$docres->relation}}</u>
+        to claim his/her <u>{{$docres->purpose}}</u> on his/her behalf because he/she <u>{{$docres->reason}}</u>. </p>
             <br>
-            <p> This certification is given this <u>{{$date->day}} </u>day of <u>{{$month}} {{$date->year}} </u>.</p>
+            <p class="message"> This certification is given this <u>{{$date->day}} </u>day of <u>{{$month}} {{$date->year}} </u>.</p>
 
             <br>
-            <
-
-        </div>
+            
        
-        <div class="representative">
-            <br><br><br>
-   
-            <h3>{{$docres->representative}}</h3>
-            <p>NAME of Representative</p>
-            <h3>(Signature)</h3>
-            <p style="margin-top: -5px;">(Signature)</p>
+       
+        <div class="representative">  
+            <br> 
+            <u><h3>{{$docres->representative}}</h3></u>
+            <p style="margin-top: -20px;"> Name of Representative </p>
+            <p style="margin-top: -20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Signature)</p>
         </div>
 
-        <div class="beneficiary">
-            <br><br><br>
-   
-            <h3>{{$docres->fname}} {{$docres->mname}} {{$docres->lname}}</h3>
-            <p>NAME of Beneficiary</p>
-            <p style="margin-top: -5px;">(Signature and Thumb mark)</p>
+        <div class="beneficiary">  
+            <br>     <br> 
+           <u> <h3>{{$docres->fname}} {{$docres->mname}} {{$docres->lname}}</h3> </u>
+            <p style="margin-top: -20px;">&nbsp;&nbsp;&nbsp;&nbsp; NAME of Beneficiary</p>
+            <p style="margin-top: -20px;">(Signature and Thumb mark)</p>
         </div>
 
         <div class="certifiedby">
-            <br><br><br>
-            <p>Certified by:</p>
             <br><br>
             @foreach($user as $user)
             @if ($user->hasrole('chairman'))
-            <h3>{{$user->name}}</h3>
+         <u>   <h3>{{$user->name}}</h3> </u>
             @endif
             @endforeach
-            <h3>Barangy Captain</h3>
-            <p style="margin-top: -5px;">Punong Barangay</p>
+            <p style="margin-top: -20px;">Barangy Captain</p>
         </div>
-    </div>
+ 
     <div class="seal">
-        <br><br>
+        <br><br><br><br><br>
         <p>This is not Valid without a seal.</p>
     </div>
 
@@ -90,25 +90,24 @@
 
 <style type="text/css">
     .logo {
-        height: 100px;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-left: -700px;
-
+        margin-left: -550px;
+        margin-top: -150px;
     }
 
     .logo2 {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-left: 700px;
-        margin-top: -125px;
-
+        margin-left: 550px;
+        margin-top: -100px;
     }
 
+   
     .header {
-        margin-top: -120px;
+        margin-top: 10px;
         text-align: center;
     }
 
@@ -118,102 +117,42 @@
         text-decoration: double;
     }
 
-    .message {
+    p.message {
+        justify-content: center;
         text-align: justify;
         text-indent: 70px;
-        font-size: 25px;
-
-        padding-left: 185px;
-        padding-right: 160px;
-    }
-
-    .to {
-        margin-left: -520px;
+        font-size: 20px;
+        padding-left: 50px;
+        padding-right:50px;
+        
+    }   
+    b.to {
+        justify-content: center;
+        text-indent: -390px;
         text-align: center;
-        font-size: 25px;
+        font-size: 15px;
+        margin-top: -50px;
+        display: block;
     }
 
     .certifiedby {
-        margin-left: 650px;
+        margin-top: -250px;
+        margin-left: 400px;
         text-align: center;
     }
 
-    .background {
-        background-image: url('./image/logo2.JPG');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 50% 100%;
-    }
+
 
     .seal {
-        margin-left: -550px;
+        margin-left: -350px;
         text-align: center;
     }
-
-    /*
-Pop Up Form
-*/
-
-    #overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #000;
-        filter: alpha(opacity=70);
-        -moz-opacity: 0.7;
-        -khtml-opacity: 0.7;
-        opacity: 0.7;
-        z-index: 100;
-        display: none;
+    .representative {
+        margin-left: 50px
     }
-
-    .popup {
-        width: 100%;
-        display: none;
-        position: absolute;
-        z-index: 101;
-    }
-
-    .cnt223 {
-        min-width: 600px;
-        width: 600px;
-        min-height: 150px;
-        margin: 100px auto;
-        background: #f3f3f3;
-        position: absolute;
-        z-index: 103;
-        padding: 15px 35px;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px #000;
-        margin-left: 300px;
-    }
-
-    .cnt223 p {
-        clear: both;
-        color: #555555;
-        /* text-align: justify; */
-        font-size: 20px;
-        font-family: sans-serif;
-    }
-
-    .cnt223 p a {
-        color: #d91900;
-        font-weight: bold;
-    }
-
-    .cnt223 .x {
-        float: right;
-        height: 35px;
-        left: 22px;
-        position: relative;
-        top: -25px;
-        width: 34px;
-    }
-
-    .cnt223 .x:hover {
-        cursor: pointer;
+  
+    .beneficiary{
+        margin-left: 50px
     }
 </style>
 

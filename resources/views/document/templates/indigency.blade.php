@@ -6,75 +6,63 @@
 
 <body>
 
-
-
-    <div class=header>
-        <h3>REPUBLIC OF THE PHILIPPINES<br>
+    <div class=header>      
+        <h4>REPUBLIC OF THE PHILIPPINES<br>
             CITY OF MANILA <br>
-            OFFICE OF THE BARANGAY CHAIRMAN</h3>
-        <h3>BARANGAY 386 ZONE 39</h3>
-        <h3>DISTRICT III</h3>
+            OFFICE OF THE BARANGAY CHAIRMAN<br>
+       BARANGAY 386 ZONE 39<br>
+       DISTRICT III <br><br>
+  <u>  #401 J. Nepomucemo St. Quiapo 1001 Manila CP# 0995-342-3135 Email: 386zone39@gmail.com </u> </h4>
+
+  <div class=logo>
+    <img src="https://i.ibb.co/GQzgtG1/My-project.png" alt="Brgy386logo" height="100px"
+    width="100px">
+</div>
+
+<div class=logo2>
+    <img src="https://i.ibb.co/Nnn3kGQ/Ph-seal-ncr-manila-svg.png" alt="Manilalogo" height="95px"
+    width="95px">
+</div>
+
     </div>
-
-
-    <br><br>
-
-    <div class="background">
+    
         <div class="certificate">
             <u> <b>
-                    <h1>CERTIFICATE OF INDIGENCY</h1>
+                    <h6>CERTIFICATE OF INDIGENCY</h6>
                 </b> </u>
-
         </div>
         <br>
-        <div class="message">
-
-            <p>This is to certify that <u>{{$docres->fname}} {{$docres->mname}} {{$docres->lname}}</u> with postal address @ <u>{{$docres->address}}</u> is a bonafide
+        <div class=cont>
+            <p class="message">This is to certify that <u>{{$docres->fname}} {{$docres->mname}} {{$docres->lname}}</u> with postal address @ <u>{{$docres->address}}</u> is a bonafide
             resident of Barangay 386, Zone-39, District-3, Manila.</p>
+              
+            <p style="text-indent: 130px; margin-top: 30px;">It is further certified that:</p>
+            <p class="message" style="margin-top: -15px;"> HE/SHE has known to me of good moral character and can be trusted; 
+                <p class="message" style="margin-top: -15px;">   HE/SHE belong to indigent family of our barangay.</p>
+                            <p style="text-indent: 250px;">No Meager Income</p>
+                            <p style="text-indent: 250px;">No Stable Job</p>
+
+            <p style="text-indent: 70px;  padding-left: 50px;
+            padding-right:50px;"> This certification is being issued upon the request by the above mentioned for <u>{{$docres->purpose}}</u>. </p>
 
             <br>
-            <p>It is further certified that:</p>
-            <p>HE/SHE has known to me of good moral character and can be trusted;</p>
-            <p>HE/SHE belong to indigent family of our barangay.</p>
-                            <p>No Meager Income</p>
-                            <p>No Stable Job</p>
-            <br>
-            <p> This certification is being issued upon the request by the above mentioned for <u>{{$docres->purpose}}</u>. </p>
-
-            <br>
-            <p> Given this<u>{{$date->day}} </u>day of <u>{{$month}} {{$date->year}} </u>.
+            <p style="text-align: center;"> Given this <u>{{$date->day}} </u>day of <u>{{$month}} {{$date->year}} </u>.
             </p>
-
         </div>
-       
-        <div class="secretary">
-            <br><br><br>
-            <p>Prepared by:</p>
-            <br><br>
-            @foreach($user as $users)
-            @if ($users->hasrole('secretary'))
-            <h3>{{$users->name}}</h3>
-            @endif
-            @endforeach
-            <p>NAME of Secretary</p>
-            <h3>Secretary</h3>
-            <p style="margin-top: -5px;">Secretary</p>
-        </div>
-
-
+   
         <div class="certifiedby">
-            <br><br><br>
-            <p>Certified by:</p>
+            <br><br>
+             <br><br>
             <br><br>
             @foreach($user as $user)
             @if ($user->hasrole('chairman'))
-            <h3>{{$user->name}}</h3>
+          <u>  <h3>{{$user->name}}</h3> </u>
             @endif
             @endforeach
-            <h3>Barangy Captain</h3>
-            <p style="margin-top: -5px;">Punong Barangay</p>
+        
+            <p style="margin-top: -20px;">Punong Barangay</p>
         </div>
-    </div>
+ 
     <div class="seal">
         <br><br>
         <p>This is not Valid without a seal.</p>
@@ -87,26 +75,31 @@
 
 
 <style type="text/css">
+    .cont {
+        margin-top: -50px;
+    }
+    p {
+        font-size: 20px;
+    }
     .logo {
-        height: 100px;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-left: -700px;
-
+        margin-left: -550px;
+        margin-top: -150px;
     }
 
     .logo2 {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-left: 700px;
-        margin-top: -125px;
-
+        margin-left: 550px;
+        margin-top: -100px;
     }
 
+   
     .header {
-        margin-top: -120px;
+        margin-top: 10px;
         text-align: center;
     }
 
@@ -118,11 +111,11 @@
 
     .message {
         text-align: justify;
-        text-indent: 70px;
-        font-size: 25px;
+        text-indent: 30px;
+        font-size: 20px;
+        padding-left: 50px;
+        padding-right:50px;
 
-        padding-left: 185px;
-        padding-right: 160px;
     }
 
     .to {
@@ -132,7 +125,8 @@
     }
 
     .certifiedby {
-        margin-left: 650px;
+        margin-top: -70px;
+        margin-left: 400px;
         text-align: center;
     }
 
@@ -143,76 +137,12 @@
         background-size: 50% 100%;
     }
 
+  
     .seal {
-        margin-left: -550px;
+        margin-left: -350px;
         text-align: center;
     }
 
-    /*
-Pop Up Form
-*/
-
-    #overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #000;
-        filter: alpha(opacity=70);
-        -moz-opacity: 0.7;
-        -khtml-opacity: 0.7;
-        opacity: 0.7;
-        z-index: 100;
-        display: none;
-    }
-
-    .popup {
-        width: 100%;
-        display: none;
-        position: absolute;
-        z-index: 101;
-    }
-
-    .cnt223 {
-        min-width: 600px;
-        width: 600px;
-        min-height: 150px;
-        margin: 100px auto;
-        background: #f3f3f3;
-        position: absolute;
-        z-index: 103;
-        padding: 15px 35px;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px #000;
-        margin-left: 300px;
-    }
-
-    .cnt223 p {
-        clear: both;
-        color: #555555;
-        /* text-align: justify; */
-        font-size: 20px;
-        font-family: sans-serif;
-    }
-
-    .cnt223 p a {
-        color: #d91900;
-        font-weight: bold;
-    }
-
-    .cnt223 .x {
-        float: right;
-        height: 35px;
-        left: 22px;
-        position: relative;
-        top: -25px;
-        width: 34px;
-    }
-
-    .cnt223 .x:hover {
-        cursor: pointer;
-    }
 </style>
 
 
