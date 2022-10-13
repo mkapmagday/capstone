@@ -94,7 +94,6 @@ a {
 }
 a:hover {
 	color: #fff;
-	background-color: #1a202c;
 	padding-top: 100px;
 	padding-left: 25px;
 	padding-right: 25px;
@@ -130,11 +129,11 @@ a:hover {
                     @else
 					</li>
 					<li class="nav-item">
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline" >Log in</a>
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline" ><img style="height:20px; width: 20px;" src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-sign-in-web-flaticons-lineal-color-flat-icons-3.png"/>Log in</a>
 					</li>
 					<li class="nav-item">
                     @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline"><img style="height:20px; width: 20px;" src="https://img.icons8.com/external-flaticons-flat-flat-icons/64/000000/external-register-nursing-flaticons-flat-flat-icons.png"/>Register</a>
                         @endif
 					</li>
 					@endauth
