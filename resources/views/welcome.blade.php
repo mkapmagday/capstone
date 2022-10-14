@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>BRGY 386</title>
 
@@ -92,6 +92,9 @@ a {
 	margin-left:50px;
 	
 }
+<<<<<<< HEAD
+
+=======
 a:hover {
 	color: #fff;
 	padding-top: 100px;
@@ -99,6 +102,7 @@ a:hover {
 	padding-right: 25px;
 	padding-bottom: 18px;
 }
+>>>>>>> 9f64b2924c21c33526063204206f56c1cb83e7cd
         </style>
     </head>
     <body class="antialiased" >
