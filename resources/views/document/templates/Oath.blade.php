@@ -36,8 +36,8 @@
         
         <div class="message">
 
-            <p>I <u>{{$docres->fname}} {{$docres->mname}} {{$docres->lname}}</u> , <u> {{$docres->age}} </u> years of age, a resident of
-            <u>{{$docres->address}}</u> for <u>{{$docres->years}}(years)</u>  <u>{{$docres->years}}(months)</u>availing the benefits of <b>Republic Act 11261,</b> other wise known as
+            <p>I, <u>{{$docres->fname}} {{$docres->mname}} {{$docres->lname}}</u> , <u> {{$docres->age}} </u> years of age, a resident of
+            <u>{{$docres->address}}</u> for <u>{{$docres->years}} years</u>  <u>{{$docres->years}} months</u> availing the benefits of <b>Republic Act 11261,</b> other wise known as
         the <b>First Time Jeobsekers Act of 2019,</b> do hereby declare agree and undertaking to abide and be bound by the following:</p>
                 <p>1. That this is the first time that I will actively look for a job therefor requesting that a barangay Certificate be issued in my
                     favor to avail the benefits of the law.</p>

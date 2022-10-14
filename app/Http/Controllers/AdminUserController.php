@@ -72,7 +72,7 @@ class AdminUserController extends Controller
     {   
         $name = $request->name;
         $email = $request->email;
-        $users = User::where('name', 'like' ,$name.'%')
+        $users = User::where('name', 'like' ,'%'.$name.'%')
                     ->where('email', 'like' ,$email.'%')
                     ->paginate(5)
                     ->appends(request()->query());

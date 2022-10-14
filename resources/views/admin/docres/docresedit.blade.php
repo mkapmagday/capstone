@@ -428,21 +428,8 @@
 
         //Get the selected value
         console.log($("#document_list").val());
-        $('.Certification').show();
-        $('.Authorization').hide();
-        $('.Indigency').hide();
-        $('.Jobseeker').hide();
-        $('.Oath').hide();
-        $('.Oneness').hide();
-
+      
         if (docres_id == 1) {
-            $('.Certification').show();
-            $('.Authorization').hide();
-            $('.Indigency').hide();
-            $('.Jobseeker').hide();
-            $('.Oath').hide();
-            $('.Oneness').hide();
-
             $('#bdate').show();
             $('#address').show();
 
@@ -558,8 +545,8 @@
             $('#address').show();
             $('#municipality').show();
 
-            $('#years').hide();
-            $('#months').hide();
+            $('#years').show();
+            $('#months').show();
 
 
             $('#bdate').hide();

@@ -39,7 +39,7 @@
         
      
 
-            <p class="message">This is to certify that <u>{{$docres->fname}} {{$docres->mname}} {{$docres->lname}}</u> was born on <u>{{$docres->bdate}}</u> is a bonafide
+            <p class="message">This is to certify that <u>{{$docres->fname}} {{$docres->mname}} {{$docres->lname}}</u> was born on <u>{{$bdate->format('F')}} {{$bdate->day}} {{$bdate->year}}</u> is a bonafide
             resident of Barangay 386, Zone-39, District-3, Manila. </p>
 
             <br>

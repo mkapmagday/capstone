@@ -46,7 +46,7 @@
     
             <p class="message">Signed this <u>{{$date->day}} </u>day of <u>{{$month}} {{$date->year}} </u> in the City/Municipality of <u>{{$docres->municipality}}</u>.</p>
 
-            <p class="message">This certification is valid only until <u>_____________________</u> One (1) year from the issuance.</p>
+            <p class="message">This certification is valid only until <u>{{$date->day}} {{$month}} {{$date->addYear()->year}} </u> One (1) year from the issuance.</p>
         
         
 
@@ -56,7 +56,7 @@
            <u> <h3>_________________</h3> </u>
             <p style="margin-top: -20px;">Punong Barnagay / Authorized Barangay Official and Position</p>
           
-            <p>_____________________</p>
+            <u><p>{{$date->day}} {{$month}} {{$date->year}}</p></u>
             <p style="margin-top: -15px;">Date</p>
         </div>
 
@@ -70,8 +70,8 @@
          <u>   <h3>{{$user->name}}</h3> </u>
             @endif
             @endforeach
-            <p style="margin-top: -20px;">Punong Barnagay / Authorized Barangay Official and Position</p>
-            <p>_____________________</p>
+            <p style="margin-top: -20px;">Punong Barangay / Authorized Barangay Official and Position</p>
+            <u><p>{{$date->day}} {{$month}} {{$date->year}}</p></u>
             <p style="margin-top: -20px;">Date</p>
         </div>
    

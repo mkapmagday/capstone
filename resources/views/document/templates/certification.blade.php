@@ -33,7 +33,7 @@
         <p class="message" >
             <b class="to"> TO WHOM IT MAY CONCERN: </b> <br>
      
-            <p class="message" >This is to certify that Mr. / Ms. <u>{{$docres->fname}} {{$docres->mname}} {{$docres->lname}}</u>, born on<u> {{$docres->bdate}} </u> is a bonafide
+            <p class="message" >This is to certify that Mr. / Ms. <u>{{$docres->fname}} {{$docres->mname}} {{$docres->lname}}</u>, born on<u> {{$bdate->format('F')}} {{$bdate->day}} {{$bdate->year}} </u> is a bonafide
             resident of Barangay 386, Zone-39, District III, Manila, with postal address at <u>{{$docres->address}}</u>, Quiapo. Manila.</p>
 
             <p class="message">He/She has known to me of good moral character and can be trusted. He/She has never been involved in any unlawful activities and a law abiding citizen
@@ -60,7 +60,7 @@
                                                         <tr>  <td> ( ) Proof of Residency  </td>             <td>       ( ) <u>Other</u></p> </td> </tr>
                     </table>
                    </div>
-            <p class="message"><b>IN WITNESS WHEREOF</b> I have hereunto set my hand and affixed the official seal of this office. Done in the City of Manila, this
+            <p class="message"><b>IN WITNESS WHEREOF</b> I have here unto set my hand and affixed the official seal of this office. Done in the City of Manila, this
             <u>{{$date->day}} </u>day of <u>{{$month}} {{$date->year}} </u>. </p>
 
         <div class="secretary">

@@ -342,13 +342,6 @@
         console.log($(this).val());
         if ($(this).val() == 1) {
             document.getElementById("documentimage").src = "https://scontent.fmnl25-1.fna.fbcdn.net/v/t1.15752-9/308616100_1630366960691393_2984556608062881446_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=ae9488&_nc_ohc=AOk0e0CrUgAAX8t2PGZ&_nc_ht=scontent.fmnl25-1.fna&oh=03_AVI9werMXU4Z-_NsmDTSi7DItiWnHmhGtwPcyw1tpZC5fA&oe=635FCCF3";
-            $('.Certification').show();
-            $('.Authorization').hide();
-            $('.Indigency').hide();
-            $('.Jobseeker').hide();
-            $('.Oath').hide();
-            $('.Oneness').hide();
-
             $('#bdate').show();
             $('#address').show();
 
@@ -368,12 +361,7 @@
 
         if ($(this).val() == 2) {
             document.getElementById("documentimage").src = "https://scontent.fmnl25-1.fna.fbcdn.net/v/t1.15752-9/306697115_596256858865500_3335379389449982009_n.png?_nc_cat=107&ccb=1-7&_nc_sid=ae9488&_nc_ohc=IBhRUpMAwm8AX9K_B2y&tn=YQ2orxTiLTQIE6Y4&_nc_ht=scontent.fmnl25-1.fna&oh=03_AVKXHVLaEJM-Kbxiz2HNb3B7vK6vy_3mH8M5htxJ7Bq9yw&oe=63629087";
-            $('.Certification').hide();
-            $('.Authorization').show();
-            $('.Indigency').hide();
-            $('.Jobseeker').hide();
-            $('.Oath').hide();
-            $('.Oneness').hide();
+   
             $('#bdate').show();
             $('#relationship').show();
             $('#representative').show();
@@ -398,12 +386,7 @@
         if ($(this).val() == 3) {
             document.getElementById("documentimage").src = "https://scontent.fmnl25-1.fna.fbcdn.net/v/t1.15752-9/301903689_1148803569324206_8261476907567918272_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=ae9488&_nc_ohc=63UT8Cfj-pQAX_UM3nT&_nc_ht=scontent.fmnl25-1.fna&oh=03_AVLbaALjEkCzSduZNmMyjLCueSDhNpVp6gknfV_HPiDiLQ&oe=63624A8B";
 
-            $('.Certification').hide();
-            $('.Authorization').hide();
-            $('.Indigency').show();
-            $('.Jobseeker').hide();
-            $('.Oath').hide();
-            $('.Oneness').hide();
+          
             $('#address').show();
             $('#years').hide();
             $('#months').hide();
@@ -425,12 +408,7 @@
 
         if ($(this).val() == 4) {
             document.getElementById("documentimage").src = "https://scontent.fmnl25-2.fna.fbcdn.net/v/t1.15752-9/307891830_443941887580665_334252895085087337_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=ae9488&_nc_ohc=hxTD09hNGeUAX-7M09_&_nc_ht=scontent.fmnl25-2.fna&oh=03_AVLMsAKSrqFSI_J0uYzEjXCq1ct_CaSs7RGDmrjO9f-kog&oe=6362EFE2";
-            $('.Certification').hide();
-            $('.Authorization').hide();
-            $('.Indigency').hide();
-            $('.Jobseeker').show();
-            $('.Oath').hide();
-            $('.Oneness').hide();
+        
             $('#address').show();
             $('#age').hide();
             $('#municipality').show();
@@ -456,12 +434,7 @@
         if ($(this).val() == 5) {
             document.getElementById("documentimage").src = "https://scontent.fmnl25-2.fna.fbcdn.net/v/t1.15752-9/307067253_616242610076244_5041754940304094391_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=ae9488&_nc_ohc=oTbELNbDHBMAX8VrpUw&_nc_ht=scontent.fmnl25-2.fna&oh=03_AVKuMejXLXzDKkoE15g-FMxQkgd9YQRxfx-gsb0LkJzOZA&oe=6360BA4A";
 
-            $('.Certification').hide();
-            $('.Authorization').hide();
-            $('.Indigency').hide();
-            $('.Jobseeker').hide();
-            $('.Oath').show();
-            $('.Oneness').hide();
+         
 
             $('#purpose').hide();
 
@@ -469,8 +442,8 @@
             $('#address').show();
             $('#municipality').show();
 
-            $('#years').hide();
-            $('#months').hide();
+            $('#years').show();
+            $('#months').show();
 
 
             $('#bdate').hide();
@@ -487,13 +460,6 @@
 
         if ($(this).val() == 6) {
             document.getElementById("documentimage").src = "https://scontent.fmnl25-1.fna.fbcdn.net/v/t1.15752-9/307547365_636762158157607_6706884989649898839_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=ae9488&_nc_ohc=GzxIlbgSy2AAX_9C1x8&_nc_ht=scontent.fmnl25-1.fna&oh=03_AVKomAzVYT81WsosOa3Oi2aKphxlx7NCUsnt1E59vwhjRg&oe=6360BDCD";
-
-            $('.Certification').hide();
-            $('.Authorization').hide();
-            $('.Indigency').hide();
-            $('.Jobseeker').hide();
-            $('.Oath').hide();
-            $('.Oneness').show();
 
             $('#purpose').show();
 
