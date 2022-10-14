@@ -44,8 +44,8 @@
 
             <br>
          
-            <p class="message">This further certify that <u>{{$docres->fname}} {{$docres->mname}} {{$docres->lname}}</u> authorized his/her <u>{{$docres->relation}}</u>
-        to claim his/her <u>{{$docres->purpose}}</u> on his/her behalf because he/she <u>{{$docres->reason}}</u>. </p>
+            <p class="message">This further certify that <u>{{$docres->fname}} {{$docres->mname}} {{$docres->lname}}</u> authorized his/her <u>{{$docres->relation}}, {{$docres->representative}}</u>
+        to claim his/her <u>{{$docres->purpose}}</u> on his/her <u> Social Pension Stipend </u> behalf because he/she <u>{{$docres->reason}}</u>. </p>
             <br>
             <p class="message"> This certification is given this <u>{{$date->day}} </u>day of <u>{{$month}} {{$date->year}} </u>.</p>
 
