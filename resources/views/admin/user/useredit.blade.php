@@ -221,7 +221,7 @@ only screen and (max-width: 760px),
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script type='text/javascript'>
-   $(document).ready(function() {
+       $(document).ready(function() {
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -267,6 +267,7 @@ only screen and (max-width: 760px),
 
         });
     });
+
         $(function() {
             var overlay = $('<div id="overlay"></div>');
             overlay.show();

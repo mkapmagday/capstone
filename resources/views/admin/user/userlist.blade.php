@@ -138,6 +138,7 @@ only screen and (max-width: 760px),
 		display: block; 
 	}
 }
+
     img {
         height: 30px;
         width: 30px;

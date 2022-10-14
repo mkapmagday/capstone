@@ -207,7 +207,7 @@ only screen and (max-width: 760px),
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
 <script type='text/javascript'>
-    $(document).ready(function() {
+        $(document).ready(function() {
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -221,7 +221,7 @@ only screen and (max-width: 760px),
             console.log(delete_id);
             swal({
                     title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover User!",
+                    text: "Once deleted, you will not be able to recover this User!",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -236,7 +236,9 @@ only screen and (max-width: 760px),
                             type: "delete",
                             url:url,
                             data: data,
+                            
                             success: function() {
+                                console.log(url);
                                 swal("User has been deleted!", {
                                         icon: "success",
                                     })
@@ -251,6 +253,7 @@ only screen and (max-width: 760px),
 
         });
     });
+
     function openForm() {
         $(function() {
             var overlay = $('<div id="overlay"></div>');
