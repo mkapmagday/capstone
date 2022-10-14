@@ -1,7 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('How to use this feature?') }}
+    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        {{ __('How to use this feature?') }}
+        <br><br>
+        <center>
+        <img src="https://i.ibb.co/TKFB1T4/Manual-User-List.jpg" style="" class = "responsive" >
+        </center>
         </h2>
 
     </x-slot>
@@ -231,6 +235,11 @@
     .open-button:hover {
         transform: scale(1.05) rotate(-1deg);
     }
+    .responsive {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+}
 </style>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>

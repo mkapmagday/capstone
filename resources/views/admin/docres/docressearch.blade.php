@@ -354,6 +354,12 @@
     .cnt223 .x:hover {
         cursor: pointer;
     }
+
+    .responsive {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+}
 </style>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
 <script type='text/javascript'>

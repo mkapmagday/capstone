@@ -386,6 +386,12 @@
         width:25px;
         height:25px;
     }
+
+    .responsive {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+}
 </style>
 
 
