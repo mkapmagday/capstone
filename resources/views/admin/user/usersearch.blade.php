@@ -128,6 +128,13 @@
 </x-app-layout>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <style>
+    @media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+    table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+}
     img{
         height: 30px;
         width: 30px;
@@ -210,7 +217,7 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
 <script type='text/javascript'>
-    $(document).ready(function() {
+        $(document).ready(function() {
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -224,7 +231,7 @@
             console.log(delete_id);
             swal({
                     title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover User!",
+                    text: "Once deleted, you will not be able to recover this User!",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -239,7 +246,9 @@
                             type: "delete",
                             url:url,
                             data: data,
+                            
                             success: function() {
+                                console.log(url);
                                 swal("User has been deleted!", {
                                         icon: "success",
                                     })
@@ -254,6 +263,7 @@
 
         });
     });
+
     function openForm() {
         $(function() {
             var overlay = $('<div id="overlay"></div>');

@@ -53,7 +53,7 @@ class AdminRoleController extends Controller
     {
         $roles = Role::all();
         $userRole = $user->getRoleNames();;
-        $users = User::paginate(10);
+        $users = User::paginate(5);
         $user = User::find($id);
         return view('admin.role.roleassign',compact('users','userRole','roles','user'));
     }
@@ -66,7 +66,7 @@ class AdminRoleController extends Controller
      */
     public function edit($id)
     {
-        $roles = Role::paginate(10);
+        $roles = Role::paginate(5);
         $role = Role::find($id);
         return view('admin.role.roleedit',compact('roles','role'));
     }

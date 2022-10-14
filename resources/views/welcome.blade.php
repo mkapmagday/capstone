@@ -92,7 +92,17 @@ a {
 	margin-left:50px;
 	
 }
+<<<<<<< HEAD
 
+=======
+a:hover {
+	color: #fff;
+	padding-top: 100px;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-bottom: 18px;
+}
+>>>>>>> 9f64b2924c21c33526063204206f56c1cb83e7cd
         </style>
     </head>
     <body class="antialiased" >
@@ -123,11 +133,11 @@ a {
                     @else
 					</li>
 					<li class="nav-item">
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline" >Log in</a>
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline" ><img style="height:20px; width: 20px;" src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-sign-in-web-flaticons-lineal-color-flat-icons-3.png"/>Log in</a>
 					</li>
 					<li class="nav-item">
                     @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline"><img style="height:20px; width: 20px;" src="https://img.icons8.com/external-flaticons-flat-flat-icons/64/000000/external-register-nursing-flaticons-flat-flat-icons.png"/>Register</a>
                         @endif
 					</li>
 					@endauth

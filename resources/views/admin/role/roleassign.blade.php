@@ -226,7 +226,7 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type='text/javascript'>
-     $(document).ready(function() {
+        $(document).ready(function() {
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -235,10 +235,12 @@
         $('.delete_button').click(function(e) {
             e.preventDefault();
             var delete_id = $(this).val();
+            var url =  "{{route('user.destroy', ":delete_id") }}";
+            url = url.replace(":delete_id", delete_id);
             console.log(delete_id);
             swal({
                     title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this imaginary file!",
+                    text: "Once deleted, you will not be able to recover this User!",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -251,10 +253,12 @@
                         }
                         $.ajax({
                             type: "delete",
-                            url: "{{ route('user.destroy',$user->id) }}",
+                            url:url,
                             data: data,
+                            
                             success: function() {
-                                swal("Poof! Your imaginary file has been deleted!", {
+                                console.log(url);
+                                swal("User has been deleted!", {
                                         icon: "success",
                                     })
                                     .then((willDelete) => {
@@ -268,6 +272,7 @@
 
         });
     });
+
         $(function() {
             var overlay = $('<div id="overlay"></div>');
             overlay.show();
