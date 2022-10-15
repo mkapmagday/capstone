@@ -5,7 +5,6 @@
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a>
         </x-slot>
-
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
@@ -16,6 +15,10 @@
                 <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
 
                 <x-input-error :messages="$errors->get('name')" class="mt-2" />
+
+                @if (\Session::has('resident_not_found'))
+                {!! \Session::get('resident_not_found') !!}
+                @endif
             </div>
 
             <!-- Email Address -->
