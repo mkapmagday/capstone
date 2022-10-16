@@ -1,27 +1,37 @@
 <x-app-layout>
-  
+
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;" onclick="openForm()"> Add Resident <center><img onclick="openForm()" height="20px" width="20px" src="https://img.icons8.com/color/48/000000/add--v1.png" /></center> </button>
+
                 <div class="popup">
                     <div class="cnt223">
                         <a href='' class='close'><img src="https://img.icons8.com/color/48/000000/delete-sign--v1.png" /></a>
-                        <form method="POST" action="{{ route('doclist.update', $document->id) }}">
-                            @csrf
-                            @method('PUT')
 
-                            <!-- Name -->
-                            <div>
-                                <x-input-label for="document_name" :value="__('Document Type')" />
-                                <x-text-input id="document_name" class="block mt-1 w-full" type="text" name="document_name" :value="$document->document_name" required autofocus />
-                                <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                        <form method="POST" action="{{route('reslist.store')}}" enctype="multipart/form-data">
+                            @csrf
+                            <div class="card-body">
+                                <div class="form-group row">
+
+                        
+                                    {{-- File Input --}}
+                                    <div class="col-sm-12 mb-3 mt-3 mb-sm-0">
+                                        <span style="color:red;">*</span>File Input(Datasheet)</label>
+                                        <input type="file" class="form-control form-control-user @error('file') is-invalid @enderror" id="exampleFile" name="file" value="{{ old('file') }}">
+
+                                        @error('file')
+                                        <span class="text-danger">{{$message}}</span>
+                                        @enderror
+                                    </div>
+
+                                </div>
                             </div>
 
-                            <div class="flex items-center justify-end mt-4">
-                                <x-primary-button class="ml-4">
-                                    {{ __('Edit Document Type') }}
-                                </x-primary-button>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-success btn-user float-right mb-3">Upload Users</button>
+                                <a class="btn btn-primary float-right mr-3 mb-3" href="{{ route('reslist.index') }}">Cancel</a>
                             </div>
                         </form>
 
@@ -40,18 +50,18 @@
                             <tr>
                             </tr>
 
-                            @foreach ($documentlist as $document)
+                            @foreach ($residents as $resident)
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">{{$document->id}}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{$document->document_name}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{$resident->id}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{$resident->fname}}</td>
                                 <td class="px-6 py-4 text-sm">
-                                    <a href="{{ route('doclist.edit',$document->id) }}" class="m-2 p-2 bg-blue-400 rounded">Edit</a>
+                                    <a href="{{ route('reslist.edit',$resident->id) }}" class="open-button" style="background-color: #0047AB; color: white;">Edit</a>
                                 </td>
                                 <td class="px-6 py-4 text-sm">
-                                    <form action="{{ route('doclist.destroy',$document->id) }}" method="POST">
+                                    <form action="{{ route('reslist.destroy',$resident->id) }}" method="POST">
                                         @csrf
                                         @method('delete')
-                                        <button onclick="return confirm('Do you want to delete? ')" type="submit">Delete</button>
+                                        <button class="open-button" style="background-color: #8B0000; color: white;" onclick="return confirm('Do you want to delete? ')" type="submit">Delete</button>
                                     </form>
                                 </td>
                             </tr>
@@ -59,10 +69,11 @@
 
                             </form>
                             @endforeach
-                            {{ $documentlist->links() }}
+
 
                         </tbody>
                     </table>
+
                 </div>
             </div>
         </div>
@@ -95,7 +106,7 @@
         padding-top: 10px;
         display: none;
         position: absolute;
-        right:35%;
+        right: 35%;
 
         z-index: 101;
     }
@@ -139,14 +150,40 @@
         cursor: pointer;
     }
 
+    .open-button {
+        border-radius: 15px;
+        box-shadow: green;
+        cursor: pointer;
+        display: inline-block;
+        font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+        padding: 7px 20px;
+        text-align: center;
+        text-decoration: none;
+        transition: all 250ms;
+        border: 0;
+        font-size: 16px;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+
+    }
+
+    .open-button:hover {
+        transform: scale(1.05) rotate(-1deg);
+    }
+
     .responsive {
-  width: 100%;
-  max-width: 900px;
-  height: auto;
-}
+        width: 100%;
+        max-width: 900px;
+        height: auto;
+    }
 </style>
+
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
+
 <script type='text/javascript'>
+    function openForm() {
         $(function() {
             var overlay = $('<div id="overlay"></div>');
             overlay.show();
@@ -164,4 +201,5 @@
                 return false;
             });
         });
+    }
 </script>

@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminDocumentListController;
 use App\Http\Controllers\AdminDocumentRequestController;
 use App\Http\Controllers\AdminPDFController;
+use App\Http\Controllers\AdminResidentsListController;
 use App\Http\Controllers\AdminRoleController;
 use App\Http\Controllers\AdminSmsController;
 use App\Http\Controllers\AdminUserController;
@@ -60,7 +61,8 @@ Route::delete('admin/docres/destroy/{id}',[AdminDocumentRequestController::class
 Route::get('admin/docres/pdf/{id}',[AdminPDFController::class,'show'])->middleware('auth')->name('pdf.show');
 Route::get('admin/docres/pdf/generatePDF/{id}',[AdminPDFController::class,'generatePDF'])->middleware('auth')->name('pdf.generatePDF');
 
-Route::get('sms',[AdminSmsController::class,'index'])->name('sms');
+Route::get('admin/docres/filter/',[AdminDocumentRequestController::class,'show'])->name('docres.filter');
+Route::get('admin/user/filter',[AdminUserController::class,'show'])->name('user.filter');
 });
 
 Route::middleware(['auth','role:resident'])->group(function (){
@@ -71,12 +73,15 @@ Route::middleware(['auth','role:resident'])->group(function (){
 });
 
 Route::get('send',[AdminSmsController::class,'sendnotification']);
+Route::get('admin/residents/list',[AdminResidentsListController::class,'index'])->name('reslist.index');
+Route::post('admin/residents/create',[AdminResidentsListController::class,'store'])->name('reslist.store');
+Route::get('admin/residents/edit/{id}',[AdminResidentsListController::class,'edit'])->name('reslist.edit');
+Route::put('admin/residents/update/{id}',[AdminResidentsListController::class,'update'])->name('reslist.update');
+Route::delete('admin/residents/delete/{id}',[AdminResidentsListController::class,'destroy'])->name('reslist.destroy');
+
 
 //templates
-Route::get('document/templates/certification', function () {
-    return view('document\templates\certification');
-})->name('templates.certification');
 
-Route::get('admin/docres/filter/',[AdminDocumentRequestController::class,'show'])->name('docres.filter');
-Route::get('admin/user/filter',[AdminUserController::class,'show'])->name('user.filter');
+
+
 require __DIR__.'/auth.php';

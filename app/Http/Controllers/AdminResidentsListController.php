@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\UsersImport;
 use App\Models\Residents;
 use Illuminate\Http\Request;
+use Excel;
+use PhpParser\Node\Expr\Throw_;
+use Throwable;
 
-class ResidentsController extends Controller
+class AdminResidentsListController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +18,8 @@ class ResidentsController extends Controller
      */
     public function index()
     {
-        //
+        $residents = Residents::all();
+        return view('admin.reslist.reslist',compact('residents'));
     }
 
     /**
@@ -35,7 +40,13 @@ class ResidentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $file = $request->file;
+
+        Excel::import(new UsersImport, $file);
+
+        $fname = $request->fname;
+
+        return back();  
     }
 
     /**
@@ -78,8 +89,9 @@ class ResidentsController extends Controller
      * @param  \App\Models\Residents  $residents
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Residents $residents)
+    public function destroy($id)
     {
-        //
+        Residents::find($id)->delete();
+        return back();
     }
 }

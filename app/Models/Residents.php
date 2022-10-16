@@ -11,4 +11,5 @@ class Residents extends Model
     protected $fillable = [
         'fname',
     ];
+    public $timestamps = false;
 }

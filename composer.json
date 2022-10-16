@@ -9,11 +9,14 @@
         "ext-gd": "*",
         "barryvdh/laravel-dompdf": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
+        "infyomlabs/laravel-ui-adminlte": "^5.1",
         "laravel/framework": "^9.19",
         "laravel/nexmo-notification-channel": "^3.0",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
+        "maatwebsite/excel": "^3.1",
         "munafio/chatify": "^1.5",
+        "psr/simple-cache": "2.0",
         "spatie/laravel-permission": "^5.5"
     },
     "require-dev": {
