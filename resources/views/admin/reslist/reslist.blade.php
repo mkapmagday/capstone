@@ -69,6 +69,7 @@
 
                             </form>
                             @endforeach
+                            {{$residents->links()}}
 
 
                         </tbody>

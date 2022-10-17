@@ -18,7 +18,7 @@ class AdminResidentsListController extends Controller
      */
     public function index()
     {
-        $residents = Residents::all();
+        $residents = Residents::paginate(5);
         return view('admin.reslist.reslist',compact('residents'));
     }
 
@@ -41,10 +41,11 @@ class AdminResidentsListController extends Controller
     public function store(Request $request)
     {
         $file = $request->file;
+        $fname = $request->fname;
 
         Excel::import(new UsersImport, $file);
 
-        $fname = $request->fname;
+
 
         return back();  
     }
