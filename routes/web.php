@@ -28,7 +28,7 @@ Route::get('/', function () {
 
 
 
-Route::get('/dashboard',[AdminDashboardController::class,'index'])->middleware('auth','verified')->name('dashboard');
+Route::get('/adashboard',[AdminDashboardController::class,'index'])->middleware('auth','verified')->name('dashboard');
 
 Route::middleware(['auth','role:admin'])->group(function (){
 Route::get('admin/users',[AdminUserController::class,'index'])->middleware('auth')->name('user.index');
@@ -63,6 +63,8 @@ Route::get('admin/docres/pdf/generatePDF/{id}',[AdminPDFController::class,'gener
 
 Route::get('admin/docres/filter/',[AdminDocumentRequestController::class,'show'])->name('docres.filter');
 Route::get('admin/user/filter',[AdminUserController::class,'show'])->name('user.filter');
+
+Route::get('admin/residents/filter',[AdminResidentsListController::class,'show'])->name('reslist.filter');
 });
 
 Route::middleware(['auth','role:resident'])->group(function (){

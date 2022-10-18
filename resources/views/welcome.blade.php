@@ -129,8 +129,12 @@ a:hover {
 				<ul class="navbar-nav ml-auto" >
 					<li class="nav-item active">
                     @auth
+					@if(Auth::user()->hasrole('admin'))
+							<a href="{{ route('dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Admin Dashboard</a>
+						@else
                         <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
-                    @else
+					@endif
+					@else
 					</li>
 					<li class="nav-item">
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline" ><img style="height:20px; width: 20px;" src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-sign-in-web-flaticons-lineal-color-flat-icons-3.png"/>Log in</a>

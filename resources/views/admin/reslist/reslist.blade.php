@@ -5,7 +5,20 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;" onclick="openForm()"> Add Resident <center><img onclick="openForm()" height="20px" width="20px" src="https://img.icons8.com/color/48/000000/add--v1.png" /></center> </button>
+                <form action="{{ route('reslist.filter') }}">
 
+                    <div class="row" style="margin-left:150px; margin-top: 20px">
+                        <div class="col">
+                            <input value="" type="text" class="form-control" name="fname" id="fname" placeholder="Full Name">
+                        </div>
+                    </div>
+                </form>
+                <div class="col">
+                            <button class="open-button" style="background-color: #228B22; color: white;" type="submit"><img src="https://img.icons8.com/color/48/000000/find-user-male--v1.png" /></button>
+                            <form action="{{ route('user.index') }}">
+                                <button class="open-button" style="background-color: #0047AB; color: white;" type="submit"><img src="https://img.icons8.com/color/48/000000/clear-search.png" /></button>
+                            </form>
+                        </div>
                 <div class="popup">
                     <div class="cnt223">
                         <a href='' class='close'><img src="https://img.icons8.com/color/48/000000/delete-sign--v1.png" /></a>
@@ -15,7 +28,7 @@
                             <div class="card-body">
                                 <div class="form-group row">
 
-                        
+
                                     {{-- File Input --}}
                                     <div class="col-sm-12 mb-3 mt-3 mb-sm-0">
                                         <span style="color:red;">*</span>File Input(Datasheet)</label>
@@ -34,6 +47,8 @@
                                 <a class="btn btn-primary float-right mr-3 mb-3" href="{{ route('reslist.index') }}">Cancel</a>
                             </div>
                         </form>
+
+
 
                     </div>
                 </div>

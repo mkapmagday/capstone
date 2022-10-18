@@ -56,9 +56,15 @@ class AdminResidentsListController extends Controller
      * @param  \App\Models\Residents  $residents
      * @return \Illuminate\Http\Response
      */
-    public function show(Residents $residents)
+    public function show(Request $request)
     {
-        //
+        $fname = $request->fname;
+        $residents = Residents::where('fname', 'like' ,'%'.$fname.'%')
+                    ->paginate(5)
+                    ->appends(request()->query());
+
+
+        return view('admin.reslist.ressearch',compact('residents','request','fname'));
     }
 
     /**
@@ -93,6 +99,5 @@ class AdminResidentsListController extends Controller
     public function destroy($id)
     {
         Residents::find($id)->delete();
-        return back();
     }
 }
