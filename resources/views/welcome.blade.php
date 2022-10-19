@@ -130,7 +130,7 @@ a:hover {
 					<li class="nav-item active">
                     @auth
 					@if(Auth::user()->hasrole('admin'))
-							<a href="{{ route('dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Admin Dashboard</a>
+							<a href="{{ route('admindashboard.index') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Admin Dashboard</a>
 						@else
                         <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
 					@endif

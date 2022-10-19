@@ -92,7 +92,6 @@ class AdminDocumentListController extends Controller
     public function destroy($id)
     {
         $document = DocumentList::find($id)->delete();
-        return redirect()->route('doclist.index');
 
     }
 }

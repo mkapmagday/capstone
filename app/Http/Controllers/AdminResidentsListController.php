@@ -38,7 +38,16 @@ class AdminResidentsListController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request){
+        $fname = $request->fname;
+
+        Residents::create([
+            'fname' => $fname,
+        ]);
+        return back();
+
+    }
+    public function upload(Request $request)
     {
         $file = $request->file;
         $fname = $request->fname;

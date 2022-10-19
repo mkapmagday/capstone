@@ -1,18 +1,49 @@
-<x-app-layout>
-    
+<!DOCTYPE html>
+<html lang="en">
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;" onclick="openForm()">  Add Document Type <center><img onclick="openForm()" height="20px" width="20px" src="https://img.icons8.com/color/48/000000/add--v1.png" /></center> </button>
+<head>
+    <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-                <div class="popup">
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+
+        <!-- Preloader -->
+
+        @include('layouts.anavigation')
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">Document List</h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
+
+            <!-- Main content -->
+            <section class="content">
+            <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;" onclick="openForm()">  Add Document Type <center><img onclick="openForm()" height="20px" width="20px" src="https://img.icons8.com/color/48/000000/add--v1.png" /></center> </button><div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            
+                   
+            <br>
+            <br>                <div class="popup">
                     <div class="cnt223">
                         <a href='' class='close'><img src="https://img.icons8.com/color/48/000000/delete-sign--v1.png" /></a>
 
                         <form method="POST" action="{{ route('doclist.store') }}">
                             @csrf
-
                             <!-- Name -->
                             <div>
                                 <x-input-label for="document_name" :value="__('Document Type')" />
@@ -21,58 +52,82 @@
                             </div>
 
                             <div class="flex items-center justify-end mt-4">
-                                <x-primary-button class="ml-4">
+                                <button class="ml-4">
                                     {{ __('Add Document Type') }}
-                                </x-primary-button>
+                                </button>
                             </div>
                         </form>
-
                     </div>
-                </div>
-                <div class="p-6 bg-white border-b border-gray-200">
-                    <table class="min-w-full divide-y divide-gray-200 " align="center">
-                        <thead class="bg-gray-50 dark:bg-gray-600 dark:text-gray-200">
-                            <tr>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">Id</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">Name</th>
-                                <th scope="col" colspan="2" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
-                            <tr>
-                            </tr>
+                </div> 
+                
+                
+                <table class="table">
 
-                            @foreach ($documentlist as $document)
+                    <thead>
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">Id</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">Name</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">Email</th>
+                            <th scope="col" colspan="3" style="text-align:center;" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr>
+                        </tr>
+
+                        @foreach ($documentlist as $document)
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap">{{$document->id}}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{$document->document_name}}</td>
                                 <td class="px-6 py-4 text-sm">
                                     <a href="{{ route('doclist.edit',$document->id) }}" class="open-button" style="background-color: #0047AB; color: white;">Edit</a>
                                 </td>
-                                <td class="px-6 py-4 text-sm">
-                                    <form action="{{ route('doclist.destroy',$document->id) }}" method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button  class="open-button" style="background-color: #8B0000; color: white;" onclick="return confirm('Do you want to delete? ')" type="submit">Delete</button>
-                                    </form>
+                                <td class="px-6 py-4 text-sm">                                    
+                                        <button value={{$document->id}}  class="open-button delete_button" style="background-color: #8B0000; color: white;"  type="submit">Delete</button>
                                 </td>
                             </tr>
 
 
                             </form>
                             @endforeach
-                            {{ $documentlist->links() }}
+                        {{ $documentlist->links('pagination::bootstrap-5') }}
 
-                        </tbody>
-                    </table>
 
-                </div>
-            </div>
+                    </tbody>
+                </table>
+            </section>
+            <!-- /.content -->
         </div>
+        <!-- /.content-wrapper -->
+
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
     </div>
-</x-app-layout>
+    <!-- ./wrapper -->
+
+</body>
+
+</html>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <style>
+    @media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+    table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+}
+
+    img {
+        height: 30px;
+        width: 30px;
+    }
+
+
     .close {
         float: right;
         width: 20px;
@@ -98,7 +153,7 @@
         padding-top: 10px;
         display: none;
         position: absolute;
-        right:35%;
+        right: 35%;
 
         z-index: 101;
     }
@@ -142,39 +197,91 @@
         cursor: pointer;
     }
     
+    .btn-logo {
+        width: 25px;
+        height: 25px;
+    }
+
     .open-button {
-  border-radius: 15px;
-  box-shadow: green;
-  cursor: pointer;
-  display: inline-block;
-  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
-  padding: 7px 20px;
-  text-align: center;
-  text-decoration: none;
-  transition: all 250ms;
-  border: 0;
-  font-size: 16px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  
-}
+        border-radius: 15px;
+        width: fit-content;
+        box-shadow: green;
+        cursor: pointer;
+        display: inline-block;
+        font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+        padding: 7px 20px;
+        text-align: center;
+        text-decoration: none;
+        transition: all 250ms;
+        border: 0;
+        font-size: 16px;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
 
-.open-button:hover {
-  transform: scale(1.05) rotate(-1deg);
-}
+    }
 
-.responsive {
+    .open-button:hover {
+        transform: scale(1.05) rotate(-1deg);
+    }
+    .responsive {
   width: 100%;
   max-width: 900px;
   height: auto;
 }
 </style>
 
-
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script type='text/javascript'>
+    $(document).ready(function() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $('.delete_button').click(function(e) {
+            e.preventDefault();
+            var delete_id = $(this).val();
+            var url =  "{{route('doclist.destroy', ":delete_id") }}";
+            url = url.replace(":delete_id", delete_id);
+            console.log(delete_id);
+            swal({
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to recover this User!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        var data = {
+                            "_token": $('input[name="csrf-token"]').val(),
+                            "id": delete_id,
+                        }
+                        $.ajax({
+                            type: "delete",
+                            url:url,
+                            data: data,
+                            
+                            success: function() {
+                                console.log(url);
+                                swal("User has been deleted!", {
+                                        icon: "success",
+                                    })
+                                    .then((willDelete) => {
+                                        location.reload();
+                                    });
+                            }
+                        });
+                    }
+
+                });
+
+        });
+    });
+
     function openForm() {
         $(function() {
             var overlay = $('<div id="overlay"></div>');
@@ -194,5 +301,5 @@
             });
         });
     }
+    
 </script>
-

@@ -25,22 +25,22 @@
     <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
 </head>
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-      <!-- Brand Logo -->
-      <a href="{{ route('dashboard') }}" class="brand-link">
+    <!-- Brand Logo -->
+    <a href="{{ route('admindashboard.index') }}" class="brand-link">
         <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
         <span class="brand-text font-weight-light">BRGY 386</span>
-      </a>
+    </a>
 
-      <!-- Sidebar -->
-      <div class="sidebar">
+    <!-- Sidebar -->
+    <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-          <div class="image">
-          <img src="{{asset('dist/img/avatar.png')}}" class="img-circle elevation-2" alt="User Image">
-          </div>
-          <div class="info">
-            <a href="#" class="d-block">{{ Auth::user()->name }}</a>
-          </div>
+            <div class="image">
+                <img src="{{asset('dist/img/avatar.png')}}" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+                <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+            </div>
         </div>
 
         <!-- SidebarSearch Form -->
@@ -48,88 +48,117 @@
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-edit"></i>
-                <p>
-                  Forms
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{route('user.index')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Users</p>
-                  </a>
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-edit"></i>
+                        <p>
+                            CRUD
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('user.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Users</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('reslist.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Residents</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('doclist.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Document List</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('docres.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Document Request</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item">
-                  <a href="{{route('reslist.index')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Residents</p>
-                  </a>
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Tables
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="pages/tables/simple.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Simple Tables</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/tables/data.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>DataTables</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/tables/jsgrid.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>jsGrid</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/forms/editors.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Editors</p>
-                  </a>
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Tables
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="pages/tables/simple.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Simple Tables</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/tables/data.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>DataTables</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/tables/jsgrid.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>jsGrid</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                  <a href="pages/forms/validation.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Validation</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-table"></i>
-                <p>
-                  Tables
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="pages/tables/simple.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Simple Tables</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/tables/data.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>DataTables</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/tables/jsgrid.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>jsGrid</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
+            </ul>
         </nav>
         <!-- /.sidebar-menu -->
-      </div>
-      <!-- /.sidebar -->
-    </aside>
-    
+    </div>
+    <!-- /.sidebar -->
+</aside>
+
 <!-- jQuery -->
 <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="{{asset('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-  $.widget.bridge('uibutton', $.ui.button)
+    $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>

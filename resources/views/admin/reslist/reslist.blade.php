@@ -34,7 +34,8 @@
 
             <!-- Main content -->
             <section class="content">
-            <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;" onclick="openForm()" style="margin-left:50px"> Create User <center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/add-user-group-woman-man-skin-type-7.png" /></center></button>
+            <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;" onclick="openCsvForm()" style="margin-left:50px"> Upload Resident Csv <center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/add-user-group-woman-man-skin-type-7.png" /></center></button>
+            <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;" onclick="openForm()" style="margin-left:50px"> Add Resident <center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/add-user-group-woman-man-skin-type-7.png" /></center></button>
 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <form action="{{ route('reslist.filter') }}">
                 <div class="row" style="margin-left:150px; margin-top: 20px;">
@@ -54,7 +55,31 @@
                     <div class="cnt223">
                         <a href='' class='close'><img src="https://img.icons8.com/color/48/000000/delete-sign--v1.png" /></a>
 
-                        <form method="POST" action="{{route('reslist.store')}}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('reslist.store') }}">
+                            @csrf
+                            @method('post')
+                            <!-- Name -->
+                            <div>
+                                <x-input-label for="name" :value="__('Full Name')" />
+
+                                <x-text-input id="fname" class="block mt-1 w-full" type="text" name="fname"  required autofocus />
+
+                                <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                            </div>
+
+                            <div class="flex items-center justify-end mt-4">
+                                <button>
+                                    {{ __('Add Resident') }}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div> 
+                <div class="popup1">
+                    <div class="cnt2231">
+                        <a href='' class='close'><img src="https://img.icons8.com/color/48/000000/delete-sign--v1.png" /></a>
+
+                        <form method="POST" action="{{route('reslist.upload')}}" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group row">
@@ -78,10 +103,9 @@
                                 <a class="btn btn-primary float-right mr-3 mb-3" href="{{ route('reslist.index') }}">Cancel</a>
                             </div>
                         </form>
-                        
-
                     </div>
                 </div>
+                
                 <table class="table">
 
                     <thead>
@@ -215,6 +239,53 @@ only screen and (max-width: 760px),
     .cnt223 .x:hover {
         cursor: pointer;
     }
+    .popup1 {
+        padding-top: 10px;
+        display: none;
+        position: absolute;
+        right: 35%;
+
+        z-index: 101;
+    }
+
+    .cnt2231 {
+        min-width: 600px;
+        width: 600px;
+        min-height: 150px;
+        margin: 100px auto;
+        background: #f3f3f3;
+        position: relative;
+        z-index: 103;
+        padding: 15px 35px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px #000;
+    }
+
+    .cnt2231 p {
+        clear: both;
+        color: #555555;
+        /* text-align: justify; */
+        font-size: 20px;
+        font-family: sans-serif;
+    }
+
+    .cnt2231 p a {
+        color: #d91900;
+        font-weight: bold;
+    }
+
+    .cnt2231 .x {
+        float: right;
+        height: 35px;
+        left: 22px;
+        position: relative;
+        top: -25px;
+        width: 34px;
+    }
+
+    .cnt2231 .x:hover {
+        cursor: pointer;
+    }
 
     .btn-logo {
         width: 25px;
@@ -315,6 +386,26 @@ only screen and (max-width: 760px),
 
             $('.x').click(function() {
                 $('.popup').hide();
+                overlay.appendTo(document.body).remove();
+                return false;
+            });
+        });
+    }
+    openCsvForm
+    function openCsvForm() {
+        $(function() {
+            var overlay = $('<div id="overlay"></div>');
+            overlay.show();
+            overlay.appendTo(document.body);
+            $('.popup1').show();
+            $('.close').click(function() {
+                $('.popup1').hide();
+                overlay.appendTo(document.body).remove();
+                return false;
+            });
+
+            $('.x').click(function() {
+                $('.popup1').hide();
                 overlay.appendTo(document.body).remove();
                 return false;
             });

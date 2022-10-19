@@ -1,15 +1,76 @@
-<x-app-layout>
-    <x-slot name="header">
-        
-    </x-slot>
-    <form method="POST" action="{{ route('docres.store')}}">
-        <div class='popup'>
-            <div class='cnt223'>
-                <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+
+        <!-- Preloader -->
+
+        @include('layouts.anavigation')
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">Document Request List</h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
+
+            <!-- Main content -->
+            <section class="content">
+            <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;"  onclick="openForm()"> Add Document Type <center><img onclick="openForm()" height="20px" width="20px" src="https://img.icons8.com/color/48/000000/add--v1.png" /></center> </button><div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <form action="{{ route('docres.filter') }}">
+                <div class="row">
+                    <div class="col-2">
+                        <input type="text" class="form-control" name="lname" id="lname" placeholder="Enter Last Name" style="margin-top: 15px;">
+                    </div>
+                    <div class="col-2">
+                        <input type="text" class="form-control" name="fname" id="fname" placeholder="Enter First Name" style="margin-top: 15px;">
+                    </div>
+                    <div class="col-2">
+                        <select required name="docname" id="docname" class="form-control" style="margin-top: 15px;">
+                            <option value=" "></option>
+                            @foreach ($doclist as $document)
+                            <option value={{$document->id}}>{{$document->document_name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-2">
+                        <select required name="status" id="status" class="form-control" style="margin-top: 15px;">
+                            <option value=" "></option>
+                            @foreach(\App\Enums\DocumentRequestStatus::cases() as $status)
+                            <option value="{{ $status->value }}">{{ $status->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <button class="open-button" style="background-color: #228B22; color: white; width:100px" type="submit">Filter<center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/find-user-male--v1.png"/></center></button>
+                    <div class="col-2">
+                        <form action="{{ route('docres.index') }}">
+                            <button class="open-button" style="background-color: #0047AB; color: white;" type="submit">Clear Filter<center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/clear-search.png"/></center></button>
+                        </form>
+                    </div>
+                </div>
+            </form>
+            <br>
+            <br>                <div class="popup">
+                    <div class="cnt223">
                         <a href='' class='close'><img src="https://img.icons8.com/color/48/000000/delete-sign--v1.png" /></a>
-
-
+                        <form method="POST" action="{{ route('docres.store')}}">
                         @csrf
                         <div style="padding-top: 0px;">
                             <select required name="document_list" id="document_list" class="form-control">
@@ -17,7 +78,7 @@
                                 <option value={{$document->id}}>{{$document->document_name}}</option>
                                 @endforeach
                             </select>
-                            <tr>
+                            <div>
                                 <td>
                                     <x-input-label for="lname" :value="__('Last Name')" />
                                 </td>
@@ -25,8 +86,8 @@
                                 <td>
                                     <x-text-input id="lname" type="text" name="lname" />
                                 </td>
-                            </tr>
-                            <tr>
+                            </div>
+                            <div>
                                 <td>
                                     <x-input-label for="fname" :value="__('First Name')" />
                                 </td>
@@ -34,8 +95,8 @@
                                 <td>
                                     <x-text-input id="fname" type="text" name="fname" />
                                 </td>
-                            </tr>
-                            <tr>
+                            </div>
+                            <div>
                                 <td>
                                     <x-input-label for="mname" :value="__('Middle Name')" />
                                 </td>
@@ -43,8 +104,8 @@
                                 <td>
                                     <x-text-input id="mname" type="text" name="mname" />
                                 </td>
-                            </tr>
-                            <tr>
+                            </div>
+                            <div>
                                 <td>
                                     <x-input-label for="pnum" :value="__('Phone Number')" />
                                 </td>
@@ -56,7 +117,7 @@
                                     </select>
                                     <x-text-input id="pnum" type="text" name="pnum" />
                                 </td>
-                            </tr>
+                            </div>
                             <div id="bdate">
                                 <tr>
                                     <td>
@@ -174,61 +235,14 @@
                                 <td><button onclick="return confirm('Do you want to submit request? ')" type="submit" style="float: right;"><img src="https://img.icons8.com/external-sbts2018-flat-sbts2018/58/000000/external-submit-basic-ui-elements-2.3-sbts2018-flat-sbts2018.png" />SUBMIT</button></td>
                             </tr>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    
     </form>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-
-           
-            <form action="{{ route('docres.filter',$document->id) }}">
-                <div class="row">
-                    <div class="col">
-                        <input type="text" class="form-control" name="lname" id="lname" placeholder="Enter Last Name" style="margin-top: 15px;">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" name="fname" id="fname" placeholder="Enter First Name" style="margin-top: 15px;">
-                    </div>
-                    <div class="col">
-                        <select required name="docname" id="docname" class="form-control" style="margin-top: 15px;">
-                            <option value=" "></option>
-                            @foreach ($doclist as $document)
-                            <option value={{$document->id}}>{{$document->document_name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="col">
-                        <select required name="status" id="status" class="form-control" style="margin-top: 15px;">
-                            <option value=" "></option>
-                            @foreach(\App\Enums\DocumentRequestStatus::cases() as $status)
-                            <option value="{{ $status->value }}">{{ $status->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="col">
-                        <button class="open-button" style="background-color: #228B22; color: white; width:100px" type="submit">Filter<center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/find-user-male--v1.png"/></center></button>
-                        <form action="{{ route('docres.index') }}">
-                    <button class="open-button" style="background-color: #0047AB; color: white;" type="submit">Clear Filter<center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/clear-search.png"/></center></button>
-                </form>
                     </div>
                 </div>
-            </form>
-            <br>
-            
-            <br>
+                <table class="table">
 
-            <div class="col">
-                
-            </div>
-
-
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-            <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;"  onclick="openForm()"> Add Document Type <center><img onclick="openForm()" height="20px" width="20px" src="https://img.icons8.com/color/48/000000/add--v1.png" /></center> </button>
-              <div class="p-6 bg-white border-b border-gray-200">
-                    <table>
+                    <thead>
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">USER_ID</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">LAST NAME </th>
@@ -236,6 +250,10 @@
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">DOCUMENT NAME</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">DOCUMENT STATUS</th>
                             <th colspan="4" scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider" style="text-align:center ;">ACTIONS
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr>
                         </tr>
 
                         @foreach ($docres as $docress)
@@ -280,15 +298,46 @@
                             @endforeach
                         </tr>
                         @endforeach
-                        {{ $docres->links() }}
-                    </table>
-                </div>
-            </div>
+                        {{ $docres->links('pagination::bootstrap-5') }}
+
+
+                    </tbody>
+                </table>
+            </section>
+            <!-- /.content -->
         </div>
+        <!-- /.content-wrapper -->
+
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
     </div>
-</x-app-layout>
+    <!-- ./wrapper -->
+
+    <!-- jQuery -->
+   
+</body>
+
+</html>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <style>
+    @media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+    table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+}
+
+    img {
+        height: 30px;
+        width: 30px;
+    }
+
+
     .close {
         float: right;
         width: 20px;
@@ -312,9 +361,10 @@
 
     .popup {
         padding-top: 10px;
-        width: 100%;
         display: none;
         position: absolute;
+        right: 35%;
+
         z-index: 101;
     }
 
@@ -357,34 +407,33 @@
         cursor: pointer;
     }
 
-    
-    .open-button {
-  border-radius: 15px;
-  box-shadow: green;
-  cursor: pointer;
-  display: inline-block;
-  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
-  padding: 7px 20px;
-  text-align: center;
-  text-decoration: none;
-  transition: all 250ms;
-  border: 0;
-  font-size: 16px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  
-}
-
-.open-button:hover {
-  transform: scale(1.05) rotate(-1deg);
-}
-
-.btn-logo {
-        width:25px;
-        height:25px;
+    .btn-logo {
+        width: 25px;
+        height: 25px;
     }
 
+    .open-button {
+        border-radius: 15px;
+        width: fit-content;
+        box-shadow: green;
+        cursor: pointer;
+        display: inline-block;
+        font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+        padding: 7px 20px;
+        text-align: center;
+        text-decoration: none;
+        transition: all 250ms;
+        border: 0;
+        font-size: 16px;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+
+    }
+
+    .open-button:hover {
+        transform: scale(1.05) rotate(-1deg);
+    }
     .responsive {
   width: 100%;
   max-width: 900px;
@@ -392,14 +441,55 @@
 }
 </style>
 
-
-
-
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script type='text/javascript'>
-    $("#docname").click(function() {
-        console.log($(this).val());
+    $(document).ready(function() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $('.delete_button').click(function(e) {
+            e.preventDefault();
+            var delete_id = $(this).val();
+            var url =  "{{route('user.destroy', ":delete_id") }}";
+            url = url.replace(":delete_id", delete_id);
+            console.log(delete_id);
+            swal({
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to recover this User!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        var data = {
+                            "_token": $('input[name="csrf-token"]').val(),
+                            "id": delete_id,
+                        }
+                        $.ajax({
+                            type: "delete",
+                            url:url,
+                            data: data,
+                            
+                            success: function() {
+                                console.log(url);
+                                swal("User has been deleted!", {
+                                        icon: "success",
+                                    })
+                                    .then((willDelete) => {
+                                        location.reload();
+                                    });
+                            }
+                        });
+                    }
+
+                });
+
+        });
     });
 
     function openForm() {
@@ -645,4 +735,3 @@
         }
     });
 </script>
-

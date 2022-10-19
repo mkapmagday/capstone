@@ -1,10 +1,77 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-    <form method="POST" action="{{ route('docres.store')}}">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+
+        <!-- Preloader -->
+
+        @include('layouts.anavigation')
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">Document Request List</h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
+
+            <!-- Main content -->
+            <section class="content">
+            <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;"  onclick="openForm()"> Add Document Type <center><img onclick="openForm()" height="20px" width="20px" src="https://img.icons8.com/color/48/000000/add--v1.png" /></center> </button><div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <form action="{{ route('docres.filter') }}">
+                <div class="row">
+                    <div class="col">
+                        <input value="{{$lname}}" type="text" class="form-control" name="lname" id="lname" placeholder="Enter Last Name">
+                    </div>
+                    <div class="col">
+                        <input value="{{$fname}}" type="text" class="form-control" name="fname" id="fname" placeholder="Enter First Name">
+                    </div>
+                    <div class="col">
+                        <select required name="docname" id="docname" class="form-control">
+                            <option value=" "></option>
+                            @foreach ($doclist as $document)
+                            <option value={{$document->id}}>{{$document->document_name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select required name="status" id="status" class="form-control">
+                            <option value=" "></option>
+                            @foreach(\App\Enums\DocumentRequestStatus::cases() as $status)
+                            <option value="{{ $status->value }}">{{ $status->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-success" type="submit">Filter</button>
+                        <form action="{{ route('docres.index') }}">
+                    <button class="btn btn-primary" type="submit">Clear Filter</button>
+                </form>
+                    </div>
+                </div>
+            </form>
+            <br>
+            <br>                <div class="popup">
+                    <div class="cnt223">
+                        <a href='' class='close'><img src="https://img.icons8.com/color/48/000000/delete-sign--v1.png" /></a>
+
+                        <form method="POST" action="{{ route('docres.store')}}">
         <div class='popup'>
             <div class='cnt223'>
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -182,58 +249,22 @@
         </div>
     </form>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-
-            <button class="open-button" onclick="openForm()"> <img onclick="openForm()" height="20px" width="20px" src="https://img.icons8.com/color/48/000000/add--v1.png" /> Add Document Type </button>
-            <form action="{{ route('docres.filter',$document->id) }}">
-                <div class="row">
-                    <div class="col">
-                        <input value="{{$lname}}" type="text" class="form-control" name="lname" id="lname" placeholder="Enter Last Name">
-                    </div>
-                    <div class="col">
-                        <input value="{{$fname}}" type="text" class="form-control" name="fname" id="fname" placeholder="Enter First Name">
-                    </div>
-                    <div class="col">
-                        <select required name="docname" id="docname" class="form-control">
-                            <option value=" "></option>
-                            @foreach ($doclist as $document)
-                            <option value={{$document->id}}>{{$document->document_name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="col">
-                        <select required name="status" id="status" class="form-control">
-                            <option value=" "></option>
-                            @foreach(\App\Enums\DocumentRequestStatus::cases() as $status)
-                            <option value="{{ $status->value }}">{{ $status->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="col">
-                        <button class="btn btn-success" type="submit">Filter</button>
-                        <form action="{{ route('docres.index') }}">
-                    <button class="btn btn-primary" type="submit">Clear Filter</button>
-                </form>
                     </div>
                 </div>
-            </form>
+                <table class="table">
 
-            <div class="col">
-                
-            </div>
-            &nbsp;
-
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    <table>
+                    <thead>
                         <tr>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">USER_ID</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">LAST NAME </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">FIRST NAME</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">DOCUMENT NAME</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">DOCUMENT STATUS</th>
-                            <th colspan="4" scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider" style="text-align:center ;">ACTIONS
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">USER_ID</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">LAST NAME </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">FIRST NAME</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">DOCUMENT NAME</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">DOCUMENT STATUS</th>
+                            <th colspan="4" scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider" style="text-align:center ;">ACTIONS
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr>
                         </tr>
 
                         @foreach ($docres as $docress)
@@ -255,38 +286,69 @@
                             @endif
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <form action="{{ route('docres.edit',$docress->id) }}">
-                                    <button type="submit" class="btn btn-primary">Edit</button>
+                                    <button type="submit" class="open-button" style="background-color: #0047AB; color: white;">Edit</button>
                                 </form>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <form action="{{ route('docres.destroy',$docress->id) }}" method="POST">
                                     @csrf
                                     @method('delete')
-                                    <button class="btn btn-danger" onclick="return confirm('Do you want to delete? ')" type="submit">Delete</button>
+                                    <button class="open-button" style="background-color: #8B0000; color: white;" onclick="return confirm('Do you want to delete? ')" type="submit">Delete</button>
                                 </form>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <form action="{{ route('pdf.show',$docress->id) }}">
-                                    <button type="submit" class="btn btn-success">Show</button>
+                                    <button type="submit" class="open-button" style="background-color: #F28C28; color: white;">Show</button>
                                 </form>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <form action="{{ route('pdf.generatePDF',$docress->id) }}">
-                                    <button class="btn btn-primary" type="submit">Download</button>
+                                    <button class="open-button" style="background-color: #4F7942; color: white;" type="submit">Download</button>
                                 </form>
                             </td>
                             @endif
                             @endforeach
                         </tr>
                         @endforeach
-                        {{ $docres->links() }}
-                    </table>
-                </div>
-            </div>
+                        {{ $docres->links('pagination::bootstrap-5') }}
+
+
+                    </tbody>
+                </table>
+            </section>
+            <!-- /.content -->
         </div>
+        <!-- /.content-wrapper -->
+
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
     </div>
-</x-app-layout>
+    <!-- ./wrapper -->
+
+    <!-- jQuery -->
+   
+</body>
+
+</html>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <style>
+    @media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+    table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+}
+
+    img {
+        height: 30px;
+        width: 30px;
+    }
+
+
     .close {
         float: right;
         width: 20px;
@@ -310,9 +372,10 @@
 
     .popup {
         padding-top: 10px;
-        width: 100%;
         display: none;
         position: absolute;
+        right: 35%;
+
         z-index: 101;
     }
 
@@ -355,16 +418,89 @@
         cursor: pointer;
     }
 
+    .btn-logo {
+        width: 25px;
+        height: 25px;
+    }
+
+    .open-button {
+        border-radius: 15px;
+        width: fit-content;
+        box-shadow: green;
+        cursor: pointer;
+        display: inline-block;
+        font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+        padding: 7px 20px;
+        text-align: center;
+        text-decoration: none;
+        transition: all 250ms;
+        border: 0;
+        font-size: 16px;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+
+    }
+
+    .open-button:hover {
+        transform: scale(1.05) rotate(-1deg);
+    }
     .responsive {
   width: 100%;
   max-width: 900px;
   height: auto;
 }
 </style>
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <script type='text/javascript'>
-    $("#docname").click(function() {
-        console.log($(this).val());
+    $(document).ready(function() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $('.delete_button').click(function(e) {
+            e.preventDefault();
+            var delete_id = $(this).val();
+            var url =  "{{route('user.destroy', ":delete_id") }}";
+            url = url.replace(":delete_id", delete_id);
+            console.log(delete_id);
+            swal({
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to recover this User!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        var data = {
+                            "_token": $('input[name="csrf-token"]').val(),
+                            "id": delete_id,
+                        }
+                        $.ajax({
+                            type: "delete",
+                            url:url,
+                            data: data,
+                            
+                            success: function() {
+                                console.log(url);
+                                swal("User has been deleted!", {
+                                        icon: "success",
+                                    })
+                                    .then((willDelete) => {
+                                        location.reload();
+                                    });
+                            }
+                        });
+                    }
+
+                });
+
+        });
     });
 
     function openForm() {
@@ -385,228 +521,5 @@
                 return false;
             });
         });
-
-
     }
-
-
-    $("#country_code").change(function() {
-        if ($(this).val() == "ph") {
-            document.getElementById("pnum").value = "63";
-        }
-    });
-    $(function() {
-
-        //Get the selected value
-        $('.Certification').show();
-        $('.Authorization').hide();
-        $('.Indigency').hide();
-        $('.Jobseeker').hide();
-        $('.Oath').hide();
-        $('.Oneness').hide();
-
-        if ($("#document_list").val() == 1) {
-            $('#bdate').show();
-            $('#address').show();
-
-            $('#years').hide();
-            $('#months').hide();
-            $('#municipality').hide();
-            $('#vdate').hide();
-            $('#age').hide();
-            $('#representative').hide();
-            $('#purpose').hide();
-            $('#reason').hide();
-            $('#relationship').hide();
-        }
-    });
-
-    $("#document_list").change(function() {
-        $(function() {
-            var overlay = $('<div id="overlay"></div>');
-            overlay.show();
-            overlay.appendTo(document.body);
-            $('.popup').show();
-            $('.close').click(function() {
-                $('.popup').hide();
-                overlay.appendTo(document.body).remove();
-                return false;
-            });
-
-            $('.x').click(function() {
-                $('.popup').hide();
-                overlay.appendTo(document.body).remove();
-                return false;
-            });
-        });
-        if ($(this).val() == "") {}
-        console.log($(this).val());
-        if ($(this).val() == 1) {
-            $('.Certification').show();
-            $('.Authorization').hide();
-            $('.Indigency').hide();
-            $('.Jobseeker').hide();
-            $('.Oath').hide();
-            $('.Oneness').hide();
-
-            $('#bdate').show();
-            $('#address').show();
-
-            $('#years').hide();
-            $('#months').hide();
-            $('#municipality').hide();
-            $('#vdate').hide();
-            $('#age').hide();
-            $('#representative').hide();
-            $('#purpose').hide();
-            $('#reason').hide();
-            $('#relationship').hide();
-
-        } else {
-
-        }
-
-        if ($(this).val() == 2) {
-
-            $('.Certification').hide();
-            $('.Authorization').show();
-            $('.Indigency').hide();
-            $('.Jobseeker').hide();
-            $('.Oath').hide();
-            $('.Oneness').hide();
-            $('#bdate').show();
-            $('#relationship').show();
-            $('#representative').show();
-            $('#reason').show();
-
-            $('#years').hide();
-            $('#months').hide();
-            $('#municipality').hide();
-            $('#vdate').hide();
-            $('#age').hide();
-
-            $('#purpose').hide();
-            $('#address').hide();
-
-
-
-
-        } else {
-
-        }
-
-        if ($(this).val() == 3) {
-            $('.Certification').hide();
-            $('.Authorization').hide();
-            $('.Indigency').show();
-            $('.Jobseeker').hide();
-            $('.Oath').hide();
-            $('.Oneness').hide();
-            $('#address').show();
-            $('#years').hide();
-            $('#months').hide();
-            $('#municipality').hide();
-
-            $('#purpose').show();
-
-            $('#bdate').hide();
-            $('#relationship').hide();
-            $('#representative').hide();
-            $('#reason').hide();
-
-            $('#vdate').hide();
-            $('#age').hide();
-
-        } else {
-
-        }
-
-        if ($(this).val() == 4) {
-            $('.Certification').hide();
-            $('.Authorization').hide();
-            $('.Indigency').hide();
-            $('.Jobseeker').show();
-            $('.Oath').hide();
-            $('.Oneness').hide();
-            $('#address').show();
-            $('#age').hide();
-            $('#municipality').show();
-
-
-            $('#years').show();
-            $('#months').show();
-
-            $('#purpose').hide();
-
-            $('#bdate').hide();
-            $('#relationship').hide();
-            $('#representative').hide();
-            $('#reason').hide();
-
-            $('#vdate').hide();
-
-
-        } else {
-
-        }
-
-        if ($(this).val() == 5) {
-            $('.Certification').hide();
-            $('.Authorization').hide();
-            $('.Indigency').hide();
-            $('.Jobseeker').hide();
-            $('.Oath').show();
-            $('.Oneness').hide();
-
-            $('#purpose').hide();
-
-            $('#age').show();
-            $('#address').show();
-            $('#municipality').show();
-
-            $('#years').hide();
-            $('#months').hide();
-
-
-            $('#bdate').hide();
-            $('#relationship').hide();
-            $('#representative').hide();
-            $('#reason').hide();
-
-            $('#vdate').hide();
-
-
-        } else {
-
-        }
-
-        if ($(this).val() == 6) {
-            $('.Certification').hide();
-            $('.Authorization').hide();
-            $('.Indigency').hide();
-            $('.Jobseeker').hide();
-            $('.Oath').hide();
-            $('.Oneness').show();
-
-            $('#purpose').show();
-
-            $('#age').hide();
-            $('#address').hide();
-            $('#municipality').hide();
-
-            $('#years').hide();
-            $('#months').hide();
-
-
-            $('#bdate').hide();
-            $('#relationship').hide();
-            $('#representative').hide();
-            $('#reason').hide();
-
-            $('#vdate').hide();
-        } else {
-
-
-        }
-    });
 </script>

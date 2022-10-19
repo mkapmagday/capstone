@@ -65,7 +65,7 @@ class AdminDashboardController extends Controller
         $data2 = $monthCount2;
         
 
-             return view('adashboard', compact('docres1','pending','approved','for_claiming','claimed','labels','data','labels1','data1','labels2','data2'));
+             return view('/adashboard', compact('docres1','pending','approved','for_claiming','claimed','labels','data','labels1','data1','labels2','data2'));
     }
 
     /**

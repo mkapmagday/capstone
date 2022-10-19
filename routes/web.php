@@ -31,7 +31,7 @@ Route::get('/', function () {
 
 
 Route::middleware(['auth','role:admin'])->group(function (){
-Route::get('/adashboard',[AdminDashboardController::class,'index'])->middleware('auth','verified')->name('dashboard');
+Route::get('/admindashboard',[AdminDashboardController::class,'index'])->middleware('auth','verified')->name('admindashboard.index');
 
 Route::get('admin/users',[AdminUserController::class,'index'])->middleware('auth')->name('user.index');
 Route::get('admin/users/{id}',[AdminUserController::class,'show'])->middleware('auth')->name('user.show');
@@ -69,6 +69,7 @@ Route::get('admin/user/filter',[AdminUserController::class,'show'])->name('user.
 Route::get('admin/residents/filter',[AdminResidentsListController::class,'show'])->name('reslist.filter');
 Route::get('admin/residents/list',[AdminResidentsListController::class,'index'])->name('reslist.index');
 Route::post('admin/residents/create',[AdminResidentsListController::class,'store'])->name('reslist.store');
+Route::post('admin/residents/upload',[AdminResidentsListController::class,'upload'])->name('reslist.upload');
 Route::get('admin/residents/edit/{id}',[AdminResidentsListController::class,'edit'])->name('reslist.edit');
 Route::put('admin/residents/update/{id}',[AdminResidentsListController::class,'update'])->name('reslist.update');
 Route::delete('admin/residents/delete/{id}',[AdminResidentsListController::class,'destroy'])->name('reslist.destroy');
@@ -76,13 +77,13 @@ Route::delete('admin/residents/delete/{id}',[AdminResidentsListController::class
 });
 
 Route::middleware(['auth','role:resident'])->group(function (){
-    Route::get('/dashboard',[ResidentDashboardController::class,'index'])->name('dashboard');
+    
     Route::get('/resident/docres/status',[ResidentDocumentRequestController::class,'show'])->middleware('auth')->name('residentdocres.show');
     Route::get('resident/docres',[ResidentDocumentRequestController::class,'index'])->middleware('auth')->name('residentdocres.index');
     Route::post('resident/docres/create',[ResidentDocumentRequestController::class,'store'])->middleware('auth')->name('residentdocres.store');
     Route::get('resident/docres/pdf/{id}',[AdminPDFController::class,'show'])->middleware('auth')->name('residentpdf.show');
 });
-
+Route::get('/dashboard',[ResidentDashboardController::class,'index'])->name('dashboard');
 Route::get('send',[AdminSmsController::class,'sendnotification']);
 
 
