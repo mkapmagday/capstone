@@ -33,210 +33,211 @@
 
             <!-- Main content -->
             <section class="content">
-            <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;"  onclick="openForm()"> Add Document Type <center><img onclick="openForm()" height="20px" width="20px" src="https://img.icons8.com/color/48/000000/add--v1.png" /></center> </button><div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <form action="{{ route('docres.filter') }}">
-                <div class="row">
-                    <div class="col-2">
-                        <input type="text" class="form-control" name="lname" id="lname" placeholder="Enter Last Name" style="margin-top: 15px;">
-                    </div>
-                    <div class="col-2">
-                        <input type="text" class="form-control" name="fname" id="fname" placeholder="Enter First Name" style="margin-top: 15px;">
-                    </div>
-                    <div class="col-2">
-                        <select required name="docname" id="docname" class="form-control" style="margin-top: 15px;">
-                            <option value=" "></option>
-                            @foreach ($doclist as $document)
-                            <option value={{$document->id}}>{{$document->document_name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="col-2">
-                        <select required name="status" id="status" class="form-control" style="margin-top: 15px;">
-                            <option value=" "></option>
-                            @foreach(\App\Enums\DocumentRequestStatus::cases() as $status)
-                            <option value="{{ $status->value }}">{{ $status->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <button class="open-button" style="background-color: #228B22; color: white; width:100px" type="submit">Filter<center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/find-user-male--v1.png"/></center></button>
+                <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;" onclick="openForm()"> Add Document Type <center><img onclick="openForm()" height="20px" width="20px" src="https://img.icons8.com/color/48/000000/add--v1.png" /></center> </button>
+                    <form action="{{ route('docres.filter') }}">
+                        <div class="row">
+                            <div class="col-2">
+                                <input type="text" class="form-control" name="lname" id="lname" placeholder="Enter Last Name" style="margin-top: 15px;">
+                            </div>
+                            <div class="col-2">
+                                <input type="text" class="form-control" name="fname" id="fname" placeholder="Enter First Name" style="margin-top: 15px;">
+                            </div>
+                            <div class="col-2">
+                                <select required name="docname" id="docname" class="form-control" style="margin-top: 15px;">
+                                    <option value=" "></option>
+                                    @foreach ($doclist as $document)
+                                    <option value={{$document->id}}>{{$document->document_name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-2">
+                                <select required name="status" id="status" class="form-control" style="margin-top: 15px;">
+                                    <option value=" "></option>
+                                    @foreach(\App\Enums\DocumentRequestStatus::cases() as $status)
+                                    <option value="{{ $status->value }}">{{ $status->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <button class="open-button" style="background-color: #228B22; color: white; width:100px" type="submit">Filter<center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/find-user-male--v1.png" /></center></button>
+                    </form>
+
                     <div class="col-2">
                         <form action="{{ route('docres.index') }}">
-                            <button class="open-button" style="background-color: #0047AB; color: white;" type="submit">Clear Filter<center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/clear-search.png"/></center></button>
+                            <button class="open-button" style="background-color: #0047AB; color: white;" type="submit">Clear <center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/clear-search.png" /></center></button>
                         </form>
                     </div>
-                </div>
-            </form>
-            <br>
-            <br>                <div class="popup">
+                <br>
+                <br>
+                <div class="popup">
                     <div class="cnt223">
                         <a href='' class='close'><img src="https://img.icons8.com/color/48/000000/delete-sign--v1.png" /></a>
                         <form method="POST" action="{{ route('docres.store')}}">
-                        @csrf
-                        <div style="padding-top: 0px;">
-                            <select required name="document_list" id="document_list" class="form-control">
-                                @foreach ($doclist as $document)
-                                <option value={{$document->id}}>{{$document->document_name}}</option>
-                                @endforeach
-                            </select>
-                            <div>
-                                <td>
-                                    <x-input-label for="lname" :value="__('Last Name')" />
-                                </td>
-                                <td>&nbsp;</td>
-                                <td>
-                                    <x-text-input id="lname" type="text" name="lname" />
-                                </td>
-                            </div>
-                            <div>
-                                <td>
-                                    <x-input-label for="fname" :value="__('First Name')" />
-                                </td>
-                                <td>&nbsp;</td>
-                                <td>
-                                    <x-text-input id="fname" type="text" name="fname" />
-                                </td>
-                            </div>
-                            <div>
-                                <td>
-                                    <x-input-label for="mname" :value="__('Middle Name')" />
-                                </td>
-                                <td>&nbsp;</td>
-                                <td>
-                                    <x-text-input id="mname" type="text" name="mname" />
-                                </td>
-                            </div>
-                            <div>
-                                <td>
-                                    <x-input-label for="pnum" :value="__('Phone Number')" />
-                                </td>
-                                <td>&nbsp;</td>
-                                <td>
-                                    <select id="country_code">
-                                        <option value="">Select Country</option>
-                                        <option value="ph">&#127477;&#127469;</option>
-                                    </select>
-                                    <x-text-input id="pnum" type="text" name="pnum" />
-                                </td>
-                            </div>
-                            <div id="bdate">
-                                <tr>
+                            @csrf
+                            <div style="padding-top: 0px;">
+                                <select required name="document_list" id="document_list" class="form-control">
+                                    @foreach ($doclist as $document)
+                                    <option value={{$document->id}}>{{$document->document_name}}</option>
+                                    @endforeach
+                                </select>
+                                <div>
                                     <td>
-                                        <x-input-label for="bdate" :value="__('Date of Birth')" />
+                                        <x-input-label for="lname" :value="__('Last Name')" />
                                     </td>
                                     <td>&nbsp;</td>
                                     <td>
-                                        <x-text-input id="bdate" type="date" name="bdate" />
+                                        <x-text-input id="lname" type="text" name="lname" />
                                     </td>
-                                </tr>
-                            </div>
-                            <div id="years">
-                                <tr>
+                                </div>
+                                <div>
                                     <td>
-                                        <x-input-label for="years" :value="__('Years')" />
+                                        <x-input-label for="fname" :value="__('First Name')" />
                                     </td>
                                     <td>&nbsp;</td>
                                     <td>
-                                        <x-text-input id="years" type="text" name="years" />
+                                        <x-text-input id="fname" type="text" name="fname" />
                                     </td>
-                                </tr>
-                            </div>
-                            <div id="months">
-                                <tr>
+                                </div>
+                                <div>
                                     <td>
-                                        <x-input-label for="months" :value="__('Months')" />
+                                        <x-input-label for="mname" :value="__('Middle Name')" />
                                     </td>
                                     <td>&nbsp;</td>
                                     <td>
-                                        <x-text-input id="months" type="months" name="months" />
+                                        <x-text-input id="mname" type="text" name="mname" />
                                     </td>
-                                </tr>
-                            </div>
-                            <div id="municipality">
-                                <tr>
+                                </div>
+                                <div>
                                     <td>
-                                        <x-input-label for="municipality" :value="__('Municipality')" />
+                                        <x-input-label for="pnum" :value="__('Phone Number')" />
                                     </td>
                                     <td>&nbsp;</td>
                                     <td>
-                                        <x-text-input id="municipality" type="text" name="municipality" />
+                                        <select id="country_code">
+                                            <option value="">Select Country</option>
+                                            <option value="ph">&#127477;&#127469;</option>
+                                        </select>
+                                        <x-text-input id="pnum" type="text" name="pnum" />
                                     </td>
-                                </tr>
-                            </div>
-                            <div id="age">
+                                </div>
+                                <div id="bdate">
+                                    <tr>
+                                        <td>
+                                            <x-input-label for="bdate" :value="__('Date of Birth')" />
+                                        </td>
+                                        <td>&nbsp;</td>
+                                        <td>
+                                            <x-text-input id="bdate" type="date" name="bdate" />
+                                        </td>
+                                    </tr>
+                                </div>
+                                <div id="years">
+                                    <tr>
+                                        <td>
+                                            <x-input-label for="years" :value="__('Years')" />
+                                        </td>
+                                        <td>&nbsp;</td>
+                                        <td>
+                                            <x-text-input id="years" type="text" name="years" />
+                                        </td>
+                                    </tr>
+                                </div>
+                                <div id="months">
+                                    <tr>
+                                        <td>
+                                            <x-input-label for="months" :value="__('Months')" />
+                                        </td>
+                                        <td>&nbsp;</td>
+                                        <td>
+                                            <x-text-input id="months" type="months" name="months" />
+                                        </td>
+                                    </tr>
+                                </div>
+                                <div id="municipality">
+                                    <tr>
+                                        <td>
+                                            <x-input-label for="municipality" :value="__('Municipality')" />
+                                        </td>
+                                        <td>&nbsp;</td>
+                                        <td>
+                                            <x-text-input id="municipality" type="text" name="municipality" />
+                                        </td>
+                                    </tr>
+                                </div>
+                                <div id="age">
+                                    <tr>
+                                        <td>
+                                            <x-input-label for="age" :value="__('age')" />
+                                        </td>
+                                        <td>&nbsp;</td>
+                                        <td>
+                                            <x-text-input id="age" type="text" name="age" />
+                                        </td>
+                                    </tr>
+                                </div>
+                                <div id="representative">
+                                    <tr>
+                                        <td>
+                                            <x-input-label for="representative" :value="__('Representative')" />
+                                        </td>
+                                        <td>&nbsp;</td>
+                                        <td>
+                                            <x-text-input id="representative" type="text" name="representative" />
+                                        </td>
+                                    </tr>
+                                </div>
+                                <div id="address">
+                                    <tr>
+                                        <td>
+                                            <x-input-label for="address" :value="__('Address')" />
+                                        </td>
+                                        <td>&nbsp;</td>
+                                        <td>
+                                            <x-text-input id="address" type="text" name="address" />
+                                        </td>
+                                    </tr>
+                                </div>
+                                <div id="purpose">
+                                    <tr>
+                                        <td>
+                                            <x-input-label for="purpose" :value="__('Purpose')" />
+                                        </td>
+                                        <td>&nbsp;</td>
+                                        <td>
+                                            <x-text-input id="purpose" type="text" name="purpose" />
+                                        </td>
+                                    </tr>
+                                </div>
+                                <div id="reason">
+                                    <tr>
+                                        <td>
+                                            <x-input-label for="reason" :value="__('Reason')" />
+                                        </td>
+                                        <td>&nbsp;</td>
+                                        <td>
+                                            <x-text-input id="reason" type="text" name="reason" />
+                                        </td>
+                                    </tr>
+                                </div>
+                                <div id="relationship">
+                                    <tr>
+                                        <td>
+                                            <x-input-label for="relation" :value="__('Relation')" />
+                                        </td>
+                                        <td>&nbsp;</td>
+                                        <td>
+                                            <x-text-input id="relation" type="text" name="relation" />
+                                        </td>
+                                    </tr>
+                                </div>
+
                                 <tr>
-                                    <td>
-                                        <x-input-label for="age" :value="__('age')" />
-                                    </td>
                                     <td>&nbsp;</td>
-                                    <td>
-                                        <x-text-input id="age" type="text" name="age" />
-                                    </td>
-                                </tr>
-                            </div>
-                            <div id="representative">
-                                <tr>
-                                    <td>
-                                        <x-input-label for="representative" :value="__('Representative')" />
-                                    </td>
                                     <td>&nbsp;</td>
-                                    <td>
-                                        <x-text-input id="representative" type="text" name="representative" />
-                                    </td>
-                                </tr>
-                            </div>
-                            <div id="address">
-                                <tr>
-                                    <td>
-                                        <x-input-label for="address" :value="__('Address')" />
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <x-text-input id="address" type="text" name="address" />
-                                    </td>
-                                </tr>
-                            </div>
-                            <div id="purpose">
-                                <tr>
-                                    <td>
-                                        <x-input-label for="purpose" :value="__('Purpose')" />
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <x-text-input id="purpose" type="text" name="purpose" />
-                                    </td>
-                                </tr>
-                            </div>
-                            <div id="reason">
-                                <tr>
-                                    <td>
-                                        <x-input-label for="reason" :value="__('Reason')" />
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <x-text-input id="reason" type="text" name="reason" />
-                                    </td>
-                                </tr>
-                            </div>
-                            <div id="relationship">
-                                <tr>
-                                    <td>
-                                        <x-input-label for="relation" :value="__('Relation')" />
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <x-text-input id="relation" type="text" name="relation" />
-                                    </td>
+                                    <td><button onclick="return confirm('Do you want to submit request? ')" type="submit" style="float: right;"><img src="https://img.icons8.com/external-sbts2018-flat-sbts2018/58/000000/external-submit-basic-ui-elements-2.3-sbts2018-flat-sbts2018.png" />SUBMIT</button></td>
                                 </tr>
                             </div>
 
-                            <tr>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td><button onclick="return confirm('Do you want to submit request? ')" type="submit" style="float: right;"><img src="https://img.icons8.com/external-sbts2018-flat-sbts2018/58/000000/external-submit-basic-ui-elements-2.3-sbts2018-flat-sbts2018.png" />SUBMIT</button></td>
-                            </tr>
-                        </div>
-                    
-    </form>
+                        </form>
 
                     </div>
                 </div>
@@ -318,19 +319,24 @@
     <!-- ./wrapper -->
 
     <!-- jQuery -->
-   
+
 </body>
 
 </html>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <style>
-    @media 
-only screen and (max-width: 760px),
-(min-device-width: 768px) and (max-device-width: 1024px)  {
-    table, thead, tbody, th, td, tr { 
-		display: block; 
-	}
-}
+    @media only screen and (max-width: 760px),
+    (min-device-width: 768px) and (max-device-width: 1024px) {
+
+        table,
+        thead,
+        tbody,
+        th,
+        td,
+        tr {
+            display: block;
+        }
+    }
 
     img {
         height: 30px;
@@ -434,11 +440,12 @@ only screen and (max-width: 760px),
     .open-button:hover {
         transform: scale(1.05) rotate(-1deg);
     }
+
     .responsive {
-  width: 100%;
-  max-width: 900px;
-  height: auto;
-}
+        width: 100%;
+        max-width: 900px;
+        height: auto;
+    }
 </style>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
@@ -454,7 +461,7 @@ only screen and (max-width: 760px),
         $('.delete_button').click(function(e) {
             e.preventDefault();
             var delete_id = $(this).val();
-            var url =  "{{route('user.destroy', ":delete_id") }}";
+            var url = "{{route('user.destroy', ": delete_id ") }}";
             url = url.replace(":delete_id", delete_id);
             console.log(delete_id);
             swal({
@@ -472,9 +479,9 @@ only screen and (max-width: 760px),
                         }
                         $.ajax({
                             type: "delete",
-                            url:url,
+                            url: url,
                             data: data,
-                            
+
                             success: function() {
                                 console.log(url);
                                 swal("User has been deleted!", {

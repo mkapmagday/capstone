@@ -58,18 +58,20 @@
                         </select>
                     </div>
                     <button class="open-button" style="background-color: #228B22; color: white; width:100px" type="submit">Filter<center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/find-user-male--v1.png"/></center></button>
+            </form>
+
                     <div class="col-2">
                         <form action="{{ route('docres.index') }}">
                             <button class="open-button" style="background-color: #0047AB; color: white;" type="submit">Clear Filter<center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/clear-search.png"/></center></button>
                         </form>
                     </div>
                 </div>
-            </form>
             <br>
             <br>                <div class="popup">
                     <div class="cnt223">
                         <a href='' class='close'><img src="https://img.icons8.com/color/48/000000/delete-sign--v1.png" /></a>
                         <form method="POST" action="{{ route('docres.update',$docresupdate->id)}}">
+                        @method('put')
                         @csrf
                         <div style="padding-top: 0px;">
                             <select required name="document_list" id="document_list" class="form-control">
@@ -227,11 +229,29 @@
                                     </td>
                                 </tr>
                             </div>
+                            <div>
+                            <tr>
+                                <td>
+                                    <x-input-label for="status" :value="__('Status')" />
+                                </td>
+                                <td>
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    <select required name="status" id="status" :value="{{ $docresupdate->status }}" class="form-control">
+                                        @foreach(\App\Enums\DocumentRequestStatus::cases() as $status)
+                                        <option value="{{ $status->value }}">{{ $status->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </td>
+
+                            </tr>
+                            </div>
 
                             <tr>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
-                                <td><button onclick="return confirm('Do you want to submit request? ')" type="submit" style="float: right;"><img src="https://img.icons8.com/external-sbts2018-flat-sbts2018/58/000000/external-submit-basic-ui-elements-2.3-sbts2018-flat-sbts2018.png" />SUBMIT</button></td>
+                                <td><button onclick="return confirm('Do you want to submit request? ')" type="submit" style="float: right;"><img src="https://img.icons8.com/external-sbts2018-flat-sbts2018/58/000000/external-submit-basic-ui-elements-2.3-sbts2018-flat-sbts2018.png" />Update Document</button></td>
                             </tr>
                         </div>
                     
