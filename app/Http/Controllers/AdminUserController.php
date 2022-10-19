@@ -116,7 +116,7 @@ class AdminUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
         ]);
-        return redirect()->route('user.index');
+        return back();
     }
 
     /**

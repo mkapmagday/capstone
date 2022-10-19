@@ -1,30 +1,81 @@
-<x-app-layout>
-   
+<!DOCTYPE html>
+<html lang="en">
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+<head>
+    <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AdminLTE 3 | Dashboard</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{asset('public/plugins/fontawesome-free/css/all.min.css')}}">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="{{asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="{{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="{{asset('plugins/jqvmap/jqvmap.min.css')}}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="{{asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="{{asset('plugins/daterangepicker/daterangepicker.css')}}">
+    <!-- summernote -->
+    <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+
+        <!-- Preloader -->
+
+        @include('layouts.anavigation')
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">User List</h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
+
+            <!-- Main content -->
+            <section class="content">
+            <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;" onclick="openForm()" style="margin-left:50px"> Create User <center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/add-user-group-woman-man-skin-type-7.png" /></center></button>
+<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <form action="{{ route('user.filter') }}">
-
-                <div class="row" style="margin-left:150px; margin-top: 20px">
+                <div class="row" style="margin-left:150px; margin-top: 20px;">
                     <div class="col">
                         <input type="text" class="form-control" name="name" id="name" placeholder="Name" style="margin-top: 15px;">
                     </div>
                     <div class="col">
                         <input type="text" class="form-control" name="email" id="email" placeholder="Email" style="margin-top: 15px;">
                     </div>
+                    <button class="open-button" style="background-color: #228B22; color: white; width:100px" type="submit">Filter<center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/find-user-male--v1.png" /></center></button>
+
+            </form>
                     <div class="col">
-                        <button class="open-button" style="background-color: #228B22; color: white; width:100px" type="submit">Filter<center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/find-user-male--v1.png"/></center></button>
                         <form action="{{ route('user.index') }}">
-                            <button class="open-button" style="background-color: #0047AB; color: white;" type="submit">Clear Filter<center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/clear-search.png"/></center></button>
+                            <button class="open-button" style="background-color: #0047AB; color: white;" type="submit">Clear Filter<center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/clear-search.png" /></center></button>
                         </form>
                     </div>
                 </div>
-            </form>
             <br>
-            <br>
-
-           
-                <div class="popup">
+            <br>                <div class="popup">
                     <div class="cnt223">
                     <a href='' class='close'><img src="https://img.icons8.com/color/48/000000/delete-sign--v1.png" /></a>
 
@@ -52,58 +103,104 @@
                             <!-- Password -->
                             
                             <div class="flex items-center justify-end mt-4">
-                                <x-primary-button class="ml-4">
+                                <button>
                                     {{ __('Update User') }}
-                                </x-primary-button>
+                                </button>
                             </div>
                         </form>
 
                     </div>
                 </div>
-                <div class="p-6 bg-white border-b border-gray-200">
-                    <table class="min-w-full divide-y divide-gray-200 " align="center">
-                        <thead class="bg-gray-50 dark:bg-gray-600 dark:text-gray-200">
-                            <tr>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">Id</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">Name</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">Email</th>
-                                <th scope="col" colspan="3" style="text-align:center;" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
-                            <tr>
-                            </tr>
+                <table class="table">
 
-                            @foreach ($users as $user)
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">{{$user->id}}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{$user->name}}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{$user->email}}</td>
-                                <td class="px-6 py-4 text-sm">
-                                    <form action="{{ route('role.show',$user->id) }}">
-                                        <button class="open-button" style="background-color: #4F7942; color: white;" type="submit">Roles</button>
-                                    </form>
-                                </td>
-                                <td class="px-6 py-4 text-sm">
-                                    <form action="{{ route('user.edit',$user->id) }}">
-                                        <button class="open-button" style="background-color: #0047AB; color: white;" type="submit">Edit</button>
-                                    </form>
-                                </td>
-                                <td class="px-6 py-4 text-sm">
-                                    <button class="open-button delete_button" value={{$user->id}} style="background-color: #8B0000; color: white;"  type="submit">Delete</button>
-                                </td>
-                            </tr>
-                            @endforeach
-                            {{ $users->links() }}
+                    <thead>
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">Id</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">Name</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">Email</th>
+                            <th scope="col" colspan="3" style="text-align:center;" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr>
+                        </tr>
+
+                        @foreach ($users as $user)
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">{{$user->id}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap">{{$user->name}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap">{{$user->email}}</td>
+                            <td class="px-6 py-4 text-sm">
+                                <form action="{{ route('role.show',$user->id) }}">
+                                    <button class="open-button" style="background-color: #4F7942; color: white;" type="submit">Roles</button>
+                                </form>
+                            </td>
+                            <td class="px-6 py-4 text-sm">
+                                <form action="{{ route('user.edit',$user->id) }}">
+                                    <button class="open-button" style="background-color: #0047AB; color: white;" type="submit">Edit</button>
+                                </form>
+                            </td>
+                            <td class="px-6 py-4 text-sm">
+                                <button class="open-button delete_button" value='{{$user->id}}' style="background-color: #8B0000; color: white;" type="submit">Delete</button>
+                            </td>
+                        </tr>
+                        @endforeach
+                        {{ $users->links('pagination::bootstrap-5') }}
 
 
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                    </tbody>
+                </table>
+            </section>
+            <!-- /.content -->
         </div>
+        <!-- /.content-wrapper -->
+
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
     </div>
-</x-app-layout>
+    <!-- ./wrapper -->
+
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <!-- Bootstrap 4 -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- ChartJS -->
+    <script src="plugins/chart.js/Chart.min.js"></script>
+    <!-- Sparkline -->
+    <script src="plugins/sparklines/sparkline.js"></script>
+    <!-- JQVMap -->
+    <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+    <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="plugins/moment/moment.min.js"></script>
+    <script src="plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Summernote -->
+    <script src="plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="dist/js/demo.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="dist/js/pages/dashboard.js"></script>
+</body>
+
+</html>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <style>
     @media 
@@ -113,10 +210,13 @@ only screen and (max-width: 760px),
 		display: block; 
 	}
 }
-    img{
+
+    img {
         height: 30px;
         width: 30px;
     }
+
+
     .close {
         float: right;
         width: 20px;
@@ -142,7 +242,7 @@ only screen and (max-width: 760px),
         padding-top: 10px;
         display: none;
         position: absolute;
-        right:35%;
+        right: 35%;
 
         z-index: 101;
     }
@@ -185,8 +285,15 @@ only screen and (max-width: 760px),
     .cnt223 .x:hover {
         cursor: pointer;
     }
+
+    .btn-logo {
+        width: 25px;
+        height: 25px;
+    }
+
     .open-button {
         border-radius: 15px;
+        width: fit-content;
         box-shadow: green;
         cursor: pointer;
         display: inline-block;
@@ -206,12 +313,6 @@ only screen and (max-width: 760px),
     .open-button:hover {
         transform: scale(1.05) rotate(-1deg);
     }
-
-    .btn-logo {
-        width:25px;
-        height:25px;
-    }
-
     .responsive {
   width: 100%;
   max-width: 900px;
@@ -223,7 +324,7 @@ only screen and (max-width: 760px),
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script type='text/javascript'>
-       $(document).ready(function() {
+    $(document).ready(function() {
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -259,7 +360,7 @@ only screen and (max-width: 760px),
                                         icon: "success",
                                     })
                                     .then((willDelete) => {
-                                        location.replace("{{ route('user.index')}}");
+                                        location.reload();
                                     });
                             }
                         });
@@ -287,5 +388,4 @@ only screen and (max-width: 760px),
                 return false;
             });
         });
-
 </script>

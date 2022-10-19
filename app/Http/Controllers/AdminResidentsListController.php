@@ -73,9 +73,11 @@ class AdminResidentsListController extends Controller
      * @param  \App\Models\Residents  $residents
      * @return \Illuminate\Http\Response
      */
-    public function edit(Residents $residents)
+    public function edit($id)
     {
-        //
+        $residents = Residents::paginate(10);
+        $resident = Residents::find($id);
+        return view('admin.reslist.resedit',compact('residents','resident'));
     }
 
     /**
@@ -85,9 +87,14 @@ class AdminResidentsListController extends Controller
      * @param  \App\Models\Residents  $residents
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Residents $residents)
+    public function update(Request $request, Residents $residents, $id)
     {
-        //
+        $resident = Residents::find($id);
+        $input = $request->all();
+        $resident->update($input);
+
+        return redirect()->route('reslist.index');
+
     }
 
     /**
