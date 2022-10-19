@@ -78,6 +78,7 @@
                                 <a class="btn btn-primary float-right mr-3 mb-3" href="{{ route('reslist.index') }}">Cancel</a>
                             </div>
                         </form>
+                        
 
                     </div>
                 </div>
