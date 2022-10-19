@@ -132,7 +132,7 @@ class AdminUserController extends Controller
             return response()->json(['Deleted Successfully']);
         }
         catch(\Illuminate\Database\QueryException){
-            return back()->with('notification','error');
+            //
         }
     }
 }

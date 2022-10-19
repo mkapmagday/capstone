@@ -5,13 +5,14 @@
     <meta charset="utf-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AdminLTE 3 | Dashboard</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="{{asset('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback')}}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('public/plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="{{asset('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')}}">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
     <link rel="stylesheet" href="{{asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
     <!-- iCheck -->
@@ -54,27 +55,27 @@
 
             <!-- Main content -->
             <section class="content">
-                <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;" onclick="openForm()" style="margin-left:50px"> Create User <center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/add-user-group-woman-man-skin-type-7.png" /></center></button>
-                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <form action="{{ route('user.filter') }}">
-                        <div class="row" style="margin-left:150px; margin-top: 20px;">
-                            <div class="col">
-                                <input value="{{$name}}" type="text" class="form-control" name="name" id="name" placeholder="Name" style="margin-top: 15px;">
-                            </div>
-                            <div class="col">
-                                <input value="{{$email}}" type="text" class="form-control" name="email" id="email" placeholder="Email" style="margin-top: 15px;">
-                            </div>
-                    </form>
+            <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;" onclick="openForm()" style="margin-left:50px"> Create User <center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/add-user-group-woman-man-skin-type-7.png" /></center></button>
+<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <form action="{{ route('user.filter') }}">
+                <div class="row" style="margin-left:150px; margin-top: 20px;">
                     <div class="col">
-                        <button class="open-button" style="background-color: #228B22; color: white; width:100px" type="submit">Filter<center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/find-user-male--v1.png" /></center></button>
+                        <input value="{{$name}}" type="text" class="form-control" name="name" id="name" placeholder="Name" style="margin-top: 15px;">
+                    </div>
+                    <div class="col">
+                        <input value="{{$email}}" type="text" class="form-control" name="email" id="email" placeholder="Email" style="margin-top: 15px;">
+                    </div>
+                    <button class="open-button" style="background-color: #228B22; color: white; width:100px" type="submit">Filter<center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/find-user-male--v1.png" /></center></button>
+
+            </form>
+                    <div class="col">
                         <form action="{{ route('user.index') }}">
                             <button class="open-button" style="background-color: #0047AB; color: white;" type="submit">Clear Filter<center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/clear-search.png" /></center></button>
                         </form>
                     </div>
                 </div>
-                <br>
-                <br>
-                <div class="popup">
+            <br>
+            <br>                <div class="popup">
                     <div class="cnt223">
                         <a href='' class='close'><img src="https://img.icons8.com/color/48/000000/delete-sign--v1.png" /></a>
 
@@ -98,7 +99,7 @@
                             <!-- Password -->
                             <div class="mt-4">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="password">
+                                <input type="password" class="form-control" id="password" name="password" >
                                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
                             </div>
 
@@ -203,18 +204,13 @@
 </html>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <style>
-    @media only screen and (max-width: 760px),
-    (min-device-width: 768px) and (max-device-width: 1024px) {
-
-        table,
-        thead,
-        tbody,
-        th,
-        td,
-        tr {
-            display: block;
-        }
-    }
+    @media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+    table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+}
 
     img {
         height: 30px;
@@ -318,12 +314,11 @@
     .open-button:hover {
         transform: scale(1.05) rotate(-1deg);
     }
-
     .responsive {
-        width: 100%;
-        max-width: 900px;
-        height: auto;
-    }
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+}
 </style>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
@@ -339,7 +334,7 @@
         $('.delete_button').click(function(e) {
             e.preventDefault();
             var delete_id = $(this).val();
-            var url = "{{route('user.destroy', ": delete_id ") }}";
+            var url =  "{{route('user.destroy', ":delete_id") }}";
             url = url.replace(":delete_id", delete_id);
             console.log(delete_id);
             swal({
@@ -357,9 +352,9 @@
                         }
                         $.ajax({
                             type: "delete",
-                            url: url,
+                            url:url,
                             data: data,
-
+                            
                             success: function() {
                                 console.log(url);
                                 swal("User has been deleted!", {
