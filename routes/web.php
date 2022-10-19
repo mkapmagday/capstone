@@ -85,7 +85,9 @@ Route::middleware(['auth','role:resident'])->group(function (){
 });
 Route::get('/dashboard',[ResidentDashboardController::class,'index'])->name('dashboard');
 Route::get('send',[AdminSmsController::class,'sendnotification']);
-
+Route::get('tempdashboard', function(){
+    return view('tempdashboard');
+});
 
 //templates
 
