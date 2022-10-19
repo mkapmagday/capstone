@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminResidentsListController;
 use App\Http\Controllers\AdminRoleController;
 use App\Http\Controllers\AdminSmsController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\ResidentDashboardController;
 use App\Http\Controllers\ResidentDocumentRequestController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,9 +29,10 @@ Route::get('/', function () {
 
 
 
-Route::get('/adashboard',[AdminDashboardController::class,'index'])->middleware('auth','verified')->name('dashboard');
 
 Route::middleware(['auth','role:admin'])->group(function (){
+Route::get('/adashboard',[AdminDashboardController::class,'index'])->middleware('auth','verified')->name('dashboard');
+
 Route::get('admin/users',[AdminUserController::class,'index'])->middleware('auth')->name('user.index');
 Route::get('admin/users/{id}',[AdminUserController::class,'show'])->middleware('auth')->name('user.show');
 Route::get('admin/users/edit/{id}',[AdminUserController::class,'edit'])->middleware('auth')->name('user.edit');
@@ -65,9 +67,16 @@ Route::get('admin/docres/filter/',[AdminDocumentRequestController::class,'show']
 Route::get('admin/user/filter',[AdminUserController::class,'show'])->name('user.filter');
 
 Route::get('admin/residents/filter',[AdminResidentsListController::class,'show'])->name('reslist.filter');
+Route::get('admin/residents/list',[AdminResidentsListController::class,'index'])->name('reslist.index');
+Route::post('admin/residents/create',[AdminResidentsListController::class,'store'])->name('reslist.store');
+Route::get('admin/residents/edit/{id}',[AdminResidentsListController::class,'edit'])->name('reslist.edit');
+Route::put('admin/residents/update/{id}',[AdminResidentsListController::class,'update'])->name('reslist.update');
+Route::delete('admin/residents/delete/{id}',[AdminResidentsListController::class,'destroy'])->name('reslist.destroy');
+
 });
 
 Route::middleware(['auth','role:resident'])->group(function (){
+    Route::get('/dashboard',[ResidentDashboardController::class,'index'])->name('dashboard');
     Route::get('/resident/docres/status',[ResidentDocumentRequestController::class,'show'])->middleware('auth')->name('residentdocres.show');
     Route::get('resident/docres',[ResidentDocumentRequestController::class,'index'])->middleware('auth')->name('residentdocres.index');
     Route::post('resident/docres/create',[ResidentDocumentRequestController::class,'store'])->middleware('auth')->name('residentdocres.store');
@@ -75,11 +84,6 @@ Route::middleware(['auth','role:resident'])->group(function (){
 });
 
 Route::get('send',[AdminSmsController::class,'sendnotification']);
-Route::get('admin/residents/list',[AdminResidentsListController::class,'index'])->name('reslist.index');
-Route::post('admin/residents/create',[AdminResidentsListController::class,'store'])->name('reslist.store');
-Route::get('admin/residents/edit/{id}',[AdminResidentsListController::class,'edit'])->name('reslist.edit');
-Route::put('admin/residents/update/{id}',[AdminResidentsListController::class,'update'])->name('reslist.update');
-Route::delete('admin/residents/delete/{id}',[AdminResidentsListController::class,'destroy'])->name('reslist.destroy');
 
 
 //templates
