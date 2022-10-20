@@ -9,12 +9,12 @@
                     @if(App\Models\User::all())
                         <h2>{{App\Models\User::count()}}</h2>
                     @endif
-                    <canvas id="myChart"></canvas>
+                    <canvas id="myChart" height="189"></canvas>
                     <h1>Total Number Of Document Request: </h1>
                     @if(App\Models\User::all())
                         <h2>{{App\Models\DocumentRequest::count()}}</h2>
                     @endif
-                    <canvas id="docresChart"></canvas>
+                    <canvas id="docresChart" height="189"></canvas>
                     
                     <h1>Total Number Of Document Issued: </h1>
                     @foreach($data2 as $claimed)
@@ -98,7 +98,7 @@
 <style>
 canvas {
   border:1px solid black;
-  height: 150px;
+  height: 189px;
   width: 600;
 }
 </style>

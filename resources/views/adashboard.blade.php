@@ -120,12 +120,9 @@
                   <!-- Morris chart - Sales -->
                   <div class="chart tab-pane active" id="revenue-chart"
                        style="position: relative; height: 300px;">
-                      <canvas id="myChart" height="300" style="height: 300px;"></canvas>
+                      <canvas id="myChart"></canvas>
                    </div>
                    
-                  <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
-                    <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
-                  </div>
                 </div>
               </div><!-- /.card-body -->
             </div>
@@ -156,12 +153,10 @@
                   <!-- Morris chart - Sales -->
                   <div class="chart tab-pane active" id="revenue-chart"
                        style="position: relative; height: 300px;">
-                      <canvas id="docresChart" height="300" style="height: 300px;"></canvas>
+                      <canvas id="docresChart"></canvas>
                    </div>
                    
-                  <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
-                    <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
-                  </div>
+                  
                 </div>
               </div><!-- /.card-body -->
             </div>

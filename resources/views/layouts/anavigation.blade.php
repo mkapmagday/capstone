@@ -32,7 +32,7 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="index3.html" class="nav-link">Home</a>
+            <a href="{{route('welcome')}}" class="nav-link">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
             <a href="#" class="nav-link">Contact</a>
@@ -114,78 +114,54 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-dashboard"></i>
+                    <a href="{{route('admindashboard.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('chatify')}}" class="nav-link">
+                    <i class="nav-icon fas fa-globe"></i>
+                        <p>
+                            Brgy 386 Messenger
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('user.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Users
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('reslist.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Residents
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('doclist.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-file"></i>
+                        <p>
+                            Document List
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('docres.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-file"></i>
+                        <p>
+                            Document Request
+                        </p>
+                    </a>
+                </li>
 
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-edit"></i>
-                        <p>
-                            CRUD
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{route('user.index')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Users</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('reslist.index')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Residents</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('doclist.index')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Document List</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('docres.index')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Document Request</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-table"></i>
-                        <p>
-                            Tables
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="pages/tables/simple.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Simple Tables</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/tables/data.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>DataTables</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/tables/jsgrid.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>jsGrid</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
