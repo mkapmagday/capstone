@@ -49,6 +49,7 @@
                 <option value={{$document->id}}>{{$document->document_name}}</option>
                 @endforeach
             </select>
+            <br>
     </center>
 
 
@@ -61,6 +62,10 @@
 
 
             @csrf
+            <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg" >
+                <div class="p-6 bg-white border-b border-gray-200" style="margin-left:50px; margin-top:20px; margin-bottom:20px; padding-bottom:30px; padding-right:20px; margin-right:15px; overflow-x:auto;">
             <div style="padding-top: 0px;">
 
                 <tr>
@@ -74,11 +79,11 @@
                 </tr>
                 <tr>
                     <td>
-                        <x-input-label for="fname" :value="__('First Name')" />
+                        <x-input-label  for="fname" :value="__('First Name')" />
                     </td>
                     <td>&nbsp;</td>
                     <td>
-                        <x-text-input id="fname" type="text" name="fname" />
+                        <x-text-input style="margin-top:10px;" id="fname" type="text" name="fname" />
                     </td>
                 </tr>
                 <tr>
@@ -87,7 +92,7 @@
                     </td>
                     <td>&nbsp;</td>
                     <td>
-                        <x-text-input id="mname" type="text" name="mname" />
+                        <x-text-input style="margin-top:10px;" id="mname" type="text" name="mname" />
                     </td>
                 </tr>
                 <tr>
@@ -95,15 +100,17 @@
                         <x-input-label for="pnum" :value="__('Phone Number')" />
                     </td>
                     <td>&nbsp;</td>
+                    <td>&nbsp;</td>
                     <td>
-                        <select id="country_code">
+                        <select id="country_code" style="margin-top:10px;">
                             <option value="">Select Country</option>
                             <option value="ph">&#127477;&#127469;</option>
                         </select>
                         <x-text-input id="pnum" type="text" name="pnum" />
                     </td>
                 </tr>
-                <div id="bdate">
+                
+                <div id="bdate" style="margin-top:10px;">
                     <tr>
                         <td>
                             <x-input-label for="bdate" :value="__('Date of Birth')" />
@@ -114,7 +121,7 @@
                         </td>
                     </tr>
                 </div>
-                <div id="years">
+                <div id="years" style="margin-top:10px;">
                     <tr>
                         <td>
                             <x-input-label for="years" :value="__('Years')" />
@@ -125,7 +132,7 @@
                         </td>
                     </tr>
                 </div>
-                <div id="months">
+                <div id="months" style="margin-top:10px;">
                     <tr>
                         <td>
                             <x-input-label for="months" :value="__('Months')" />
@@ -136,7 +143,7 @@
                         </td>
                     </tr>
                 </div>
-                <div id="municipality">
+                <div id="municipality" style="margin-top:10px;">
                     <tr>
                         <td>
                             <x-input-label for="municipality" :value="__('Municipality')" />
@@ -147,7 +154,7 @@
                         </td>
                     </tr>
                 </div>
-                <div id="age">
+                <div id="age" style="margin-top:10px;">
                     <tr>
                         <td>
                             <x-input-label for="age" :value="__('age')" />
@@ -158,7 +165,7 @@
                         </td>
                     </tr>
                 </div>
-                <div id="representative">
+                <div id="representative" style="margin-top:10px;">
                     <tr>
                         <td>
                             <x-input-label for="representative" :value="__('Representative')" />
@@ -169,7 +176,7 @@
                         </td>
                     </tr>
                 </div>
-                <div id="address">
+                <div id="address" style="margin-top:10px;">
                     <tr>
                         <td>
                             <x-input-label for="address" :value="__('Address')" />
@@ -180,7 +187,7 @@
                         </td>
                     </tr>
                 </div>
-                <div id="purpose">
+                <div id="purpose" style="margin-top:10px;">
                     <tr>
                         <td>
                             <x-input-label for="purpose" :value="__('Purpose')" />
@@ -191,7 +198,7 @@
                         </td>
                     </tr>
                 </div>
-                <div id="reason">
+                <div id="reason" style="margin-top:10px;">
                     <tr>
                         <td>
                             <x-input-label for="reason" :value="__('Reason')" />
@@ -202,7 +209,7 @@
                         </td>
                     </tr>
                 </div>
-                <div id="relationship">
+                <div id="relationship" style="margin-top:10px;">
                     <tr>
                         <td>
                             <x-input-label for="relation" :value="__('Relation')" />
@@ -219,6 +226,10 @@
                     <td>&nbsp;</td>
                     <td><button onclick="return confirm('Do you want to submit request? ')" type="submit" style="float: right;"><img src="https://img.icons8.com/external-sbts2018-flat-sbts2018/58/000000/external-submit-basic-ui-elements-2.3-sbts2018-flat-sbts2018.png" />SUBMIT</button></td>
                 </tr>
+            </div>
+                </div>
+            </div>
+        </div>
             </div>
 
    
@@ -319,6 +330,18 @@
         display: inline-block;
         overflow: hidden;
     }
+
+    tr {
+        margin-bottom:30px;
+        padding-bottom:40px;
+    }
+
+    table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
 

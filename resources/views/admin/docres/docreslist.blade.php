@@ -34,38 +34,59 @@
             <!-- Main content -->
             <section class="content">
                 <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;" onclick="openForm()"> Add Document Type <center><img onclick="openForm()" height="20px" width="20px" src="https://img.icons8.com/color/48/000000/add--v1.png" /></center> </button>
-                <form action="{{ route('docres.filter') }}">
+                <table>
+                <form action="{{ route('docres.filter') }}" >
+                <center>
+                    
+                <tr>
+                <td>
                     <div class="row">
-                        <div class="col-2">
+
                             <input type="text" class="form-control" name="lname" id="lname" placeholder="Enter Last Name" style="margin-top: 15px;">
-                        </div>
-                        <div class="col-2">
+
+                        </td>
+                        <td>
+
                             <input type="text" class="form-control" name="fname" id="fname" placeholder="Enter First Name" style="margin-top: 15px;">
-                        </div>
-                        <div class="col-2">
+
+                        </td>
+                        <td>
+                        
                             <select required name="docname" id="docname" class="form-control" style="margin-top: 15px;">
                                 <option value=" "></option>
                                 @foreach ($doclist as $document)
                                 <option value={{$document->id}}>{{$document->document_name}}</option>
                                 @endforeach
                             </select>
-                        </div>
-                        <div class="col-2">
+
+                        </td>
+                        
+                        <td>
+                        
                             <select required name="status" id="status" class="form-control" style="margin-top: 15px;">
                                 <option value=" "></option>
                                 @foreach(\App\Enums\DocumentRequestStatus::cases() as $status)
                                 <option value="{{ $status->value }}">{{ $status->name }}</option>
                                 @endforeach
                             </select>
-                        </div>
-                        <button class="open-button" style="background-color: #228B22; color: white; width:100px" type="submit">Filter<center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/find-user-male--v1.png" /></center></button>
-                </form>
-
+                        
+                        </td>
+                        </center>
+                        <td>
+                        <button class="open-button" style="background-color: #228B22; color: white; width:100px;" type="submit">Filter<center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/find-user-male--v1.png" /></center></button>
+                        </td>
+                    
+                    </form>
+                
+                <td>
                 <div class="col-2">
                     <form action="{{ route('docres.index') }}">
-                        <button class="open-button" style="background-color: #0047AB; color: white;" type="submit">Clear Filter<center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/clear-search.png" /></center></button>
+                        <button class="open-button" style="background-color: #0047AB; color: white; width:125px;" type="submit">Clear Filter<center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/clear-search.png" /></center></button>
                     </form>
+                    </td>   
                 </div>
+                </tr>
+                    </table>
                 <br>
                 <br>
                 <div class="popup">
@@ -79,6 +100,7 @@
                                     <option value={{$document->id}}>{{$document->document_name}}</option>
                                     @endforeach
                                 </select>
+                                <br>
                                 <div>
                                     <td>
                                         <x-input-label for="lname" :value="__('Last Name')" />
@@ -436,6 +458,12 @@
         -webkit-user-select: none;
         touch-action: manipulation;
 
+        
+    }
+
+    td {
+        margin-left:20px;
+        padding-left: 15px;
     }
 
     .open-button:hover {
