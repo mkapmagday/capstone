@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
+
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
 
         <!-- Preloader -->
-
         @include('layouts.anavigation')
-
+        
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
@@ -34,38 +34,38 @@
             <!-- Main content -->
             <section class="content">
                 <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;" onclick="openForm()"> Add Document Type <center><img onclick="openForm()" height="20px" width="20px" src="https://img.icons8.com/color/48/000000/add--v1.png" /></center> </button>
-                    <form action="{{ route('docres.filter') }}">
-                        <div class="row">
-                            <div class="col-2">
-                                <input type="text" class="form-control" name="lname" id="lname" placeholder="Enter Last Name" style="margin-top: 15px;">
-                            </div>
-                            <div class="col-2">
-                                <input type="text" class="form-control" name="fname" id="fname" placeholder="Enter First Name" style="margin-top: 15px;">
-                            </div>
-                            <div class="col-2">
-                                <select required name="docname" id="docname" class="form-control" style="margin-top: 15px;">
-                                    <option value=" "></option>
-                                    @foreach ($doclist as $document)
-                                    <option value={{$document->id}}>{{$document->document_name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="col-2">
-                                <select required name="status" id="status" class="form-control" style="margin-top: 15px;">
-                                    <option value=" "></option>
-                                    @foreach(\App\Enums\DocumentRequestStatus::cases() as $status)
-                                    <option value="{{ $status->value }}">{{ $status->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <button class="open-button" style="background-color: #228B22; color: white; width:100px" type="submit">Filter<center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/find-user-male--v1.png" /></center></button>
-                    </form>
+                <form action="{{ route('docres.filter') }}">
+                    <div class="row">
+                        <div class="col-2">
+                            <input type="text" class="form-control" name="lname" id="lname" placeholder="Enter Last Name" style="margin-top: 15px;">
+                        </div>
+                        <div class="col-2">
+                            <input type="text" class="form-control" name="fname" id="fname" placeholder="Enter First Name" style="margin-top: 15px;">
+                        </div>
+                        <div class="col-2">
+                            <select required name="docname" id="docname" class="form-control" style="margin-top: 15px;">
+                                <option value=" "></option>
+                                @foreach ($doclist as $document)
+                                <option value={{$document->id}}>{{$document->document_name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-2">
+                            <select required name="status" id="status" class="form-control" style="margin-top: 15px;">
+                                <option value=" "></option>
+                                @foreach(\App\Enums\DocumentRequestStatus::cases() as $status)
+                                <option value="{{ $status->value }}">{{ $status->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <button class="open-button" style="background-color: #228B22; color: white; width:100px" type="submit">Filter<center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/find-user-male--v1.png" /></center></button>
+                </form>
 
-                    <div class="col-2">
-                        <form action="{{ route('docres.index') }}">
-                            <button class="open-button" style="background-color: #0047AB; color: white;" type="submit">Clear <center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/clear-search.png" /></center></button>
-                        </form>
-                    </div>
+                <div class="col-2">
+                    <form action="{{ route('docres.index') }}">
+                        <button class="open-button" style="background-color: #0047AB; color: white;" type="submit">Clear Filter<center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/clear-search.png" /></center></button>
+                    </form>
+                </div>
                 <br>
                 <br>
                 <div class="popup">
@@ -241,6 +241,7 @@
 
                     </div>
                 </div>
+
                 <table class="table">
 
                     <thead>

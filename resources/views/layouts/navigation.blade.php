@@ -1,149 +1,190 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100" style="background-image: 
-linear-gradient(to right, #7fa046, #a4c171);">
-    <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <div class="flex">
-                <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
-                    </a>
-                </div>
+<head>
+    <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link class="nav-link-btn" :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                    <x-nav-link class="nav-link-btn" :href="route('chatify')" :active="request()->routeIs('chatify')">
-                        {{ __('Chatify') }}
-                    </x-nav-link>
-                    @hasrole('admin')
-                    <x-nav-link class="nav-link-btn" :href="route('user.index')" :active="request()->routeIs('user.index')">
-                        {{ __('User List') }}
-                    </x-nav-link>
-                    <x-nav-link class="nav-link-btn" :href="route('doclist.index')" :active="request()->routeIs('doclist.index')">
-                        {{ __('Document List') }}
-                    </x-nav-link>
-                    <x-nav-link class="nav-link-btn" :href="route('docres.index')" :active="request()->routeIs('docres.index')">
-                        {{ __('Document Request') }}
-                    </x-nav-link>
-                    <x-nav-link class="nav-link-btn" :href="route('role.index')" :active="request()->routeIs('role.index')">
-                        {{ __('Role List') }}
-                    </x-nav-link>
-                    @endhasrole
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
+    <!-- Ionicons -->
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="{{asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="{{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="{{asset('plugins/jqvmap/jqvmap.min.css')}}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="{{asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="{{asset('plugins/daterangepicker/daterangepicker.css')}}">
+    <!-- summernote -->
+    <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
+</head>
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{route('welcome')}}" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link">Contact</a>
+        </li>
+    </ul>
 
-                    @hasrole('resident')
-                    <x-nav-link class="nav-link-btn" :href="route('residentdocres.index')" :active="request()->routeIs('residentdocres.index')">
-                        {{ __('Document Request') }}
-                    </x-nav-link>
-                    <x-nav-link class="nav-link-btn" :href="route('residentdocres.show')" :active="request()->routeIs('residentdocres.show')">
-                        {{ __('Document Status') }}
-                    </x-nav-link>
-                    @endhasrole
-                </div>
-            </div>
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+        <!-- Navbar Search -->
 
-            <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
-                <x-dropdown align="right" width="48">
-                    <x-slot name="trigger">
-                        <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                            <div>{{ Auth::user()->name }}</div>
 
-                            <div class="ml-1">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                        </button>
-                    </x-slot>
+        <!-- Messages Dropdown Menu -->
 
-                    <x-slot name="content">
-                        <!-- Authentication -->
+
+
+
+        <li class="nav-item">
+            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                <i class="fas fa-expand-arrows-alt"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
+                <i class="fas fa-th-large"></i>
+            </a>
+        </li>
+        <li class="dropdown user user-menu" style="padding-top: 6px;">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <span class="hidden-xs">{{Auth::user()->name}}</span>
+            </a>
+            <ul class="dropdown-menu">
+
+                <li class="user-header">
+                    <p>
+                        {{Auth::user()->name}}
+                        <small>Member since {{Auth::user()->created_at}}</small>
+                    </p>
+                    <div class="pull-right">
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
-                            <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
-                        </form>
-                    </x-slot>
-                </x-dropdown>
-            </div>
-
-            <!-- Hamburger -->
-            <div class="-mr-2 flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link  :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('chatify')" :active="request()->routeIs('chatify')">
-                {{ __('Chatify') }}
-            </x-responsive-nav-link>
-            @hasrole('admin')
-            <x-responsive-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
-                {{ __('User List') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('doclist.index')" :active="request()->routeIs('doclist.index')">
-                {{ __('Document List') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('docres.index')" :active="request()->routeIs('docres.index')">
-                {{ __('Document Request') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('role.index')" :active="request()->routeIs('role.index')">
-                {{ __('Role List') }}
-            </x-responsive-nav-link>
-            @endhasrole
-
-            @hasrole('resident')
-            <x-responsive-nav-link :href="route('residentdocres.index')" :active="request()->routeIs('residentdocres.index')">
-                {{ __('Document Request') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('residentdocres.show')" :active="request()->routeIs('residentdocres.show')">
-                {{ __('Document Status') }}
-            </x-responsive-nav-link>
-            @endhasrole
-
-
-        </div>
-
-        <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="px-4">
-                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-            </div>
-
-            <div class="mt-3 space-y-1">
-                <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-
-                    <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
+                            <a href="route('logout')" onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                        {{ __('Log Out') }}
-                    </x-responsive-nav-link>
-                </form>
+                                {{ __('Log Out') }}
+                            </a>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<!-- /.navbar -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="{{ route('dashboard') }}" class="brand-link">
+        <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
+        <span class="brand-text font-weight-light">BRGY 386</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="{{asset('dist/img/avatar.png')}}" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+                <a href="#" class="d-block">{{ Auth::user()->name }}</a>
             </div>
         </div>
-    </div>
-</nav>
 
-<style>
-    
-</style>
+        <!-- SidebarSearch Form -->
+
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+                <li class="nav-item">
+                    <a href="{{route('dashboard')}}" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('chatify')}}" class="nav-link">
+                    <i class="nav-icon fas fa-globe"></i>
+                        <p>
+                            Brgy 386 Messenger
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('residentdocres.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-file"></i>
+                        <p>
+                            Document Request
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('residentdocres.show')}}" class="nav-link">
+                    <i class="nav-icon fas fa-file"></i>
+                        <p>
+                            Document Status
+                        </p>
+                    </a>
+                </li>
+
+              
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>
+
+<!-- jQuery -->
+<script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{{asset('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+    $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- ChartJS -->
+<script src="{{asset('plugins/chart.js/Chart.min.js')}}"></script>
+<!-- Sparkline -->
+<script src="{{asset('plugins/sparklines/sparkline.js')}}"></script>
+<!-- JQVMap -->
+<script src="{{asset('plugins/jqvmap/jquery.vmap.min.js')}}"></script>
+<script src="{{asset('plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
+<!-- jQuery Knob Chart -->
+<script src="{{asset('plugins/jquery-knob/jquery.knob.min.js')}}"></script>
+<!-- daterangepicker -->
+<script src="{{asset('plugins/moment/moment.min.js')}}"></script>
+<script src="{{asset('plugins/daterangepicker/daterangepicker.js')}}"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="{{asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+<!-- Summernote -->
+<script src="{{asset('plugins/summernote/summernote-bs4.min.js')}}"></script>
+<!-- overlayScrollbars -->
+<script src="{{asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
+<!-- AdminLTE App -->
+<script src="{{asset('dist/js/adminlte.js')}}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{asset('dist/js/demo.js')}}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{asset('dist/js/pages/dashboard.js')}}"></script>

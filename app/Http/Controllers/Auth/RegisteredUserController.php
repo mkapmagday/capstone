@@ -38,7 +38,7 @@ class RegisteredUserController extends Controller
     {
         $isFnameExist = Residents::where('fname',$request->name)->count();
 
-        if($isFnameExist == 1){
+        if($isFnameExist){
             $request->validate([
                 'name' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],

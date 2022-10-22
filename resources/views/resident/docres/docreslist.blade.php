@@ -1,5 +1,48 @@
-<x-app-layout>
-    <center>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+  </div>
+
+@include('layouts.navigation')
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Dashboard</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+           
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        
+        <!-- /.row -->
+        <!-- Main row -->
+        <div class="row">
+          <!-- Left col -->
+          <section class="col-lg-4 connectedSortable">
+            <!-- Custom tabs (Charts with tabs)-->
+            <center>
         <form method="POST" action="{{ route('residentdocres.store')}}">
             <select required name="document_list" id="document_list" class="form-control">
                 @foreach (App\Models\DocumentList::all() as $document)
@@ -14,9 +57,7 @@
 
 
 
-    <div class='popup'>
-        <div class='cnt223'>
-            <a href='' class='close'><img src="https://img.icons8.com/color/48/000000/delete-sign--v1.png" /></a>
+    
 
 
             @csrf
@@ -180,17 +221,42 @@
                 </tr>
             </div>
 
-        </div>
-    </div>
+   
     </form>
-    <p>&nbsp;</p>
-    <center>
-    <image id="documentimage" src="" style="height: 900px; width:850px;"></image>
-    </center>
+          
+            <!-- /.card -->
+          </section>
+          
+          <!-- /.Left col -->
+          <!-- right col (We are only adding the ID to make the widgets sortable)-->
+          <section class="col-lg-8 connectedSortable">
+            <!-- Custom tabs (Charts with tabs)-->
+            <image id="documentimage" src="" style="height: 900px; width:850px;"></image>
+            <!-- /.card -->
+          </section>
+          <!-- right col -->
+        </div>
+        
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  
 
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
 
+<!-- jQuery -->
 
-</x-app-layout>
+</body>
+</html>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <style>
     .close {
@@ -199,20 +265,7 @@
         height: 20px;
     }
 
-    #overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #000;
-        filter: alpha(opacity=70);
-        -moz-opacity: 0.7;
-        -khtml-opacity: 0.7;
-        opacity: 0.7;
-        z-index: 100;
-        display: none;
-    }
+    
 
     .popup {
         padding-top: 10px;
@@ -267,6 +320,8 @@
         overflow: hidden;
     }
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
 <script type='text/javascript'>
     $("#doc_id").click(function() {
@@ -303,7 +358,7 @@
     });
     $(function() {
         if ($("#document_list").val() == 1) {
-            document.getElementById("documentimage").src = "https://scontent.fmnl25-1.fna.fbcdn.net/v/t1.15752-9/308616100_1630366960691393_2984556608062881446_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=ae9488&_nc_ohc=AOk0e0CrUgAAX8t2PGZ&_nc_ht=scontent.fmnl25-1.fna&oh=03_AVI9werMXU4Z-_NsmDTSi7DItiWnHmhGtwPcyw1tpZC5fA&oe=635FCCF3";
+            document.getElementById("documentimage").src = "https://i.ibb.co/mtddBL1/certification.jpg";
 
             $('#bdate').show();
             $('#address').show();
@@ -341,7 +396,7 @@
         if ($(this).val() == "") {}
         console.log($(this).val());
         if ($(this).val() == 1) {
-            document.getElementById("documentimage").src = "https://scontent.fmnl25-1.fna.fbcdn.net/v/t1.15752-9/308616100_1630366960691393_2984556608062881446_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=ae9488&_nc_ohc=AOk0e0CrUgAAX8t2PGZ&_nc_ht=scontent.fmnl25-1.fna&oh=03_AVI9werMXU4Z-_NsmDTSi7DItiWnHmhGtwPcyw1tpZC5fA&oe=635FCCF3";
+            document.getElementById("documentimage").src = "https://i.ibb.co/mtddBL1/certification.jpg";
             $('#bdate').show();
             $('#address').show();
 
@@ -360,7 +415,7 @@
         }
 
         if ($(this).val() == 2) {
-            document.getElementById("documentimage").src = "https://scontent.fmnl25-1.fna.fbcdn.net/v/t1.15752-9/306697115_596256858865500_3335379389449982009_n.png?_nc_cat=107&ccb=1-7&_nc_sid=ae9488&_nc_ohc=IBhRUpMAwm8AX9K_B2y&tn=YQ2orxTiLTQIE6Y4&_nc_ht=scontent.fmnl25-1.fna&oh=03_AVKXHVLaEJM-Kbxiz2HNb3B7vK6vy_3mH8M5htxJ7Bq9yw&oe=63629087";
+            document.getElementById("documentimage").src = "https://i.ibb.co/zZ58MJ7/stipend.jpg";
    
             $('#bdate').show();
             $('#relationship').show();
@@ -384,7 +439,7 @@
         }
 
         if ($(this).val() == 3) {
-            document.getElementById("documentimage").src = "https://scontent.fmnl25-1.fna.fbcdn.net/v/t1.15752-9/301903689_1148803569324206_8261476907567918272_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=ae9488&_nc_ohc=63UT8Cfj-pQAX_UM3nT&_nc_ht=scontent.fmnl25-1.fna&oh=03_AVLbaALjEkCzSduZNmMyjLCueSDhNpVp6gknfV_HPiDiLQ&oe=63624A8B";
+            document.getElementById("documentimage").src = "https://i.ibb.co/tYswVQk/Indigency.jpg";
 
           
             $('#address').show();
@@ -407,7 +462,7 @@
         }
 
         if ($(this).val() == 4) {
-            document.getElementById("documentimage").src = "https://scontent.fmnl25-2.fna.fbcdn.net/v/t1.15752-9/307891830_443941887580665_334252895085087337_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=ae9488&_nc_ohc=hxTD09hNGeUAX-7M09_&_nc_ht=scontent.fmnl25-2.fna&oh=03_AVLMsAKSrqFSI_J0uYzEjXCq1ct_CaSs7RGDmrjO9f-kog&oe=6362EFE2";
+            document.getElementById("documentimage").src = "https://i.ibb.co/3TXsx7W/JoBseek.jpg";
         
             $('#address').show();
             $('#age').hide();
@@ -432,7 +487,7 @@
         }
 
         if ($(this).val() == 5) {
-            document.getElementById("documentimage").src = "https://scontent.fmnl25-2.fna.fbcdn.net/v/t1.15752-9/307067253_616242610076244_5041754940304094391_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=ae9488&_nc_ohc=oTbELNbDHBMAX8VrpUw&_nc_ht=scontent.fmnl25-2.fna&oh=03_AVKuMejXLXzDKkoE15g-FMxQkgd9YQRxfx-gsb0LkJzOZA&oe=6360BA4A";
+            document.getElementById("documentimage").src = "https://i.ibb.co/940B0Kn/Oath.jpg";
 
          
 
@@ -459,7 +514,7 @@
         }
 
         if ($(this).val() == 6) {
-            document.getElementById("documentimage").src = "https://scontent.fmnl25-1.fna.fbcdn.net/v/t1.15752-9/307547365_636762158157607_6706884989649898839_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=ae9488&_nc_ohc=GzxIlbgSy2AAX_9C1x8&_nc_ht=scontent.fmnl25-1.fna&oh=03_AVKomAzVYT81WsosOa3Oi2aKphxlx7NCUsnt1E59vwhjRg&oe=6360BDCD";
+            document.getElementById("documentimage").src = "https://i.ibb.co/1rypHj1/Oneness.jpg";
 
             $('#purpose').show();
 
