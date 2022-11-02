@@ -40,12 +40,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>@foreach($docres1 as $docres)
-              @if($loop->last)
-              {{$loop->count}}
-              @endif
-              @endforeach</h3>
-
+                <h3>{{sizeof($docres1)}}</h3>
                 <p>Total Number Of Request:</p>
               </div>
               <div class="icon">
@@ -58,13 +53,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>
-                @foreach($pending as $pending)
-                @if($loop->last)
-                {{$loop->count}}
-                @endif
-                @endforeach
-                </h3>
+                <h3>{{sizeof($pending)}}</h3>
                 <p>Total Number Of Request Pending:</p>
               </div>
               <div class="icon">
@@ -77,11 +66,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>@foreach($approved as $approved)
-                    @if($loop->last)
-                    {{$loop->count}}
-                    @endif
-                    @endforeach</h3>
+                <h3>{{sizeof($approved)}}</h3>
                 <p>Total Number Of Request Approved:</p>
               </div>
               <div class="icon">
@@ -94,11 +79,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>@foreach($claimed as $claimed)
-              @if($loop->last)
-              {{$loop->count}}
-              @endif
-              @endforeach</h3>
+                <h3>{{sizeof($claimed)}}</h3>
                 <p>Total Number Of Request Claimed:</p>
               </div>
               <div class="icon">

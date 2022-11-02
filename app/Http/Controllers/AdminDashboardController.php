@@ -7,6 +7,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use League\CommonMark\Node\Block\Document;
 
 class AdminDashboardController extends Controller
 {
@@ -65,7 +66,44 @@ class AdminDashboardController extends Controller
         $data2 = $monthCount2;
         
 
-             return view('/adashboard', compact('docres1','pending','approved','for_claiming','claimed','labels','data','labels1','data1','labels2','data2'));
+        $active_user = User::select('id','active_status')->where('active_status', '=', 1)->get()->groupBy(function($data){
+            
+        });
+        $active_userCount=[];
+        $labelsCount3=[];
+        foreach($active_user as $day => $values){
+            $active_userCount[] = count($values);
+            $labelsCount3[] = "today";
+        }
+        $labels3 = $labelsCount3;
+        $data3 = $active_userCount;
+
+
+        $DocumentRequestList =DocumentRequest::select('id','created_at','document_id')->get()->groupBy(function($data){
+            return Carbon::parse($data->created_at)->format('M');
+        });
+
+        $requestCount=[];
+        $labelsCount4=[];
+        foreach($DocumentRequestList as $month => $values){
+            $requestCount1[] = count($values->where('document_id',1));
+            $requestCount2[] = count($values->where('document_id',2));
+            $requestCount3[] = count($values->where('document_id',3));
+            $requestCount4[] = count($values->where('document_id',4));
+            $requestCount5[] = count($values->where('document_id',5));
+            $requestCount6[] = count($values->where('document_id',6));
+            $labelsCount4[] = $month;
+        }
+        $labels4 = $labelsCount4;
+        $data4 = $requestCount1;
+        $data5 = $requestCount2;
+        $data6 = $requestCount3;
+        $data7 = $requestCount4;
+        $data8 = $requestCount5;
+        $data9 = $requestCount6;
+        
+
+             return view('/adashboard', compact('docres1','pending','approved','for_claiming','claimed','labels','data','labels1','data1','labels2','data2','data3','labels3','labels4','data4','data5','data6','data7','data8','data9'));
     }
 
     /**

@@ -162,6 +162,98 @@
             </div>
             <!-- /.card -->
           </section>
+          <section class="col-lg-6 connectedSortable">
+            <!-- Custom tabs (Charts with tabs)-->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fas fa-chart-bar mr-1"></i>
+                  Current Active Users
+                </h3>
+                <div class="card-tools">
+                  <ul class="nav nav-pills ml-auto">
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Bar</a>
+                    </li>
+                    
+                  </ul>
+                </div>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content p-0">
+                  <!-- Morris chart - Sales -->
+                  <div class="chart tab-pane active" id="revenue-chart"
+                       style="position: relative; height: 300px;">
+                      <canvas id="activeUserChart"></canvas>
+                   </div>
+                   
+                  
+                </div>
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </section>
+          <section class="col-lg-6 connectedSortable">
+            <!-- Custom tabs (Charts with tabs)-->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fas fa-chart-bar mr-1"></i>
+                  Claimed Request
+                </h3>
+                <div class="card-tools">
+                  <ul class="nav nav-pills ml-auto">
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Bar</a>
+                    </li>
+                    
+                  </ul>
+                </div>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content p-0">
+                  <!-- Morris chart - Sales -->
+                  <div class="chart tab-pane active" id="revenue-chart"
+                       style="position: relative; height: 300px;">
+                      <canvas id="docresClaimedChart"></canvas>
+                   </div>
+                   
+                  
+                </div>
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </section>
+          <section class="col-lg-12 connectedSortable">
+            <!-- Custom tabs (Charts with tabs)-->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fas fa-chart-bar mr-1"></i>
+                  Document Request Per List
+                </h3>
+                <div class="card-tools">
+                  <ul class="nav nav-pills ml-auto">
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Bar</a>
+                    </li>
+                    
+                  </ul>
+                </div>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content p-0">
+                  <!-- Morris chart - Sales -->
+                  <div class="chart tab-pane active" id="revenue-chart">
+                      <canvas id="documentRequestPerList"></canvas>
+                   </div>
+                   
+                  
+                </div>
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </section>
           <!-- right col -->
         </div>
         <!-- /.row (main row) -->
@@ -199,7 +291,19 @@
 
       var labels2 =  {{ Js::from($labels2) }};
       var docres2 =  {{ Js::from($data2) }};
+
+      var labels3 = {{ Js::from($labels3)}};
+      var active_user = {{ Js::from($data3)}};
     
+      var labels4 = {{ Js::from($labels4)}};
+      var docres4 =  {{ Js::from($data4) }};
+      var docres5 =  {{ Js::from($data5) }};
+      var docres6 =  {{ Js::from($data6) }};
+      var docres7 =  {{ Js::from($data7) }};
+      var docres8 =  {{ Js::from($data8) }};
+      var docres9 =  {{ Js::from($data9) }};
+
+      console.log(docres4[1]);
 
       const data = {
         labels: labels,
@@ -267,6 +371,80 @@
           data: docres2,
         }]
       };
+
+      const data3 = {
+        labels:labels3,
+        datasets: [{
+          label: 'No of Active Users',
+          backgroundColor: [
+                'Yellow',
+               
+            ],
+          borderColor: 'rgb(255, 99, 132)',
+          data: active_user,
+        }]
+      };
+
+      
+      const data4 = {
+        labels:[labels4],
+        datasets: [
+          {
+          label: ['Certification'],
+          backgroundColor: [
+                'red',
+               
+            ],
+          borderColor: 'rgb(255, 99, 132)',
+          data: docres4,
+          },
+          {
+          label: ['Certification(Stipend)'],
+          backgroundColor: [
+                'orange',
+               
+            ],
+          borderColor: 'rgb(255, 99, 132)',
+          data: docres5,
+          },
+          {
+          label: ['Indigency'],
+          backgroundColor: [
+                'Yellow',
+               
+            ],
+          borderColor: 'rgb(255, 99, 132)',
+          data: docres6,
+          },
+          {
+          label: ['Job Seeker'],
+          backgroundColor: [
+                'green',
+               
+            ],
+          borderColor: 'rgb(255, 99, 132)',
+          data: docres7,
+          },
+          {
+          label: ['Oath of Undertaking'],
+          backgroundColor: [
+                'violet',
+               
+            ],
+          borderColor: 'rgb(255, 99, 132)',
+          data: docres8,
+          },
+          {
+          label: ['Oneness'],
+          backgroundColor: [
+                'indigo',
+               
+            ],
+          borderColor: 'rgb(255, 99, 132)',
+          data: docres9,
+          },
+      ]
+      };
   
       const config = {
         type: 'bar',
@@ -283,6 +461,16 @@
         data: data2,
         options: {}
       };
+      const config3 = {
+        type: 'bar',
+        data: data3,
+        options: {}
+      };
+      const config4 = {
+        type: 'bar',
+        data: data4,
+        options: {}
+      };
   
       const myChart = new Chart(
         document.getElementById('myChart'),
@@ -295,6 +483,15 @@
       const docresClaimedChart = new Chart(
         document.getElementById('docresClaimedChart'),
         config2
+      );
+
+      const activeUserChart = new Chart(
+        document.getElementById('activeUserChart'),
+        config3
+      );
+      const documentRequestPerList = new Chart(
+        document.getElementById('documentRequestPerList'),
+        config4
       );
   
 </script>

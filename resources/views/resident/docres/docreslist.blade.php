@@ -242,7 +242,7 @@
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
           <section class="col-lg-8 connectedSortable">
             <!-- Custom tabs (Charts with tabs)-->
-            <image id="documentimage" src="" style="height: 900px; width:850px;"></image>
+            <image id="documentimage" src="" ></image>
             <!-- /.card -->
           </section>
           <!-- right col -->
