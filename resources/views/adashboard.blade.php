@@ -387,7 +387,7 @@
 
       
       const data4 = {
-        labels:[labels4],
+        labels:labels4,
         datasets: [
           {
           label: ['Certification'],
