@@ -88,7 +88,7 @@
 <!-- /.navbar -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{ route('admindashboard') }}" class="brand-link">
+    <a href="{{ route('admindashboard.index') }}" class="brand-link">
         <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
         <span class="brand-text font-weight-light">BRGY 386</span>
     </a>
@@ -114,7 +114,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="{{route('admindashboard')}}" class="nav-link">
+                    <a href="{{route('admindashboard.index')}}" class="nav-link">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
