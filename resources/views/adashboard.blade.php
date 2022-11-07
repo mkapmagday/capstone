@@ -55,7 +55,9 @@
             <div class="small-box bg-success">
               <div class="inner">
                 <h3>
-                      {{$claimed::count()}}
+                    @foreach($data2 as $claimed)
+                      {{$claimed}}
+                    @endforeach
                 </h3>
                 <p>No. of Documents Issued</p>
               </div>
@@ -260,7 +262,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <!-- comment-->
+  <!---->
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
