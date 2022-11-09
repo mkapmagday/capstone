@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
 </head>
 <!-- Navbar -->
-<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<nav class="main-header navbar navbar-expand navbar-white navbar-light" style="background-color:#DAF7A6;">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <li class="nav-item">
@@ -86,7 +86,7 @@
     </ul>
 </nav>
 <!-- /.navbar -->
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-image: linear-gradient(#013214, #FFFF8F);">
     <!-- Brand Logo -->
     <a href="{{ route('admindashboard.index') }}" class="brand-link">
         <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />

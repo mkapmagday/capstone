@@ -251,15 +251,18 @@
                                         </td>
                                     </tr>
                                 </div>
+                                <br>
 
                                 <tr>
                                     <td>&nbsp;</td>
                                     <td>&nbsp;</td>
-                                    <td><button onclick="return confirm('Do you want to submit request? ')" type="submit" style="float: right;"><img src="https://img.icons8.com/external-sbts2018-flat-sbts2018/58/000000/external-submit-basic-ui-elements-2.3-sbts2018-flat-sbts2018.png" />SUBMIT</button></td>
+                                    <td><button onclick="return confirm('Do you want to submit request? ')" class="open-button ml-4" style="background-color: #c2fbd7; color: green; float: right;" type="submit"><img src="https://img.icons8.com/external-sbts2018-flat-sbts2018/58/000000/external-submit-basic-ui-elements-2.3-sbts2018-flat-sbts2018.png" />SUBMIT</button></td>
                                 </tr>
                             </div>
 
                         </form>
+                        <br>
+                    
 
                     </div>
                 </div>

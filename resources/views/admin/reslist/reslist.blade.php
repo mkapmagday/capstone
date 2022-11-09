@@ -67,8 +67,8 @@
                                 <x-input-error :messages="$errors->get('name')" class="mt-2" />
                             </div>
 
-                            <div class="flex items-center justify-end mt-4">
-                                <button>
+                            <div class="flex items-center justify-end mt-4" >
+                                <button class="open-button" style="background-color: #c2fbd7; color: green;">
                                     {{ __('Add Resident') }}
                                 </button>
                             </div>
@@ -99,8 +99,8 @@
                             </div>
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-success btn-user float-right mb-3">Upload Residents</button>
-                                <a class="btn btn-primary float-right mr-3 mb-3" href="{{ route('reslist.index') }}">Cancel</a>
+                                <button type="submit" class="open-button" style="background-color: #c2fbd7; color: green;">Upload Residents</button>
+                                <a class="open-button" style="background-color: #0047AB; color: white;" href="{{ route('reslist.index') }}">Cancel</a>
                             </div>
                         </form>
                     </div>

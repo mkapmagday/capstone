@@ -82,7 +82,7 @@
                             <!-- Password -->
                             
                             <div class="flex items-center justify-end mt-4">
-                                <button>
+                                <button class="open-button ml-4" style="background-color: #c2fbd7; color: green;">
                                     {{ __('Update User') }}
                                 </button>
                             </div>

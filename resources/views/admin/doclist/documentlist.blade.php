@@ -52,7 +52,7 @@
                             </div>
 
                             <div class="flex items-center justify-end mt-4">
-                                <button class="ml-4">
+                                <button class="open-button ml-4" style="background-color: #c2fbd7; color: green;">
                                     {{ __('Add Document Type') }}
                                 </button>
                             </div>
