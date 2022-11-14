@@ -79,6 +79,7 @@
                                 <option value={{$document->id}}>{{$document->document_name}}</option>
                                 @endforeach
                             </select>
+                            <br>
                             <div>
                                 <td>
                                     <x-input-label for="lname" :value="__('Last Name')" />
@@ -247,13 +248,15 @@
 
                             </tr>
                             </div>
-
+                            <br>
                             <tr>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
-                                <td><button onclick="return confirm('Do you want to submit request? ')" type="submit" style="float: right;"><img src="https://img.icons8.com/external-sbts2018-flat-sbts2018/58/000000/external-submit-basic-ui-elements-2.3-sbts2018-flat-sbts2018.png" />Update Document</button></td>
+                                <td><button onclick="return confirm('Do you want to submit request? ')"  type="submit"  class="open-button ml-4" style="background-color: #c2fbd7; color: green; float: right;"><img src="https://img.icons8.com/external-sbts2018-flat-sbts2018/58/000000/external-submit-basic-ui-elements-2.3-sbts2018-flat-sbts2018.png" />Update Document</button></td>
                             </tr>
                         </div>
+                        <br>
+                        
                     
     </form>
 

@@ -101,7 +101,7 @@
                                     <option value="{{ $role->name }}">{{ $role->name }}</option>
                                     @endforeach
                                 </select>
-                                <button type="submit" style="margin-left:450px" class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-md">Assign</button>
+                                <button type="submit"  style="background-color: #c2fbd7; color: green; margin-left:450px" class="open-button px-4 py-2 bg-green-500 hover:bg-green-700 rounded-md">Assign</button>
                             </div>
                             @error('role')
                             <span class="text-red-400 text-sm">{{ $message }}</span>
