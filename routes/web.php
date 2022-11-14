@@ -74,6 +74,7 @@ Route::get('admin/residents/edit/{id}',[AdminResidentsListController::class,'edi
 Route::put('admin/residents/update/{id}',[AdminResidentsListController::class,'update'])->name('reslist.update');
 Route::delete('admin/residents/delete/{id}',[AdminResidentsListController::class,'destroy'])->name('reslist.destroy');
 
+Route::get('admin/users/export',[AdminUserController::class,'exportUser'])->name('user.export');
 });
 
 Route::middleware(['auth','role:resident'])->group(function (){

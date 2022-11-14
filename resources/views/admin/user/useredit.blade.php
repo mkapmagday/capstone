@@ -35,6 +35,7 @@
             <!-- Main content -->
             <section class="content">
             <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;" onclick="openForm()" style="margin-left:50px"> Create User <center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/add-user-group-woman-man-skin-type-7.png" /></center></button>
+            
 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <form action="{{ route('user.filter') }}">
                 <div class="row" style="margin-left:150px; margin-top: 20px;">
@@ -116,7 +117,7 @@
                             </td>
                             <td class="px-6 py-4 text-sm">
                                 <form action="{{ route('user.edit',$user->id) }}">
-                                    <button class="open-button" style="background-color: #0047AB; color: white;" type="submit">Edit</button>
+                                    <button href="{{route('users.export')}}" class="open-button" style="background-color: #0047AB; color: white;" type="submit">Edit</button>
                                 </form>
                             </td>
                             <td class="px-6 py-4 text-sm">
