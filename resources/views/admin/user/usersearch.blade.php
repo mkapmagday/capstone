@@ -33,6 +33,9 @@
 
             <!-- Main content -->
             <section class="content">
+            <form action="{{route('user.export')}}">
+            <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;" style="margin-left:50px"> Export User to Excel <center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/add-user-group-woman-man-skin-type-7.png" /></center></button>
+            </form>
             <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;" onclick="openForm()" style="margin-left:50px"> Create User <center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/add-user-group-woman-man-skin-type-7.png" /></center></button>
 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <form action="{{ route('user.filter') }}">

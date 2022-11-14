@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
-use Maatwebsite\Excel\Excel as ExcelExcel;
+
 use Maatwebsite\Excel\Facades\Excel;
 
 class AdminUserController extends Controller
@@ -137,6 +137,6 @@ class AdminUserController extends Controller
     }
     public function exportUser() 
     {
-        Excel::download(new UsersExport, 'users.xlsx');
+        return Excel::download(new UsersExport, 'users.xlsx');
     }
 }

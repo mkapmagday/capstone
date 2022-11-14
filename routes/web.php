@@ -74,7 +74,11 @@ Route::get('admin/residents/edit/{id}',[AdminResidentsListController::class,'edi
 Route::put('admin/residents/update/{id}',[AdminResidentsListController::class,'update'])->name('reslist.update');
 Route::delete('admin/residents/delete/{id}',[AdminResidentsListController::class,'destroy'])->name('reslist.destroy');
 
-Route::get('admin/users/export',[AdminUserController::class,'exportUser'])->name('user.export');
+Route::get('export',[AdminUserController::class,'exportUser'])->name('user.export');
+Route::get('export',[AdminResidentsListController::class,'exportResident'])->name('resident.export');
+Route::get('export',[AdminDocumentRequestController::class,'exportDocumentRequest'])->name('docres.export');
+
+
 });
 
 Route::middleware(['auth','role:resident'])->group(function (){

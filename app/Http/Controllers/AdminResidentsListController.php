@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ResidentExport;
 use App\Imports\UsersImport;
 use App\Models\Residents;
 use Illuminate\Http\Request;
@@ -57,6 +58,10 @@ class AdminResidentsListController extends Controller
 
 
         return back();  
+    }
+    public function exportResident() 
+    {
+    return Excel::download(new ResidentExport, 'resident.xlsx');
     }
 
     /**

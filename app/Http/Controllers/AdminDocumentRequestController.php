@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Exports\DocumentRequestExport;
 use Illuminate\Notifications\Facades\Vonage;
 use App\Models\DocumentList;
 use App\Models\DocumentRequest;
@@ -10,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 
 use Notification;
 Use App\Notifications\SendEmailNotification;
-
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminDocumentRequestController extends Controller
 {
@@ -215,4 +217,8 @@ class AdminDocumentRequestController extends Controller
         DocumentRequest::find($id)->delete();
         return back();
     }
+    public function exportDocumentRequest() 
+{
+   return Excel::download(new DocumentRequestExport, 'documentrequest.xlsx');
+}
 }
