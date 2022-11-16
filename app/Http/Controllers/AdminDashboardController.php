@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DocumentRequest;
 use App\Models\User;
+use App\Notifications\UserRegistrationNotification;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -104,6 +105,10 @@ class AdminDashboardController extends Controller
         
 
              return view('/adashboard', compact('docres1','pending','approved','for_claiming','claimed','labels','data','labels1','data1','labels2','data2','data3','labels3','labels4','data4','data5','data6','data7','data8','data9'));
+    }
+    public function notifyUserRegistration(){
+        $user = Auth::user();
+        auth()->user()->notify(new UserRegistrationNotification($user));
     }
 
     /**
