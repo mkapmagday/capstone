@@ -105,7 +105,7 @@
     </ul>
 </nav>
 <!-- /.navbar -->
-<aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-image: linear-gradient(#013214, #FFFF8F);">
+<aside class="main-sidebar sidebar-dark-primary elevation-4"">
     <!-- Brand Logo -->
     <a href="{{ route('admindashboard.index') }}" class="brand-link">
         <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
