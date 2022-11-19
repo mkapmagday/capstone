@@ -16,10 +16,10 @@ class UserRegistrationNotification extends Notification
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct($request)
     {
         //
-        $this->user = $user;
+        $this->request = $request;
     }
 
     /**
@@ -56,9 +56,9 @@ class UserRegistrationNotification extends Notification
     public function toArray($notifiable)
     {
         return [
-            'user_id'=>$this->user['id'],
-            'name'=>$this->user['name'],
-            'email'=>$this->user['email'],
+            'name'=>$this->request['name'],
+            'email'=>$this->request['email'],
+            
         ];
     }
 }

@@ -88,7 +88,9 @@ Route::middleware(['auth','role:resident'])->group(function (){
     Route::post('resident/docres/create',[ResidentDocumentRequestController::class,'store'])->middleware('auth')->name('residentdocres.store');
     Route::get('resident/docres/pdf/{id}',[AdminPDFController::class,'show'])->middleware('auth')->name('residentpdf.show');
 });
-Route::get('/dashboard',[ResidentDashboardController::class,'index'])->name('dashboard');
+
+Route::get('/dashboard',[ResidentDashboardController::class,'index'])->middleware('verified')->name('dashboard');
+
 Route::get('send',[AdminSmsController::class,'sendnotification']);
 Route::get('tempdashboard', function(){
     return view('tempdashboard');

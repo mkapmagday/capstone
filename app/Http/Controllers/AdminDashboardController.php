@@ -80,7 +80,7 @@ class AdminDashboardController extends Controller
         $data3 = $active_userCount;
 
 
-        $DocumentRequestList =DocumentRequest::select('id','created_at','document_id')->get()->groupBy(function($data){
+        $DocumentRequestList = DocumentRequest::select('id','created_at','document_id')->get()->groupBy(function($data){
             return Carbon::parse($data->created_at)->format('M');
         });
 

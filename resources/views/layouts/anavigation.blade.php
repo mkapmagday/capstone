@@ -45,6 +45,24 @@
 
 
         <!-- Messages Dropdown Menu -->
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                <i class="far fa-bell"></i>
+                <span class="badge badge-warning navbar-badge"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                <span class="dropdown-item dropdown-header"> Notifications</span>
+                <div class="dropdown-divider"></div>
+                @forelse(App\Models\User::find(2)->notifications as $notif)
+                <a href="#" class="dropdown-item">
+                    <i class="fas fa-user mr-2"></i> New User Registration: {{$notif->data['name']}}
+                </a>
+                @empty
+                @endif
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+            </div>
+        </li>
 
 
 
@@ -59,6 +77,7 @@
                 <i class="fas fa-th-large"></i>
             </a>
         </li>
+
         <li class="dropdown user user-menu" style="padding-top: 6px;">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                 <span class="hidden-xs">{{Auth::user()->name}}</span>
@@ -115,7 +134,7 @@
                with font-awesome or any other icon font library -->
                 <li class="nav-item">
                     <a href="{{route('admindashboard.index')}}" class="nav-link">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
                         </p>
@@ -123,7 +142,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{route('chatify')}}" class="nav-link">
-                    <i class="nav-icon fas fa-globe"></i>
+                        <i class="nav-icon fas fa-globe"></i>
                         <p>
                             Brgy 386 Messenger
                         </p>
@@ -131,7 +150,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{route('user.index')}}" class="nav-link">
-                    <i class="nav-icon fas fa-users"></i>
+                        <i class="nav-icon fas fa-users"></i>
                         <p>
                             Users
                         </p>
@@ -139,7 +158,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{route('reslist.index')}}" class="nav-link">
-                    <i class="nav-icon fas fa-users"></i>
+                        <i class="nav-icon fas fa-users"></i>
                         <p>
                             Residents
                         </p>
@@ -147,7 +166,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{route('doclist.index')}}" class="nav-link">
-                    <i class="nav-icon fas fa-file"></i>
+                        <i class="nav-icon fas fa-file"></i>
                         <p>
                             Document List
                         </p>
@@ -155,7 +174,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{route('docres.index')}}" class="nav-link">
-                    <i class="nav-icon fas fa-file"></i>
+                        <i class="nav-icon fas fa-file"></i>
                         <p>
                             Document Request
                         </p>
