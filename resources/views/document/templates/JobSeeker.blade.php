@@ -53,8 +53,12 @@
         <div class="secretary">
             <br>
    
-           <u> <h3>_________________</h3> </u>
-            <p style="margin-top: -20px;">Punong Barnagay / Authorized Barangay Official and Position</p>
+            @foreach($user as $users)
+            @if ($users->hasrole('secretary'))
+         <u>   <h3>{{$users->name}}</h3> </u>
+            @endif
+            @endforeach
+            <p style="margin-top: -20px;">Punong Barangay / Authorized Barangay Official and Position</p>
           
             <u><p>{{$date->day}} {{$month}} {{$date->year}}</p></u>
             <p style="margin-top: -15px;">Date</p>

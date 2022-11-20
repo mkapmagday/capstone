@@ -51,8 +51,11 @@
         <div class="secretary">
       
             <p>Prepared by:</p>
-         
-          <u>  <h3>_________________</h3> </u>
+            @foreach($user as $users)
+            @if ($users->hasrole('secretary'))
+          <u>  <h3>{{$users->name}}</h3> </u>
+            @endif
+            @endforeach
             <p style="margin-top: -20px; margin-left: 50px">  Secretary</p>
         </div>
 
