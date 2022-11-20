@@ -67,7 +67,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg" >
                 <div class="p-6 bg-white border-b border-gray-200" style="margin-left:50px; margin-top:20px; margin-bottom:20px; padding-bottom:30px; padding-right:20px; margin-right:15px; overflow-x:auto;">
             <div style="padding-top: 0px;">
-
+          
                 <tr>
                     <td>
                         <x-input-label for="lname" :value="__('Last Name')" />
@@ -78,6 +78,7 @@
                     </td>
                 </tr>
                 <tr>
+                    <br>
                     <td>
                         <x-input-label  for="fname" :value="__('First Name')" />
                     </td>
@@ -87,6 +88,7 @@
                     </td>
                 </tr>
                 <tr>
+                <br>
                     <td>
                         <x-input-label for="mname" :value="__('Middle Name')" />
                     </td>
@@ -96,6 +98,7 @@
                     </td>
                 </tr>
                 <tr>
+                <br>
                     <td>
                         <x-input-label for="pnum" :value="__('Phone Number')" />
                     </td>
@@ -157,7 +160,7 @@
                 <div id="age" style="margin-top:10px;">
                     <tr>
                         <td>
-                            <x-input-label for="age" :value="__('age')" />
+                            <x-input-label for="age" :value="__('Age')" />
                         </td>
                         <td>&nbsp;</td>
                         <td>
