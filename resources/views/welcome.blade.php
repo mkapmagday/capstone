@@ -92,18 +92,9 @@ a {
 	margin-left:50px;
 	
 }
-<<<<<<< HEAD
 
-=======
-a:hover {
-	color: #fff;
-	padding-top: 100px;
-	padding-left: 25px;
-	padding-right: 25px;
-	padding-bottom: 18px;
-}
->>>>>>> 9f64b2924c21c33526063204206f56c1cb83e7cd
-        </style>
+
+</style>
     </head>
     <body class="antialiased" >
         <div >
@@ -178,7 +169,7 @@ a:hover {
 				</div>
 			</div>
             <div class="carousel-item">
-				<img alt="Fourth slide" class="" src="https://i.ibb.co/SX7d2m2/Request1.jpg">
+				<img alt="Fourth slide" class="" src="https://i.ibb.co/9rr8G32/Request12.jpg">
 				<div class="carousel-caption d-none d-md-block">
 					
 				</div>

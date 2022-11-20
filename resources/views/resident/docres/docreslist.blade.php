@@ -67,7 +67,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg" >
                 <div class="p-6 bg-white border-b border-gray-200" style="margin-left:50px; margin-top:20px; margin-bottom:20px; padding-bottom:30px; padding-right:20px; margin-right:15px; overflow-x:auto;">
             <div style="padding-top: 0px;">
-
+          
                 <tr>
                     <td>
                         <x-input-label for="lname" :value="__('Last Name')" />
@@ -78,6 +78,7 @@
                     </td>
                 </tr>
                 <tr>
+                    <br>
                     <td>
                         <x-input-label  for="fname" :value="__('First Name')" />
                     </td>
@@ -87,6 +88,7 @@
                     </td>
                 </tr>
                 <tr>
+                <br>
                     <td>
                         <x-input-label for="mname" :value="__('Middle Name')" />
                     </td>
@@ -96,6 +98,7 @@
                     </td>
                 </tr>
                 <tr>
+                <br>
                     <td>
                         <x-input-label for="pnum" :value="__('Phone Number')" />
                     </td>
@@ -157,7 +160,7 @@
                 <div id="age" style="margin-top:10px;">
                     <tr>
                         <td>
-                            <x-input-label for="age" :value="__('age')" />
+                            <x-input-label for="age" :value="__('Age')" />
                         </td>
                         <td>&nbsp;</td>
                         <td>
@@ -224,7 +227,7 @@
                 <tr>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
-                    <td><button onclick="return confirm('Do you want to submit request? ')" type="submit" style="float: right;"><img src="https://img.icons8.com/external-sbts2018-flat-sbts2018/58/000000/external-submit-basic-ui-elements-2.3-sbts2018-flat-sbts2018.png" />SUBMIT</button></td>
+                    <td><button class="open-button ml-4" onclick="return confirm('Do you want to submit request? ')" type="submit" style="float: right; background-color: #c2fbd7; color: green;"><img src="https://img.icons8.com/external-sbts2018-flat-sbts2018/58/000000/external-submit-basic-ui-elements-2.3-sbts2018-flat-sbts2018.png" />SUBMIT</button></td>
                 </tr>
             </div>
                 </div>
@@ -342,6 +345,26 @@
   width: 100%;
   border: 1px solid #ddd;
 }
+
+.open-button {
+        border-radius: 15px;
+        width: fit-content;
+        box-shadow: green;
+        cursor: pointer;
+        display: inline-block;
+        font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+        padding: 7px 20px;
+        text-align: center;
+        text-decoration: none;
+        transition: all 250ms;
+        border: 0;
+        font-size: 16px;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+
+        
+    }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
 

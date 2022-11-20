@@ -33,10 +33,16 @@
 
             <!-- Main content -->
             <section class="content">
+                <table>
+                    <tr>
             <form action="{{route('docres.export')}}">
                 <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;" style="margin-left:50px"> Export Document Request to Excel <center><img class="btn-logo" src="https://img.icons8.com/color/48/000000/add-user-group-woman-man-skin-type-7.png" /></center></button>
             </form>
+            </tr>
+            <tr>
                 <button class="open-button" style="background-color: #c2fbd7; color: green; margin-left:30px; margin-top:25px;" onclick="openForm()"> Add Document Type <center><img onclick="openForm()" height="20px" width="20px" src="https://img.icons8.com/color/48/000000/add--v1.png" /></center> </button>
+                </tr>
+            </table>
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <form action="{{ route('docres.filter') }}">
                         <div class="row">
