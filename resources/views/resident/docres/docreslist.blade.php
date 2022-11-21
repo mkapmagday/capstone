@@ -74,7 +74,7 @@
                     </td>
                     <td>&nbsp;</td>
                     <td>
-                        <x-text-input id="lname" type="text" name="lname" />
+                        <x-text-input id="lname" type="text" name="lname"/>
                     </td>
                 </tr>
                 <tr>
@@ -84,7 +84,7 @@
                     </td>
                     <td>&nbsp;</td>
                     <td>
-                        <x-text-input style="margin-top:10px;" id="fname" type="text" name="fname" />
+                        <x-text-input style="margin-top:10px;" id="fname" type="text" name="fname"/>
                     </td>
                 </tr>
                 <tr>
@@ -94,7 +94,7 @@
                     </td>
                     <td>&nbsp;</td>
                     <td>
-                        <x-text-input style="margin-top:10px;" id="mname" type="text" name="mname" />
+                        <x-text-input style="margin-top:10px;" id="mname" type="text" name="mname"/>
                     </td>
                 </tr>
                 <tr>
