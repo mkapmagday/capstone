@@ -79,6 +79,7 @@ Route::get('export2',[AdminResidentsListController::class,'exportResident'])->na
 Route::get('export3',[AdminDocumentRequestController::class,'exportDocumentRequest'])->name('docres.export');
 
 Route::get('/notify',[AdminDashboardController::class,'notifyUserRegistration']);
+Route::get('/markasread/{id}',[AdminDashboardController::class,'markasread'])->name('markasread');
 
 });
 

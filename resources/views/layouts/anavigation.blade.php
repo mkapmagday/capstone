@@ -49,7 +49,7 @@
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <i class="far fa-bell"></i>
                 <span class="badge badge-warning navbar-badge">
-                    @forelse(App\Models\User::find(2)->notifications as $notif)
+                    @forelse(App\Models\User::find(2)->unreadnotifications as $notif)
                     @if($loop->last)
                         {{$loop->last}}
                     @endif
@@ -61,10 +61,11 @@
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <span class="dropdown-item dropdown-header"> Notifications</span>
                 <div class="dropdown-divider"></div>
-                @forelse(App\Models\User::find(2)->notifications as $notif)
-                <a href="#" class="dropdown-item">
+                @forelse(App\Models\User::find(2)->unreadnotifications as $notif)
+                <a href="{{route('markasread', $notif->id)}}" class="dropdown-item">
                     <i class="fas fa-user mr-2"></i> New User Registration: {{$notif->data['name']}}
                 </a>
+                
                 @empty
                 @endif
                 <div class="dropdown-divider"></div>

@@ -110,6 +110,10 @@ class AdminDashboardController extends Controller
         $user = Auth::user();
         auth()->user()->notify(new UserRegistrationNotification($user));
     }
+    public function markasread($id){
+        auth()->user()->notifications->where('id', $id)->markAsRead();
+        return back();
+    }
 
     /**
      * Show the form for creating a new resource.
