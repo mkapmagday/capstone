@@ -26,6 +26,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
+route::get('/manual', function(){
+    return view('amanual');
+})->name('manual');
+route::get('/contact',function(){
+    return view('contact');
+})->name('contact');
 
 
 
