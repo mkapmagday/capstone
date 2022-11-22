@@ -119,6 +119,7 @@
         </table>
 
       </section>
+
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
@@ -137,7 +138,14 @@
 </body>
 
 </html>
+<style>
+  table, th, tr, td {
+    border: 1px solid black;
+  }
+</style>
+
 @else
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -174,6 +182,7 @@
       <!-- /.content-header -->
 
       <!-- Main content -->
+
       <section class="content">
         <h1>HOTLINE DIRECTORY</h1>
         <table>
@@ -258,6 +267,7 @@
         </table>
 
       </section>
+
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
@@ -278,3 +288,10 @@
 </html>
 @endif
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+<style>
+  table, th, tr, td {
+    border: 1px solid black;
+  }
+</style>
