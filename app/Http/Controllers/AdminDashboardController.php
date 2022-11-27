@@ -8,6 +8,7 @@ use App\Notifications\UserRegistrationNotification;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use League\CommonMark\Node\Block\Document;
 
 class AdminDashboardController extends Controller
@@ -111,10 +112,9 @@ class AdminDashboardController extends Controller
         auth()->user()->notify(new UserRegistrationNotification($user));
     }
     public function markasread($id){
-        auth()->user()->notifications->where('id', $id)->markasread();
-      
-
-        
+        //auth()->user()->notifications->where('id', $id)->markAsRead();
+        DB::table('notifications')->where('id',$id)->update(['read_at'=>Carbon::now()]);
+        return back();
     }
 
     /**

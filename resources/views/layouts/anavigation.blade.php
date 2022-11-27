@@ -63,9 +63,10 @@
                 <div class="dropdown-divider"></div>
                 @forelse(App\Models\User::find(2)->unreadnotifications as $notif)
            
-                <a href="{{route('markasread', $notif->id)}}" class="dropdown-item">
+                <a class="dropdown-item">
                     <i class="fas fa-user mr-2"></i>
-                     New User Registration: {{$notif->data['name']}}
+                     {{$notif->data['name']}} has registered!
+                     <a href="{{route('markasread', $notif->id)}}" class="float-right text-muted text-sm pr-2" >Mark as read </button> 
                 </a>
                 
                 @empty
@@ -266,7 +267,3 @@
 <script src="{{asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('dist/js/adminlte.js')}}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{asset('dist/js/demo.js')}}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
