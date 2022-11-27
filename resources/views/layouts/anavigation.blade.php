@@ -62,9 +62,10 @@
                 <span class="dropdown-item dropdown-header"> Notifications</span>
                 <div class="dropdown-divider"></div>
                 @forelse(App\Models\User::find(2)->unreadnotifications as $notif)
-                TEST
+           
                 <a href="{{route('markasread', $notif->id)}}" class="dropdown-item">
-                    <i class="fas fa-user mr-2"></i> New User Registration: {{$notif->data['name']}}
+                    <i class="fas fa-user mr-2"></i>
+                     New User Registration: {{$notif->data['name']}}
                 </a>
                 
                 @empty
