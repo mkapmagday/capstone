@@ -112,7 +112,8 @@ class AdminDashboardController extends Controller
     }
     public function markasread($id){
         auth()->user()->notifications->where('id', $id)->markasread();
-        return back();
+      
+
         
     }
 
