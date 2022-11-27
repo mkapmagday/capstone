@@ -111,7 +111,8 @@ class AdminDashboardController extends Controller
         auth()->user()->notify(new UserRegistrationNotification($user));
     }
     public function markasread($id){
-        auth()->user()->notifications->where('id', $id)->markAsRead();
+        auth()->user()->notifications->where('id', $id)->markasread();
+        return back();
         
     }
 
