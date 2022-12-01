@@ -136,6 +136,8 @@
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap">{{$resident->id}}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{$resident->fname}}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{$resident->email}}</td>
+
                                 <td class="px-6 py-4 text-sm">
                                     <a href="{{ route('reslist.edit',$resident->id) }}" class="open-button" style="background-color: #0047AB; color: white;">Edit</a>
                                 </td>

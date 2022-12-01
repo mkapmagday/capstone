@@ -10,6 +10,10 @@ class Residents extends Model
     use HasFactory;
     protected $fillable = [
         'fname',
+        
+    ];
+    protected $nullable = [
+        'email',
     ];
     public $timestamps = false;
 }

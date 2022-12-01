@@ -15,6 +15,7 @@ class ResidentExport implements FromCollection, WithHeadings
         return[
             'Id',
             'Fname',
+            'Email',
          
         ];
     } 

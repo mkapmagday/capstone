@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('residents', function (Blueprint $table) {
             $table->id();
             $table->string('fname');
+            $table->string('email')->unique()->nullable();
         });
     }
 
