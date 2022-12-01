@@ -26,9 +26,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
-route::get('/manual', function(){
-    return view('amanual');
-})->name('manual');
+
 route::get('/contact',function(){
     return view('contact');
 })->name('contact');
@@ -37,6 +35,10 @@ route::get('/contact',function(){
 
 
 Route::middleware(['auth','role:admin'])->group(function (){
+    route::get('/manual', function(){
+        return view('amanual');
+    })->name('manual');
+    
 Route::get('/admindashboard',[AdminDashboardController::class,'index'])->middleware('auth','verified')->name('admindashboard.index');
 
 Route::get('admin/users',[AdminUserController::class,'index'])->middleware('auth')->name('user.index');
