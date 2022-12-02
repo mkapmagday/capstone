@@ -13,7 +13,7 @@
 
         <!-- Preloader -->
 
-        @include('layouts.anavigation')
+        @include('layouts.navigation')
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">

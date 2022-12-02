@@ -140,7 +140,79 @@
 
 
         <!-- Sidebar Menu -->
-        
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('chatify')}}" class="nav-link">
+                        <i class="nav-icon fas fa-globe"></i>
+                        <p>
+                            Brgy 386 Messenger
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('user.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Users
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('role.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Roles
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('reslist.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Residents
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('doclist.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-file"></i>
+                        <p>
+                            Document List
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('docres.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-file"></i>
+                        <p>
+                            Document Request
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('manual')}}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Manual
+                            
+                        </p>
+                    </a>
+                 
+                </li>
+            </ul>
+        </nav>
         <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
