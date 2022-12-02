@@ -12,6 +12,7 @@
     <img class="animation__shake" src="https://i.ibb.co/GQzgtG1/My-project.png" alt="AdminLTELogo" height="70%" width="40%">
   </div>
 
+@include('layouts.anavigation')
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
