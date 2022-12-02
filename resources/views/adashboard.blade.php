@@ -168,7 +168,7 @@
               <div class="card-header">
                 <h3 class="card-title">
                   <i class="fas fa-chart-bar mr-1"></i>
-                  Current Active Users
+                   Active Users
                 </h3>
                 <div class="card-tools">
                   <ul class="nav nav-pills ml-auto">
