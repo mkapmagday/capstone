@@ -34,7 +34,7 @@
 
         <!-- Preloader -->
 
-        @include('layouts.navigation')
+        @include('layouts.anavigation')
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
