@@ -111,7 +111,6 @@ class AdminDocumentRequestController extends Controller
                                 ->appends(request()->query());;
         $doclist = DocumentList::all();
         
-        return view('admin.docres.docressearch',compact('docres','doclist','lname','fname'));
     }
 
     /**

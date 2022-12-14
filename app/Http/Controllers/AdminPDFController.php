@@ -87,23 +87,26 @@ class AdminPDFController extends Controller
         $role = Role::all();
         $bdate = Carbon::parse($docres->bdate);
         if($docres->document_id == 1){
-            return view('document.templates.certification', compact('docres','date','month','user','role','bdate'));
+            $pdf = PDF::loadView('document.templates.certification', compact('docres','date','month','user','role','bdate'));
         }
         else if($docres->document_id == 2){
-            return view('document.templates.certificationstipend', compact('docres','date','month','user','role','bdate'));
+            $pdf = PDF::loadView('document.templates.certificationstipend', compact('docres','date','month','user','role','bdate'));
         }
         else if($docres->document_id == 3){
-            return view('document.templates.indigency', compact('docres','date','month','user','role','bdate'));
+            $pdf = PDF::loadView('document.templates.indigency', compact('docres','date','month','user','role','bdate'));
         }
         else if($docres->document_id == 4){
-            return view('document.templates.JobSeeker', compact('docres','date','month','user','role','bdate'));
+            $pdf = PDF::loadView('document.templates.JobSeeker', compact('docres','date','month','user','role','bdate'));
         }
         else if($docres->document_id == 5){
-            return view('document.templates.Oath', compact('docres','date','month','user','role','bdate'));
+            $pdf = PDF::loadView('document.templates.Oath', compact('docres','date','month','user','role','bdate'));
         }
         else if($docres->document_id == 6){
-            return view('document.templates.Oneness', compact('docres','date','month','user','role','bdate'));
+            $pdf = PDF::loadView('document.templates.Oneness', compact('docres','date','month','user','role','bdate'));
         }
+
+        return $pdf->stream('info.pdf', array("Attachment" => false));
+
     }
 
     /**
