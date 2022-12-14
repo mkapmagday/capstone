@@ -49,13 +49,28 @@
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <i class="far fa-bell"></i>
                 <span class="badge badge-warning navbar-badge">
-                   
+                    @forelse(App\Models\User::find(1)->unreadnotifications as $notif)
+                    @if($loop->last)
+                        {{$loop->last}}
+                    @endif
+                    @empty
+                        0
+                    @endforelse
                 </span>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <span class="dropdown-item dropdown-header"> Notifications</span>
                 <div class="dropdown-divider"></div>
+                @forelse(App\Models\User::find(1)->unreadnotifications as $notif)
+           
+                <a class="dropdown-item">
+                    <i class="fas fa-user mr-2"></i>
+                     {{$notif->data['name']}} has registered!
+                     <a href="{{route('markasread', $notif->id)}}" class="float-right text-muted text-sm pr-2" >Mark as read </button> 
+                </a>
                 
+                @empty
+                @endif
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
             </div>

@@ -83,7 +83,7 @@
                     {{ __('Already registered?') }}
                 </a>
 
-                <x-primary-button class="ml-4">
+                <x-primary-button class="ml-4" onclick="return confirm('This policy sets out how we process any personal data we collect from you or that you provide to us through our website. We confirm that we will keep your information secure and that we will comply fully with all applicable Data Privacy Act or RA 10173. Information that will be provided by the user through registration to use the websites features will not be used by other person and make sure that the information are valid and not owned by other users.  That we collect from you when you visit this site. By visiting brgy386dss.com (our website) you are accepting and consenting to the practices described in this policy.')">
                     {{ __('Register') }}
                 </x-primary-button>
             </div>

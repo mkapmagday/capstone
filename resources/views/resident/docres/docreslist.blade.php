@@ -119,7 +119,7 @@
                 <tr>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
-                    <td><button class="open-button ml-4" onclick="return confirm('Do you want to submit request? ')" type="submit" style="float: right; background-color: #c2fbd7; color: green;"><img src="https://img.icons8.com/external-sbts2018-flat-sbts2018/58/000000/external-submit-basic-ui-elements-2.3-sbts2018-flat-sbts2018.png" />SUBMIT</button></td>
+                    <td><button class="open-button ml-4" onclick="return confirm('This consent form is a way to confirm that the user has use their owned information and not by the other user. And the user has understand the privacy policy act : Request that resembles as a Scam or Unnecessary Request will not be tolerated and there will be a punishment from this kind of action.')" type="submit" style="float: right; background-color: #c2fbd7; color: green;"><img src="https://img.icons8.com/external-sbts2018-flat-sbts2018/58/000000/external-submit-basic-ui-elements-2.3-sbts2018-flat-sbts2018.png" />SUBMIT</button></td>
                 </tr>
             </div>
                 </div>
