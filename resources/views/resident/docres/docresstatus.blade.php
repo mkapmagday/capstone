@@ -46,7 +46,6 @@
                                         <th>FIRST NAME</th>
                                         <th>DOCUMENT NAME</th>
                                         <th>STATUS</th>
-                                        <th>ACTIONS</th>
                                     </tr>
                                     @foreach ($docres as $docress)
                                     <tr>
@@ -65,11 +64,7 @@
                                         @elseif($docress->status == "claimed")
                                         <td><button type="button" class="btn btn-danger" disabled>{{$docress->status}}</button></td>
                                         @endif
-                                        <td>
-                                            <form action="{{ route('residentpdf.show',$docress->id) }}">
-                                                <button type="submit" class="btn btn-success">Show</button>
-                                            </form>
-                                        </td>
+                                        
                                         @endif
 
                                         @endforeach
