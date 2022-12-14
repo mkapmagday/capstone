@@ -46,9 +46,7 @@
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <form action="{{ route('docres.filter') }}">
                         <div class="row">
-                            <div class="col-2">
-                                <input value="{{$lname}}" type="text" class="form-control" name="lname" id="lname" placeholder="Enter Last Name" style="margin-top: 15px;">
-                            </div>
+                            
                             <div class="col-2">
                                 <input value="{{$fname}}" type="text" class="form-control" name="fname" id="fname" placeholder="Enter First Name" style="margin-top: 15px;">
                             </div>
@@ -96,15 +94,7 @@
                                                         <option value={{$document->id}}>{{$document->document_name}}</option>
                                                         @endforeach
                                                     </select>
-                                                    <tr>
-                                                        <td>
-                                                            <x-input-label for="lname" :value="__('Last Name')" />
-                                                        </td>
-                                                        <td>&nbsp;</td>
-                                                        <td>
-                                                            <x-text-input id="lname" type="text" name="lname" />
-                                                        </td>
-                                                    </tr>
+                                                    
                                                     <tr>
                                                         <td>
                                                             <x-input-label for="fname" :value="__('First Name')" />

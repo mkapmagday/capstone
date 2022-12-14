@@ -42,11 +42,9 @@
             </table>
             <form action="{{ route('docres.filter') }}">
                 <div class="row">
+                    
                     <div class="col-2">
-                        <input type="text" class="form-control" name="lname" id="lname" placeholder="Enter Last Name" style="margin-top: 15px;">
-                    </div>
-                    <div class="col-2">
-                        <input type="text" class="form-control" name="fname" id="fname" placeholder="Enter First Name" style="margin-top: 15px;">
+                        <input type="text" class="form-control" name="fname" id="fname" placeholder="Enter Full Name" style="margin-top: 15px;">
                     </div>
                     <div class="col-2">
                         <select required name="docname" id="docname" class="form-control" style="margin-top: 15px;">
@@ -258,7 +256,6 @@
                     <thead>
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">USER_ID</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">LAST NAME </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">FIRST NAME</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">DOCUMENT NAME</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-black-500 dark:text-black-200 uppercase tracking-wider">DOCUMENT STATUS</th>
@@ -272,7 +269,6 @@
                         @foreach ($docres as $docress)
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap">{{$docress->user_id}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{$docress->lname}}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{$docress->fname}}</td>
                             @foreach($doclist as $document)
                             @if($docress->document_id == $document->id)
