@@ -43,42 +43,31 @@ class ResidentDocumentRequestController extends Controller
     public function store(Request $request)
     {
         $user_id = Auth::id();
+        $user = User::find($user_id);
         $documentlist_id = $request->input('document_list');
-        $lname = $request->input('lname');
-        $fname = $request->input('fname');
-        $mname = $request->input('mname');
-        $pnum = $request->input('pnum');
 
-        $bdate = $request->input('bdate');
-        $years = $request->input('years');
-        $months = $request->input('months');
         $municipality = $request->input('municipality');
         $vdate = $request->input('vdate');
-        $age = $request->input('age');
         $representative = $request->input('representative');
         $relation = $request->input('relation');
-        $address = $request->input('address');
         $purpose = $request->input('purpose');
         $reason = $request->input('reason');
-        //dd($request->input());
 
         DocumentRequest::create([
             'user_id' => Auth::id(),
             'document_id' => $documentlist_id,
-            'lname' => $lname,
-            'fname' => $fname,
-            'mname' => $mname,
-            'pnum' => $pnum,
+            'fname' => $user->name,
+            'pnum' => $user->pnum,
+            'bdate' => $user->bdate,
+            'years' => $user->years,
+            'months' => $user->months,
+            'municipality' => $user->municipality,
+            'address' => $user->address,
+            'age' => $user->age,
 
-            'bdate' => $bdate,
-            'years' => $years,
-            'months' => $months,
-            'municipality' => $municipality,
             'vdate' => $vdate,
-            'age' => $age,
             'representative' => $representative,
             'relation' => $relation,
-            'address' => $address,
             'purpose' => $purpose,
             'reason' => $reason,
 

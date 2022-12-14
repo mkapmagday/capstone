@@ -143,9 +143,7 @@ class AdminDocumentRequestController extends Controller
         $document = DocumentList::find($docresupdate->document_id);
        
         $documentlist_id = $request->input('document_list');
-        $lname = $request->input('lname');
         $fname = $request->input('fname');
-        $mname = $request->input('mname');
         $pnum = $request->input('pnum');
 
         $bdate = $request->input('bdate');
@@ -163,9 +161,7 @@ class AdminDocumentRequestController extends Controller
 
         $docresupdate->update([
             'document_list' => $documentlist_id,
-            'lname' => $lname,
             'fname' => $fname,
-            'mname' => $mname,
             'pnum' => $pnum,
             'bdate' => $bdate,
             'years' => $years,
@@ -181,7 +177,7 @@ class AdminDocumentRequestController extends Controller
             'status' => $status
         ]);
         $details=[
-            'greeting' => 'Hi '.$fname.' '.$lname,
+            'greeting' => 'Hi '.$fname,
             'body' => 'This is to update you about the status of your requested document: ',
             'did' => 'Document ID: '.$document->id,
             'dname' => 'Document Name: '.$document->document_name,

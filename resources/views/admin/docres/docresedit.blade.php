@@ -87,33 +87,17 @@
                                 @endforeach
                             </select>
                             <br>
+                            
                             <div>
                                 <td>
-                                    <x-input-label for="lname" :value="__('Last Name')" />
-                                </td>
-                                <td>&nbsp;</td>
-                                <td>
-                                    <x-text-input :value="$docresupdate->lname" id="lname" type="text" name="lname" />
-                                </td>
-                            </div>
-                            <div>
-                                <td>
-                                    <x-input-label for="fname" :value="__('First Name')" />
+                                    <x-input-label for="fname" :value="__('Full Name')" />
                                 </td>
                                 <td>&nbsp;</td>
                                 <td>
                                     <x-text-input :value="$docresupdate->fname" id="fname" type="text" name="fname" />
                                 </td>
                             </div>
-                            <div>
-                                <td>
-                                    <x-input-label for="mname" :value="__('Middle Name')" />
-                                </td>
-                                <td>&nbsp;</td>
-                                <td>
-                                    <x-text-input :value="$docresupdate->mname" id="mname" type="text" name="mname" />
-                                </td>
-                            </div>
+                            
                             <div>
                                 <td>
                                     <x-input-label for="pnum" :value="__('Phone Number')" />
