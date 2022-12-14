@@ -44,22 +44,31 @@ class RegisteredUserController extends Controller
                                         ->get()
                                         ->count();
         $updateResident = Residents::where('fname',$request->name);
-        $admin = User::find(2);
+        $admin = User::find(1);
+
 
         if($isFnameExist){
             if($isEmailExist){
 
                 $request->validate([
                     'name' => ['required', 'string', 'max:255'],
-                    'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                    'email' => ['required', 'string', 'email', 'max:255'],
                     'password' => ['required', 'confirmed', Rules\Password::defaults()],
                 ]);
         
                 $user = User::create([
                     'name' => $request->name,
                     'email' => $request->email,
+                    'pnum' => $request->pnum,
+                    'address' => $request->address,
+                    'bdate' => $request->bdate,
+                    'years' => $request->years,
+                    'months' => $request->months,
+                    'municipality' => $request->municipality,
+                    'age' => $request->age,
                     'password' => Hash::make($request->password),
                 ]);
+
 
                 $updateResident -> update([
                     'email' => $request->email,

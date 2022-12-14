@@ -17,9 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('document_id')->constrained('document_lists');
-            $table->string('lname');
-            $table->string('fname');
-            $table->string('mname');
+            $table->string('fname');   
             $table->string('pnum');
             $table->string('address')->nullable();
             $table->date('bdate')->nullable();

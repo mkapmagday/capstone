@@ -34,7 +34,6 @@ route::get('/contact',function(){
 
 
 
-Route::middleware(['auth','role:admin'])->group(function (){
     route::get('/manual', function(){
         return view('amanual');
     })->name('manual');
@@ -89,7 +88,6 @@ Route::get('export3',[AdminDocumentRequestController::class,'exportDocumentReque
 Route::get('/notify',[AdminDashboardController::class,'notifyUserRegistration']);
 Route::get('/markasread/{id}',[AdminDashboardController::class,'markasread'])->name('markasread');
 
-});
 
 Route::middleware(['auth','role:resident'])->group(function (){
     Route::get('/resident/docres/status',[ResidentDocumentRequestController::class,'show'])->middleware('auth')->name('residentdocres.show');

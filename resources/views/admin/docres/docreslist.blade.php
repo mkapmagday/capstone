@@ -110,101 +110,6 @@
                                     @endforeach
                                 </select>
                                 <br>
-                                <div>
-                                    <td>
-                                        <x-input-label for="lname" :value="__('Last Name')" />
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <x-text-input id="lname" type="text" name="lname" />
-                                    </td>
-                                </div>
-                                <div>
-                                    <td>
-                                        <x-input-label for="fname" :value="__('First Name')" />
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <x-text-input id="fname" type="text" name="fname" />
-                                    </td>
-                                </div>
-                                <div>
-                                    <td>
-                                        <x-input-label for="mname" :value="__('Middle Name')" />
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <x-text-input id="mname" type="text" name="mname" />
-                                    </td>
-                                </div>
-                                <div>
-                                    <td>
-                                        <x-input-label for="pnum" :value="__('Phone Number')" />
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <select id="country_code">
-                                            <option value="">Select Country</option>
-                                            <option value="ph">&#127477;&#127469;</option>
-                                        </select>
-                                        <x-text-input id="pnum" type="text" name="pnum" />
-                                    </td>
-                                </div>
-                                <div id="bdate">
-                                    <tr>
-                                        <td>
-                                            <x-input-label for="bdate" :value="__('Date of Birth')" />
-                                        </td>
-                                        <td>&nbsp;</td>
-                                        <td>
-                                            <x-text-input id="bdate" type="date" name="bdate" />
-                                        </td>
-                                    </tr>
-                                </div>
-                                <div id="years">
-                                    <tr>
-                                        <td>
-                                            <x-input-label for="years" :value="__('Years')" />
-                                        </td>
-                                        <td>&nbsp;</td>
-                                        <td>
-                                            <x-text-input id="years" type="text" name="years" />
-                                        </td>
-                                    </tr>
-                                </div>
-                                <div id="months">
-                                    <tr>
-                                        <td>
-                                            <x-input-label for="months" :value="__('Months')" />
-                                        </td>
-                                        <td>&nbsp;</td>
-                                        <td>
-                                            <x-text-input id="months" type="months" name="months" />
-                                        </td>
-                                    </tr>
-                                </div>
-                                <div id="municipality">
-                                    <tr>
-                                        <td>
-                                            <x-input-label for="municipality" :value="__('Municipality')" />
-                                        </td>
-                                        <td>&nbsp;</td>
-                                        <td>
-                                            <x-text-input id="municipality" type="text" name="municipality" />
-                                        </td>
-                                    </tr>
-                                </div>
-                                <div id="age">
-                                    <tr>
-                                        <td>
-                                            <x-input-label for="age" :value="__('age')" />
-                                        </td>
-                                        <td>&nbsp;</td>
-                                        <td>
-                                            <x-text-input id="age" type="text" name="age" />
-                                        </td>
-                                    </tr>
-                                </div>
                                 <div id="representative">
                                     <tr>
                                         <td>
@@ -216,17 +121,7 @@
                                         </td>
                                     </tr>
                                 </div>
-                                <div id="address">
-                                    <tr>
-                                        <td>
-                                            <x-input-label for="address" :value="__('Address')" />
-                                        </td>
-                                        <td>&nbsp;</td>
-                                        <td>
-                                            <x-text-input id="address" type="text" name="address" />
-                                        </td>
-                                    </tr>
-                                </div>
+                                
                                 <div id="purpose">
                                     <tr>
                                         <td>
