@@ -137,7 +137,7 @@
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
           <section class="col-lg-8 connectedSortable">
             <!-- Custom tabs (Charts with tabs)-->
-            <image id="documentimage" src="" ></image>
+            
             <!-- /.card -->
           </section>
           <!-- right col -->
@@ -296,7 +296,7 @@
     });
     $(function() {
         if ($("#document_list").val() == 1) {
-            document.getElementById("documentimage").src = "https://i.ibb.co/mtddBL1/certification.jpg";
+            
 
             $('#bdate').show();
             $('#address').show();
@@ -334,7 +334,7 @@
         if ($(this).val() == "") {}
         console.log($(this).val());
         if ($(this).val() == 1) {
-            document.getElementById("documentimage").src = "https://i.ibb.co/mtddBL1/certification.jpg";
+            
             $('#bdate').show();
             $('#address').show();
 
@@ -353,7 +353,7 @@
         }
 
         if ($(this).val() == 2) {
-            document.getElementById("documentimage").src = "https://i.ibb.co/zZ58MJ7/stipend.jpg";
+            
    
             $('#bdate').show();
             $('#relationship').show();
@@ -377,7 +377,7 @@
         }
 
         if ($(this).val() == 3) {
-            document.getElementById("documentimage").src = "https://i.ibb.co/tYswVQk/Indigency.jpg";
+            
 
           
             $('#address').show();
@@ -400,7 +400,7 @@
         }
 
         if ($(this).val() == 4) {
-            document.getElementById("documentimage").src = "https://i.ibb.co/3TXsx7W/JoBseek.jpg";
+            
         
             $('#address').show();
             $('#age').hide();
@@ -425,7 +425,7 @@
         }
 
         if ($(this).val() == 5) {
-            document.getElementById("documentimage").src = "https://i.ibb.co/940B0Kn/Oath.jpg";
+            
 
          
 
@@ -452,7 +452,7 @@
         }
 
         if ($(this).val() == 6) {
-            document.getElementById("documentimage").src = "https://i.ibb.co/1rypHj1/Oneness.jpg";
+            
 
             $('#purpose').show();
 
