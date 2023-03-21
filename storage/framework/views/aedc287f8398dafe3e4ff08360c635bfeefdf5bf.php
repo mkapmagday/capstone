@@ -1,0 +1,1 @@
+<img src="https://i.ibb.co/GQzgtG1/My-project.png" style="height:50px;width:50px"><?php /**PATH C:\xampp\htdocs\capstone\resources\views/components/application-logo.blade.php ENDPATH**/ ?>
