@@ -89,12 +89,10 @@ Route::get('/notify',[AdminDashboardController::class,'notifyUserRegistration'])
 Route::get('/markasread/{id}',[AdminDashboardController::class,'markasread'])->name('markasread');
 
 
-Route::middleware(['auth','role:resident'])->group(function (){
     Route::get('/resident/docres/status',[ResidentDocumentRequestController::class,'show'])->middleware('auth')->name('residentdocres.show');
     Route::get('resident/docres',[ResidentDocumentRequestController::class,'index'])->middleware('auth')->name('residentdocres.index');
     Route::post('resident/docres/create',[ResidentDocumentRequestController::class,'store'])->middleware('auth')->name('residentdocres.store');
     Route::get('resident/docres/pdf/{id}',[AdminPDFController::class,'show'])->middleware('auth')->name('residentpdf.show');
-});
 
 Route::get('/dashboard',[ResidentDashboardController::class,'index'])->middleware('verified')->name('dashboard');
 
