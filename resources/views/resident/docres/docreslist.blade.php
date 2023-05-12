@@ -35,6 +35,18 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
+
+        <div class="py-12" style="width:1000px;">
+                                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                                        <div class="p-6 bg-white border-b border-gray-200" style="margin-left: 25px; margin-top:25px;">
+                                        <center>
+                                        <img src="https://i.ibb.co/hCHD5ms/Resident-Request-Manual.jpg" height="50%" width="80%">
+                                        </center>
+                                        </div>
+                                    </div>
+                                </div>
+        </div>
         
         <!-- /.row -->
         <!-- Main row -->

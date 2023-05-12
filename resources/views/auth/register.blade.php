@@ -5,11 +5,15 @@
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a>
         </x-slot>
+        <table style="margin-right:50px;">
         <form method="POST" action="{{ route('register') }}">
+
             @csrf
 
             <!-- Name -->
-            <div>
+            <tr>
+                <td>
+                <div class="mt-4">
                 <x-input-label for="name" :value="__('Name')" />
 
                 <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
@@ -19,48 +23,84 @@
                 @if (\Session::has('resident_not_found'))
                 {!! \Session::get('resident_not_found') !!}
                 @endif
-            </div>
+                </div>
+            </td>
 
             <!-- Email Address -->
+            <td>
             <div class="mt-4">
                 <x-input-label for="email" :value="__('Email')" />
 
                 <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
 
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
-            </div>
-            <div class="mt-4">
+                </div>
+            </td>
+            </tr>
+
+
+            <tr>
+                <td>
+                <div class="mt-4">
                 <x-input-label for="pnum" :value="__('Phone Number')" />
                 <x-text-input id="pnum" type="text" name="pnum" minlength="12" value="63" />
-            </div>
-            <div class="mt-4">
+                </div>
+                </td>
+
+                <td>
+                <div class="mt-4">
                 <x-input-label for="address" :value="__('Address')" />
                 <x-text-input id="address" type="text" name="address" />
-            </div>
+                </div>
+                </td>
+            </tr>
+
+            <tr>
+            <td>
             <div class="mt-4">
                 <x-input-label for="bdate" :value="__('Date of Birth')" />
                 <x-text-input id="bdate" type="date" name="bdate" />
-            </div>
+                </div>
+            </td>
+
+            <td>
             <div class="mt-4">
                 <x-input-label for="years" :value="__('Years')" />
                 <x-text-input id="years" type="text" name="years" />
             </div>
-            <div class="mt-4">
+            </td>
+            </tr>
 
+            <tr>
+            <td>
+            
+            <div class="mt-4">
                 <x-input-label for="months" :value="__('Months')" />
                 <x-text-input id="months" type="text" name="months" />
-
-            </div>
+                </div>
+            </td>
+    
+            <td>
             <div class="mt-4">
                 <x-input-label for="municipality" :value="__('Municipality')" />
                 <x-text-input id="municipality" type="text" name="municipality" />
             </div>
+                </td>
+            </tr>
+
+
+            <tr>
+            <td colspan="2">
             <div class="mt-4">
                 <x-input-label for="age" :value="__('Age')" />
                 <x-text-input id="age" type="text" name="age" />
             </div>
+            </td>
+            </tr>
 
             <!-- Password -->
+            <tr>
+            <td>
             <div class="mt-4">
                 <x-input-label for="password" :value="__('Password')" />
 
@@ -68,7 +108,8 @@
 
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
-
+            </td>
+            <td>
             <!-- Confirm Password -->
             <div class="mt-4">
                 <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
@@ -77,7 +118,11 @@
 
                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
             </div>
+            </td>
+            </tr>
 
+            <tr>
+            <td colspan=2>
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
@@ -87,6 +132,9 @@
                     {{ __('Register') }}
                 </x-primary-button>
             </div>
+            </td>
+            </tr>
         </form>
+        </table>
     </x-auth-card>
 </x-guest-layout>
