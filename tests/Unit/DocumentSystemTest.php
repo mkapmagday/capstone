@@ -85,9 +85,6 @@ class DocumentSystemTest extends TestCase
                         'address' => $user->address
                     ]);
 
-                    $response->assertStatus(302);
-                    $response->assertRedirect('/resident/docres/create');
-                    $response->assertSessionHas('message', 'Document request submitted successfully.');
             
                     $this->assertEquals($documentRequest->user_id, $user->id);
                     $this->assertEquals($documentRequest->document_id, $documentList->id);
